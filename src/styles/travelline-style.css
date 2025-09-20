@@ -1,0 +1,39 @@
+#block-search, #block-search * {
+    box-sizing: border-box;
+}
+
+#block-search {
+    background: #2C2A28;
+}
+
+.be-container {
+    padding: 0 30px;
+}
+
+#tl-anchor {
+    margin: 0 auto 30px;
+}
+
+.booking-page .social-links,
+.booking-page .social-link {
+    display: none;
+}
+
+#tl-booking-cart {
+    z-index: 1 !important;
+}
+
+.tl-booking-btn {
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 13.5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #87847b;
+}
+
+.tl-booking-btn:hover {
+    color: #ffffff;
+    background-color: #2c2a28;
+}
