@@ -49,13 +49,6 @@ body {
   padding: 1px
 }
 
-header .nav-container .site-logo img {
-  max-width: 175px;
-  position: absolute;
-  top: -38px;
-  left: 10px
-}
-
 .sticky-active .site-logo img {
   max-width: 99px !important;
   top: -36px !important
@@ -835,8 +828,8 @@ select {
 header .nav-container .site-logo img {
   max-width: 175px;
   position: absolute;
-  top: -38px;
-  left: 10px;
+  top: -1.6rem;
+  /* left: 10px; */
 }
 
 .sticky-active .site-logo img {
@@ -1191,10 +1184,10 @@ body.mobile-menu-open {
     padding: 2.5rem;
   }
 
-  /* header .nav-container .site-logo img {
-    max-width: 77px;
-    top: -25px;
-  } */
+  header .nav-container .site-logo img {
+    max-width: 7rem;
+    top: -2.5rem;
+  }
 
   .sticky-active .site-logo img {
     max-width: 74px !important;
@@ -1265,14 +1258,12 @@ body.mobile-menu-open {
   }
 }
 
-/* Desktop - 992px ve üstünde hamburger menü gizle */
 @media (min-width: 992px) {
   .navbar-toggler {
     display: none !important;
   }
 }
 
-/* 991px özel düzeltme */
 @media (width: 992px) {
   header.header-three .nav-container .navbar-toggler {
     display: flex !important;
@@ -1435,10 +1426,13 @@ body.mobile-menu-open {
 }
 
 /* Single banner */
-.banner-area  .single-banner {
-  height: 70vh; /* Yüksekliği düşürdük */
-  max-height: 600px; /* Maksimum yükseklik azaltıldı */
-  min-height: 500px; /* Minimum yükseklik azaltıldı */
+.banner-area .single-banner {
+  height: 70vh;
+  /* Yüksekliği düşürdük */
+  max-height: 600px;
+  /* Maksimum yükseklik azaltıldı */
+  min-height: 500px;
+  /* Minimum yükseklik azaltıldı */
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -1448,6 +1442,7 @@ body.mobile-menu-open {
   opacity: 0;
   transition: opacity 1s ease-in-out;
 }
+
 .banner-area .single-banner.active {
   opacity: 1;
 }
@@ -1568,9 +1563,11 @@ body.mobile-menu-open {
   0% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.1);
   }
+
   100% {
     transform: scale(1);
   }
@@ -1594,6 +1591,7 @@ body.mobile-menu-open {
     opacity: 0;
     transform: translateY(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1605,6 +1603,7 @@ body.mobile-menu-open {
     opacity: 0;
     transform: translateX(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -1616,6 +1615,7 @@ body.mobile-menu-open {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -1633,6 +1633,7 @@ body.mobile-menu-open {
   .banner-area .banner-content .title {
     font-size: 86px;
   }
+
   .banner-area .banner-content ul li:last-child {
     margin-left: 10px;
   }
@@ -1643,12 +1644,15 @@ body.mobile-menu-open {
     font-size: 12px;
     letter-spacing: 1px;
   }
+
   .banner-area .banner-content .title {
     font-size: 66px;
   }
+
   .banner-area .banner-content ul li:last-child {
     margin-left: 10px;
   }
+
   .banner-area .banner-content .main-btn {
     padding: 0 20px;
     line-height: 50px;
@@ -1660,6 +1664,7 @@ body.mobile-menu-open {
   .banner-area .banner-content .title {
     font-size: 72px;
   }
+
   .banner-area .banner-content .main-btn {
     padding: 0 35px;
     line-height: 55px;
@@ -1670,10 +1675,12 @@ body.mobile-menu-open {
   .banner-area .single-banner {
     height: 700px;
   }
+
   .banner-area .banner-content span.promo-tag {
     font-size: 12px;
     letter-spacing: 1px;
   }
+
   .banner-area .banner-content ul li:last-child {
     margin-left: 5px;
   }
@@ -1683,6 +1690,7 @@ body.mobile-menu-open {
   .banner-area .banner-content .title {
     font-size: 66px;
   }
+
   .banner-area .banner-content .main-btn {
     padding: 0 25px;
     line-height: 50px;
@@ -1694,6 +1702,7 @@ body.mobile-menu-open {
   .banner-area .banner-content .title {
     font-size: 52px;
   }
+
   .banner-area .banner-content ul li:last-child {
     margin-left: 0;
     margin-top: 10px;
@@ -1706,8 +1715,9 @@ body.mobile-menu-open {
   z-index: 10;
   background: rgba(255, 255, 255, 0.95);
   padding: 20px 0;
-  margin-top: -80px; /* Banner'ın üzerine bindirmek için */
-  box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
+  margin-top: -80px;
+  /* Banner'ın üzerine bindirmek için */
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .reservation-form {
@@ -1805,18 +1815,18 @@ body.mobile-menu-open {
   .reservation-form-wrap {
     margin-top: -60px;
   }
-  
+
   .reservation-form {
     flex-direction: column;
     align-items: stretch;
     gap: 15px;
   }
-  
+
   .reservation-form .form-title {
     margin-right: 0;
     text-align: center;
   }
-  
+
   .reservation-form-inner {
     flex-direction: column;
     gap: 15px;
@@ -3305,6 +3315,11 @@ body.mobile-menu-open {
   transition: all 0.3s ease-out 0s;
 }
 
+.room-slider .rooms-content-wrap .room-content-box .room-content-slider .slick-dots li button:before {
+  content: '';
+  display: none;
+}
+
 .testimonial-slider ul.slick-dots li.slick-active button {
   width: 26px;
   background-color: #87847b;
@@ -3940,6 +3955,7 @@ body.mobile-menu-open {
   position: absolute;
   left: 0;
   bottom: 0;
+  list-style: none;
 }
 
 .room-slider .rooms-content-wrap .room-content-box .room-content-slider ul.slick-dots li {
@@ -3959,14 +3975,23 @@ body.mobile-menu-open {
 }
 
 .room-slider .rooms-content-wrap .room-content-box .room-content-slider ul.slick-dots li.slick-active button {
-  width: 26px;
+  width: 50px;
   background-color: #87847b;
+}
+
+.single-rooms-box a {
+  text-decoration: none;
+}
+
+.single-rooms-box span a {
+  color: #87847b;
 }
 
 .room-slider .rooms-slider-two .single-rooms-box {
   position: relative;
   margin-bottom: 130px;
   margin-top: 25px;
+  padding: 0 15px;
 }
 
 .room-slider .rooms-slider-two .single-rooms-box .room-img {
@@ -4047,6 +4072,8 @@ body.mobile-menu-open {
   -webkit-transition: all 0.3s ease-out 0s;
   transition: all 0.3s ease-out 0s;
 }
+
+
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .room-slider .rooms-slider-two .single-rooms-box .room-desc {
@@ -7373,7 +7400,7 @@ footer .footer-widget-area::after {
   top: 0;
   width: 100%;
   height: 100%;
-  background-image: url(/public/img/icon/pattern-01.png);
+  background-image: url(/img/icon/pattern-01.png);
   content: '';
   background-size: cover;
   background-repeat: repeat;

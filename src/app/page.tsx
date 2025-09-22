@@ -4,10 +4,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import RoomSlider from '../components/RoomSlider';
+import NearbyPlaces from '@/components/NearbyPlaces';
 
 export default function HomePage() {
   // Banner slider state
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Room slider state
+  const [currentRoomSlide, setCurrentRoomSlide] = useState(0);
+  const [roomSlideAnimation, setRoomSlideAnimation] = useState(false);
 
   // Instagram Gallery States
   const [gallerySlide, setGallerySlide] = useState(0);
@@ -70,12 +76,11 @@ export default function HomePage() {
     };
   }, []);
 
-
   // Banner auto slider effect
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % slides.length);
-    }, 9000); // 5 saniyede bir değiş
+    }, 9000);
 
     return () => clearInterval(timer);
   }, [slides.length]);
@@ -85,7 +90,7 @@ export default function HomePage() {
     if (!galleryPlaying) return;
 
     const timer = setInterval(() => {
-      setGallerySlide(prev => (prev + 1) % 3); // 13 resim / 5 = yaklaşık 3 slide
+      setGallerySlide(prev => (prev + 1) % 3);
     }, 3000);
 
     return () => clearInterval(timer);
@@ -130,30 +135,6 @@ export default function HomePage() {
   const prevLightboxImage = () => {
     setLightboxIndex(prev => (prev - 1 + 13) % 13);
   };
-
-  const rooms = [
-    {
-      title: 'Suite Oda',
-      href: '/odalar/suite',
-      img: '/yonetim/resimler/sayfaresim/3132022215741.jpg',
-      desc: `7 ve 8. katlarda bulunan 70 metre karelik kullanım alanı, şehir manzaralı süit odalarımızda, oturma odası ve yatak odası olmak üzere iki ayrı alandan oluşmaktadır.
-Dilerseniz iş yemeği, dilerseniz sevdiklerinizle romantik bir akşam deneyimi için suit odalarımız size gerekli tüm imkanı sağlamaktadır. 2 kişilik yatak kapasitesi, küvet/duş kabin, merkezi ısıtma sistemi, ses yalıtımı, çalışma masası, ütü olanakları, LED ekran TV, kablolu yayın kanalları, telefon, kablosuz internet, mini bar, çay/kahve seti.`
-    },
-    {
-      title: 'Junior Suite Oda',
-      href: '/odalar/junior-suite',
-      img: '/yonetim/resimler/sayfaresim/3132022215652.jpg',
-      desc: `Şehir manzaralı 47 metre karelik kullanım alanı, güneş gören ferah ve huzurlu odalarımızda güne enerjik başlayın. 3 kişilik yatak kapasitesi ile Junior Suite odalarımızda dilerseniz romantik bir akşam yemeği yiyebilir, sevdiklerinizle güzel ve konforlu bir akşam geçirebilirsiniz.
-Anti alerjik parke, merkezi ısıtma sistemi, ses yalıtımı, çalışma masası, ütü olanakları, LED ekran TV, kablolu yayın kanalları, telefon, kablosuz internet, mini bar, çay/kahve seti.`
-    },
-    {
-      title: 'Standart Oda',
-      href: '/odalar/standart',
-      img: '/yonetim/resimler/sayfaresim/3132022215519.jpg',
-      desc: `Şehir manzaralı 34 metre karelik geniş kullanım alanı ile; 2, 3 ve 4 kişilik yatak kapasiteleri ile anti alerjik parke ve halı kaplı zemin olmak üzere iki ayrı oda tipi mevcuttur.
-Merkezi ısıtma sistemi, ses yalıtımı, çalışma masası, ütü olanakları, LED ekran TV, kablolu yayın kanalları, telefon, kablosuz internet, mini bar, çay/kahve seti.`
-    }
-  ];
 
   const nearbyPlaces = [
     { title: 'Anadolu Üniversitesi', desc: 'Ana Giriş Kapısına 300 metre mesafededir. Yürüme mesafesi 5 dakikadır.' },
@@ -261,7 +242,7 @@ Merkezi ısıtma sistemi, ses yalıtımı, çalışma masası, ütü olanakları
         ))}
       </section>
 
-      {/* HopenAPI Search Form - Bu kısmı ekleyin */}
+      {/* HopenAPI Search Form */}
       <div id="block-search">
         <div id="be-search-form" className="be-container container">
           {/* Bu div'e HopenAPI tarafından rezervasyon formu yüklenecek */}
@@ -358,78 +339,10 @@ Merkezi ısıtma sistemi, ses yalıtımı, çalışma masası, ütü olanakları
         </div>
       </section>
 
-      {/* Room Section */}
-      <section className="room-slider bg-white pb-100 pt-115">
-        <div className="container-fluid p-0">
-          <div className="section-title mb-80 text-center">
-            <span className="title-tag">Odalar</span>
-            <h2>Özenle Tasarlanmış Odalar</h2>
-          </div>
-          <div className="row rooms-slider-two justify-content-center">
-            {rooms.map((room, index) => (
-              <div key={index} className="col-lg-6">
-                <div className="single-rooms-box">
-                  <div className="room-img">
-                    <div className="img" style={{ backgroundImage: `url(${room.img})` }}></div>
-                  </div>
-                  <ul className="icons">
-                    {['bed', 'wifi', 'car', 'coffee', 'concierge-bell', 'compress-arrows-alt'].map((icon, idx) => (
-                      <li key={idx}><i className={`fal fa-${icon}`}></i></li>
-                    ))}
-                  </ul>
-                  <div className="room-desc">
-                    <div className="row align-items-center">
-                      <div className="col-sm-8">
-                        <h3><Link href={room.href}>{room.title}</Link></h3>
-                        <div className="otext"><p>{room.desc}</p></div>
-                      </div>
-                      <div className="col-sm-4">
-                        <div className="price"><span><Link href={room.href}>Detaylar &raquo;</Link></span></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      {/* Room Slider Section */}
+      <RoomSlider/>
       {/* Nearby Section */}
-      <section className="room-slider pt-100 pb-100">
-        <div className="container-fluid p-0">
-          <div className="section-title mb-100 text-center">
-            <span className="title-tag">Yakın Çevre</span>
-            <h2>Merkezlere Olan Mesafe</h2>
-          </div>
-          <div className="row rooms-slider-one">
-            {nearbyImages.map((img, index) => (
-              <div key={index} className="col">
-                <div className="slider-img" style={{ backgroundImage: `url(${img})` }}></div>
-              </div>
-            ))}
-          </div>
-          <div className="rooms-content-wrap">
-            <div className="container">
-              <div className="row justify-content-center justify-content-md-start">
-                <div className="col-xl-4 col-lg-5 col-sm-8">
-                  <div className="room-content-box">
-                    <div className="room-content-slider">
-                      {nearbyPlaces.map((item, index) => (
-                        <div key={index} className="single-content">
-                          <div className="icon"><i className="flaticon-hotel"></i></div>
-                          <h3><Link href="#">{item.title}</Link></h3>
-                          <p>{item.desc}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <NearbyPlaces/>
 
       {/* Core Features Section */}
       <section className="core-feature-section bg-white pt-115 pb-115">
@@ -456,8 +369,6 @@ Merkezi ısıtma sistemi, ses yalıtımı, çalışma masası, ütü olanakları
       {/* Instagram Feed Section */}
       <section className="instagram-feed-section">
         <div className="container-fluid p-0">
-
-          {/* Gallery Slider */}
           <div
             className="instagram-slider"
             onMouseEnter={() => setGalleryPlaying(false)}
@@ -541,12 +452,10 @@ Merkezi ısıtma sistemi, ses yalıtımı, çalışma masası, ütü olanakları
       {lightboxOpen && (
         <div className="lightbox-overlay" onClick={closeLightbox}>
           <div className="lightbox-container" onClick={(e) => e.stopPropagation()}>
-            {/* Close Button */}
             <button className="lightbox-close" onClick={closeLightbox}>
               <i className="fas fa-times"></i>
             </button>
 
-            {/* Main Image */}
             <div className="lightbox-image">
               <Image
                 src={`/img/galeri/${lightboxIndex + 1}.jpg`}
@@ -557,7 +466,6 @@ Merkezi ısıtma sistemi, ses yalıtımı, çalışma masası, ütü olanakları
               />
             </div>
 
-            {/* Navigation Arrows */}
             <button className="lightbox-arrow lightbox-prev" onClick={prevLightboxImage}>
               <i className="fas fa-chevron-left"></i>
             </button>
@@ -565,12 +473,10 @@ Merkezi ısıtma sistemi, ses yalıtımı, çalışma masası, ütü olanakları
               <i className="fas fa-chevron-right"></i>
             </button>
 
-            {/* Image Counter */}
             <div className="lightbox-counter">
               {lightboxIndex + 1} / 13
             </div>
 
-            {/* Thumbnail Navigation */}
             <div className="lightbox-thumbnails">
               {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((num, index) => (
                 <div
