@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import Link from "next/link";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+// import "../styles/bootstrap.min.css";
 
 export default function RoomSlider() {
   const rooms = [
@@ -94,20 +95,20 @@ export default function RoomSlider() {
             <h2>Özenle Tasarlanmış Odalar</h2>
           </div>
 
-          <div className="rooms-slider-two">
+          <div className="row rooms-slider-two justify-content-center">
             <Slider {...settings}>
               {rooms.map((room) => (
                 <div key={room.id} className="col-lg-6">
                   <div className="single-rooms-box">
                     <div className="room-img">
-                      <div 
+                      <div
                         className="img"
                         style={{
                           backgroundImage: `url(${room.img})`
                         }}
                       />
                     </div>
-                    
+
                     <ul className="icons">
                       <li><i className="fal fa-bed"></i></li>
                       <li><i className="fal fa-wifi"></i></li>

@@ -6,6 +6,9 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../styles/font-awesome.min.css";
 import "../styles/flaticon.css";
 import "../styles/travelline-style.css"
+import "../styles/default.css";
+import "../styles/animate.min.css";
+import "../styles/bootstrap.min.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

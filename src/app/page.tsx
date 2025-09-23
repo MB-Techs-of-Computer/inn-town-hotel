@@ -11,10 +11,6 @@ export default function HomePage() {
   // Banner slider state
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Room slider state
-  const [currentRoomSlide, setCurrentRoomSlide] = useState(0);
-  const [roomSlideAnimation, setRoomSlideAnimation] = useState(false);
-
   // Instagram Gallery States
   const [gallerySlide, setGallerySlide] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -74,6 +70,18 @@ export default function HomePage() {
         }
       });
     };
+  }, []);
+
+  useEffect(() => {
+    // WOW.js'i başlat
+    if (typeof window !== 'undefined') {
+      const { WOW } = require('wowjs');
+      new WOW({
+        live: false, // DOM değişikliklerini izlemeyi durdur
+        mobile: true, // mobilde de çalışsın
+        offset: 100, // animasyonun tetikleneceği scroll mesafesi
+      }).init();
+    }
   }, []);
 
   // Banner auto slider effect
@@ -136,37 +144,6 @@ export default function HomePage() {
     setLightboxIndex(prev => (prev - 1 + 13) % 13);
   };
 
-  const nearbyPlaces = [
-    { title: 'Anadolu Üniversitesi', desc: 'Ana Giriş Kapısına 300 metre mesafededir. Yürüme mesafesi 5 dakikadır.' },
-    { title: 'Hava Müzesi', desc: 'Eskişehir Havacılık Müzesine 400 metre mesafededir. Yürüme mesafesi 5 dakikadır.' },
-    { title: 'Espark', desc: 'Eskişehir Espark AVMye 400 metre mesafededir. Yürüme mesafesi 5 dakikadır.' },
-    { title: 'Porsuk Çayı', desc: 'Porsuk Çayına 700 metre mesafededir. Yürüme mesafesi 7 dakikadır.' },
-    { title: 'Barlar Sokağı', desc: 'Barlar Sokağına 700 metre mesafededir. Yürüme mesafesi 7 dakikadır.' },
-    { title: 'Sazova', desc: 'Eskişehir Sazova Bilim Kültür Parkına 3 km mesafededir. Araç ile mesafesi 5 dakikadır.' },
-    { title: 'Odunpazarı Evleri', desc: 'Tarihi Odunpazarı Evlerine 3 km mesafededir. Araç ile mesafesi 5 dakikadır.' },
-    { title: 'Müzeler', desc: 'Müzelere (Odunpazarı Modern Müze, Cam Sanatları Müzesi, Kurtuluş Müzesi, Bal Mumu Müzesi vs.) 3 km mesafededir. Araç ile mesafesi 5 dakikadır.' }
-  ];
-
-  const nearbyImages = [
-    '/yonetim/resimler/haberresim/142022161245.jpg',
-    '/yonetim/resimler/haberresim/142022161321.jpg',
-    '/yonetim/resimler/haberresim/142022161350.jpg',
-    '/yonetim/resimler/haberresim/142022161455.jpg',
-    '/yonetim/resimler/haberresim/142022161528.jpg',
-    '/yonetim/resimler/haberresim/142022161427.jpg',
-    '/yonetim/resimler/haberresim/142022161558.jpg',
-    '/yonetim/resimler/haberresim/142022161622.jpg'
-  ];
-
-  const features = [
-    { icon: 'flaticon-teamwork', title: 'Toplantı Salonları', count: '01' },
-    { icon: 'fal fa-wheelchair', title: 'Fiziksel Engelliler İçin Olanaklar', count: '02' },
-    { icon: 'fal fa-smoking-ban', title: 'Sigara İçilmeyen Kat ve Odalar', count: '03' },
-    { icon: 'flaticon-wifi', title: 'Ücretsiz İnternet', count: '04' },
-    { icon: 'fal fa-handshake', title: 'Anlaşmalı Kuaför', count: '05' },
-    { icon: 'flaticon-location-pin', title: 'Merkezi Konum', count: '06' }
-  ];
-
   return (
     <>
       <Header />
@@ -191,42 +168,21 @@ export default function HomePage() {
                 <div className="col-lg-8">
                   <div className="banner-content">
                     <span
-                      className={`promo-tag ${currentSlide === index ? 'fadeInDown' : ''}`}
-                      style={{
-                        animationDelay: currentSlide === index ? '0.6s' : '0s',
-                        opacity: currentSlide === index ? 1 : 0
-                      }}
+                      className="promo-tag wow fadeInDown" data-wow-delay=".6s"
                     >
                       ÜST DÜZEY LÜKS KONAKLAMA DENEYİMİ
                     </span>
                     <h1
-                      className={`title ${currentSlide === index ? 'fadeInLeft' : ''}`}
-                      style={{
-                        animationDelay: currentSlide === index ? '0.9s' : '0s',
-                        opacity: currentSlide === index ? 1 : 0
-                      }}
-                    >
+                      className="title wow fadeInLeft" data-wow-delay=".9s" >
                       Beklentilerinizi <br /> karşılıyoruz
                     </h1>
                     <ul>
-                      <li
-                        style={{
-                          animationDelay: currentSlide === index ? '1.1s' : '0s',
-                          opacity: currentSlide === index ? 1 : 0
-                        }}
-                        className={currentSlide === index ? 'fadeInUp' : ''}
-                      >
+                      <li className="wow fadeInUp" data-wow-delay="1.1s" >
                         <Link className="main-btn btn-filled" href={slide.link1.href}>
                           {slide.link1.text}
                         </Link>
                       </li>
-                      <li
-                        style={{
-                          animationDelay: currentSlide === index ? '1.3s' : '0s',
-                          opacity: currentSlide === index ? 1 : 0
-                        }}
-                        className={currentSlide === index ? 'fadeInUp' : ''}
-                      >
+                      <li className="wow fadeInUp" data-wow-delay="1.3s" >
                         <Link className="main-btn btn-border" href={slide.link2.href}>
                           {slide.link2.text}
                         </Link>
@@ -253,8 +209,8 @@ export default function HomePage() {
       <section className="about-section pt-115 pb-115">
         <div className="container">
           <div className="row align-items-center justify-content-center">
-            <div className="col-lg-6 col-md-10">
-              <div className="row about-features-boxes">
+            <div className="col-lg-6 col-md-10 wow fadeInLeft" data-wow-delay=".3s">
+              <div className="row about-features-boxes fetaure-masonary">
                 <div className="col-sm-6">
                   <div className="single-feature-box">
                     <div className="icon">
@@ -301,7 +257,7 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-            <div className="col-lg-6 col-md-8 col-sm-10">
+            <div className="col-lg-6 col-md-8 col-sm-10 wow fadeInRight" data-wow-delay=".3s">
               <div className="abour-text pl-50 pr-50">
                 <div className="section-title mb-30">
                   <span className="title-tag">HAKKIMIZDA</span>
@@ -324,25 +280,18 @@ export default function HomePage() {
         </div>
         <div className="about-right-bottom">
           <div className="about-bottom-img">
-            <Image
+            <img
               src="/img/abbg.jpg"
               alt="Hotel Background"
-              fill
-              style={{
-                objectFit: 'cover',
-                objectPosition: 'center'
-              }}
-              priority
-              sizes="(max-width: 768px) 0px, 60vw"
             />
           </div>
         </div>
       </section>
 
       {/* Room Slider Section */}
-      <RoomSlider/>
+      <RoomSlider />
       {/* Nearby Section */}
-      <NearbyPlaces/>
+      <NearbyPlaces />
 
       {/* Core Features Section */}
       <section className="core-feature-section bg-white pt-115 pb-115">
@@ -352,16 +301,54 @@ export default function HomePage() {
             <h2>Otel Özellikleri</h2>
           </div>
           <div className="row features-loop">
-            {features.map((feature, index) => (
-              <div key={index} className={`col-lg-4 col-sm-6 order-${index}`}>
-                <div className="feature-box">
-                  <div className="icon"><i className={feature.icon}></i></div>
-                  <h3><Link href="#">{feature.title}</Link></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
-                  <span className="count">{feature.count}</span>
-                </div>
+            <div className="col-lg-4 col-sm-6 order-1">
+              <div className="feature-box wow fadeInLeft" data-wow-delay=".3s">
+                <div className="icon"><i className="flaticon-teamwork"></i></div>
+                <h3><Link href="#">Toplantı<br /> Salonları</Link></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+                <span className="count">01</span>
               </div>
-            ))}
+            </div>
+            <div className="col-lg-4 col-sm-6 order-2">
+              <div className="feature-box wow fadeInDown" data-wow-delay=".4s">
+                <div className="icon"><i className="fal fa-wheelchair"></i></div>
+                <h3><Link href="#">Fiziksel Engelliler İçin Olanaklar</Link></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+                <span className="count">02</span>
+              </div>
+            </div>
+            <div className="col-lg-4 col-sm-6 order-3 order-sm-4 order-lg-3">
+              <div className="feature-box wow fadeInRight" data-wow-delay=".5s">
+                <div className="icon"><i className="fal fa-smoking-ban"></i></div>
+                <h3><Link href="#">Sigara İçilmeyen Kat ve Odalar</Link></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+                <span className="count">03</span>
+              </div>
+            </div>
+            <div className="col-lg-4 col-sm-6 order-4 order-sm-3 order-lg-4">
+              <div className="feature-box wow fadeInLeft" data-wow-delay=".6s">
+                <div className="icon"><i className="flaticon-wifi"></i></div>
+                <h3><Link href="#">Ücretsiz İnternet</Link></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+                <span className="count">04</span>
+              </div>
+            </div>
+            <div className="col-lg-4 col-sm-6 order-5">
+              <div className="feature-box wow fadeInUp" data-wow-delay=".7s">
+                <div className="icon"><i className="fal fa-handshake"></i></div>
+                <h3><Link href="#">Anlaşmalı Kuaför</Link></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+                <span className="count">05</span>
+              </div>
+            </div>
+            <div className="col-lg-4 col-sm-6 order-6">
+              <div className="feature-box wow fadeInRight" data-wow-delay=".8s">
+                <div className="icon"><i className="flaticon-location-pin"></i></div>
+                <h3><Link href="#">Merkezi Konum</Link></h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+                <span className="count">06</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -6,11 +6,12 @@ import Image from 'next/image';
 export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [isSticky, setIsSticky] = useState(false);
+    const [openSubmenu, setOpenSubmenu] = useState<number | null>(null);
 
     const menuItems = [
         { href: "/", label: "Anasayfa", active: true },
         {
-            href: "/kurumsal",
+            href: "#",
             label: "Kurumsal",
             submenu: [
                 { href: "/hakkimizda", label: "Hakkımızda" },
@@ -18,7 +19,7 @@ export default function Header() {
             ]
         },
         {
-            href: "/odalar",
+            href: "#",
             label: "Odalar",
             submenu: [
                 { href: "/odalar/suite", label: "Suite Oda" },
@@ -33,6 +34,11 @@ export default function Header() {
     ];
 
     const closeMenu = () => setMenuOpen(false);
+
+    // Submenu toggle fonksiyonu
+    const toggleSubmenu = (index: number) => {
+        setOpenSubmenu(openSubmenu === index ? null : index);
+    };
 
     // Sticky header için scroll listener
     useEffect(() => {
@@ -103,13 +109,31 @@ export default function Header() {
                                 <div className="menu-items">
                                     <ul>
                                         {menuItems.map((item, index) => (
-                                            <li key={index}>
-                                                <Link
-                                                    href={item.href}
-                                                    className={item.active ? "actived" : ""}
-                                                >
-                                                    {item.label}
-                                                </Link>
+                                            <li key={index} className={item.submenu ? "has-submenu" : ""}>
+                                                {item.submenu ? (
+                                                    // Submenu'su olan öğeler için a tag ama preventDefault ile
+                                                    <a 
+                                                        href="#"
+                                                        className={item.active ? "actived menu-trigger" : "menu-trigger"}
+                                                        onClick={(e) => {
+                                                            e.preventDefault();
+                                                            e.stopPropagation();
+                                                            // Desktop'ta hover ile çalışıyor, tıklama gereksiz
+                                                        }}
+                                                    >
+                                                        {item.label}
+                                                        {/* <i className="fas fa-angle-down"></i> */}
+                                                    </a>
+                                                ) : (
+                                                    // Normal linkler
+                                                    <Link
+                                                        href={item.href}
+                                                        className={item.active ? "actived" : ""}
+                                                    >
+                                                        {item.label}
+                                                    </Link>
+                                                )}
+                                                
                                                 {item.submenu && (
                                                     <ul className="submenu">
                                                         {item.submenu.map((subItem, subIndex) => (
@@ -170,11 +194,29 @@ export default function Header() {
                         <ul>
                             {menuItems.map((item, index) => (
                                 <li key={index} className={item.submenu ? "has-submenu" : ""}>
-                                    <Link href={item.href} onClick={closeMenu}>
-                                        {item.label}
-                                    </Link>
+                                    {item.submenu ? (
+                                        // Mobilde submenu'su olan öğeler için a tag ama preventDefault ile
+                                        <a
+                                            href="#"
+                                            className={`mobile-menu-trigger ${openSubmenu === index ? 'active' : ''}`}
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                e.stopPropagation();
+                                                toggleSubmenu(index);
+                                            }}
+                                        >
+                                            {item.label}
+                                            <i className={`fas fa-angle-down ${openSubmenu === index ? 'rotate' : ''}`}></i>
+                                        </a>
+                                    ) : (
+                                        // Normal mobil linkler
+                                        <Link href={item.href} onClick={closeMenu}>
+                                            {item.label}
+                                        </Link>
+                                    )}
+                                    
                                     {item.submenu && (
-                                        <ul className="mobile-submenu">
+                                        <ul className={`mobile-submenu ${openSubmenu === index ? 'open' : ''}`}>
                                             {item.submenu.map((subItem, subIndex) => (
                                                 <li key={subIndex}>
                                                     <Link href={subItem.href} onClick={closeMenu}>
