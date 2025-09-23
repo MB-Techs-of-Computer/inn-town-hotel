@@ -77,9 +77,9 @@ export default function HomePage() {
     if (typeof window !== 'undefined') {
       const { WOW } = require('wowjs');
       new WOW({
-        live: false, // DOM değişikliklerini izlemeyi durdur
-        mobile: true, // mobilde de çalışsın
-        offset: 100, // animasyonun tetikleneceği scroll mesafesi
+        live: false,
+        mobile: true,
+        offset: 100,
       }).init();
     }
   }, []);

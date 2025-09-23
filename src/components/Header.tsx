@@ -14,7 +14,7 @@ export default function Header() {
             href: "#",
             label: "Kurumsal",
             submenu: [
-                { href: "/hakkimizda", label: "Hakkımızda" },
+                { href: "/about", label: "Hakkımızda" },
                 { href: "/surdurulebilirlik", label: "Sürdürülebilirlik" }
             ]
         },
