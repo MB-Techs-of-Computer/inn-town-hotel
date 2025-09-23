@@ -836,11 +836,6 @@ header .nav-container .site-logo img {
   /* left: 10px; */
 }
 
-.sticky-active .site-logo img {
-  max-width: 99px !important;
-  top: -36px !important;
-}
-
 .site-logo {
   position: relative;
 }
@@ -1192,8 +1187,9 @@ body.mobile-menu-open {
   }
 
   .sticky-active .site-logo img {
-    max-width: 74px !important;
-    top: -24px !important;
+    /* max-width: 74px !important; */
+    /* height: 5.4rem; */
+    /* top: -23px !important; */
   }
 }
 
