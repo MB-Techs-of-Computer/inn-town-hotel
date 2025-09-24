@@ -10,7 +10,7 @@ export default function RoomSlider() {
     {
       id: 13,
       title: "Suit Oda",
-      href: "/odalar/suite",
+      href: "/rooms/suite",
       img: "/yonetim/resimler/sayfaresim/3132022215741.jpg",
       desc: "7 ve 8. katlarda bulunan 70 metre karelik kullanım alanı, şehir manzaralı suit odalarımızda, oturma odası ve yatak odası olmak üzere iki ayrı alandan oluşmaktadır. Dilerseniz iş yemeği, dilerseniz sevdiklerinizle romantik bir akşam deneyimi için suit odalarımız size gerekli tüm imkanı sağlamaktadır.",
       features: "2 kişilik yatak kapasitesi, küvet/duşa kabin, merkezi ısıtma sistemi, ses yalıtımı, çalışma masası, ütü olanakları, led ekran tv, kablolu yayın kanalları, telefon, kablosuz internet, mini bar, çay / kahve seti."
@@ -18,7 +18,7 @@ export default function RoomSlider() {
     {
       id: 14,
       title: "Junior Suit Oda",
-      href: "/odalar/junior-suite",
+      href: "/rooms/juniorsuite",
       img: "/yonetim/resimler/sayfaresim/3132022215652.jpg",
       desc: "Şehir manzaralı 47 metre karelik kullanım alanı, güneş gören ferah ve huzurlu odalarımızda güne enerjik başlayın. 3 kişilik yatak kapasitesi ile Juniour Suit odalarımızda dilerseniz romantik bir akşam yemeği yiyebilir, sevdiklerinizle güzel ve konforlu bir akşam geçirebilirsiniz.",
       features: "Anti alerjik parke, merkezi ısıtma sistemi, ses yalıtımı, çalışma masası, ütü olanakları, led ekran tv, kablolu yayın kanalları, telefon, kablosuz internet, mini bar, çay / kahve seti."
@@ -26,7 +26,7 @@ export default function RoomSlider() {
     {
       id: 15,
       title: "Standart Oda",
-      href: "/odalar/standart",
+      href: "/rooms/standart",
       img: "/yonetim/resimler/sayfaresim/3132022215519.jpg",
       desc: "Şehir manzaralı 34 metre karelik geniş kullanım alanı ile; 2, 3 ve 4 kişilik yatak kapasiteleri ile anti alerjik parke ve halı kaplı zemin olmak üzere iki ayrı oda tipi mevcuttur.",
       features: "Merkezi ısıtma sistemi, ses yalıtımı, çalışma masası, ütü olanakları, led ekran tv, kablolu yayın kanalları, telefon, kablosuz internet, mini bar, çay / kahve seti."

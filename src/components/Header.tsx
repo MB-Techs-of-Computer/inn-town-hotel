@@ -22,9 +22,9 @@ export default function Header() {
             href: "#",
             label: "Odalar",
             submenu: [
-                { href: "/odalar/suite", label: "Suite Oda" },
-                { href: "/odalar/junior-suite", label: "Junior Suite Oda" },
-                { href: "/odalar/standart", label: "Standart Oda" }
+                { href: "/rooms/suite", label: "Suite Oda" },
+                { href: "/rooms/juniorsuite", label: "Junior Suite Oda" },
+                { href: "/rooms/standart", label: "Standart Oda" }
             ]
         },
         { href: "/toplanti", label: "Toplantı & Organizasyon" },

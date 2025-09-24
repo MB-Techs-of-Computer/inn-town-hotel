@@ -55,7 +55,7 @@ body {
 
 .sticky-active .site-logo img {
   max-width: 99px !important;
-  top: -36px !important
+  /* top: -36px !important; */
 }
 
 
@@ -831,6 +831,8 @@ select {
 /* Logo Stilleri */
 header .nav-container .site-logo img {
   max-width: 175px;
+  width: 5rem;
+  height: 5rem;
   position: absolute;
   top: -1.6rem;
   /* left: 10px; */
@@ -847,12 +849,17 @@ header .nav-container .site-logo img {
   }
 }
 
-@media (min-width:992px) {
+/* @media (min-width:992px) {
   .site-logo img {
     width: 5rem;
     height: 5rem;
   }
-}
+} */
+
+/* header .nav-container .site-logo img {
+  max-width: 200px;
+
+} */
 
 /* Menu Items */
 .menu-items ul {
@@ -1181,10 +1188,10 @@ body.mobile-menu-open {
     padding: 2.5rem;
   }
 
-  header .nav-container .site-logo img {
+  /* header .nav-container .site-logo img {
     max-width: 7rem;
     top: -2.5rem;
-  }
+  } */
 
   .sticky-active .site-logo img {
     /* max-width: 74px !important; */
@@ -1192,6 +1199,7 @@ body.mobile-menu-open {
     /* top: -23px !important; */
   }
 }
+
 
 /* Tablet */
 @media (max-width: 767px) {
@@ -3757,6 +3765,13 @@ body.mobile-menu-open {
   font-size: 16px;
 }
 
+/* Slider'ın ana container'ı */
+.room-slider {
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
 /*=======  Room Slider  =======*/
 .room-slider {
   position: relative;
@@ -4540,6 +4555,7 @@ body.mobile-menu-open {
   display: flex;
   transition: transform 0.7s ease-in-out;
   height: 100%;
+  width: 100%;
 }
 
 .image-slide {
