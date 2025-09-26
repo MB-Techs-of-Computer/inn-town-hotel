@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Header from '@/components/Header';
 import Breadcrumb from '@/components/BreadCrumb';
 import Footer from '@/components/Footer';
+import '../room-details.css';
 
 export default function SuiteRoomPage() {
     const roomImages = [

@@ -1,0 +1,139 @@
+/*=======  Breadcrumb CSS  =======*/
+.breadcrumb-area {
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  margin-top: 0
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .breadcrumb-area {
+    margin-top: 100px;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .breadcrumb-area {
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 575px) {
+  .breadcrumb-area {
+    margin-top: 80px;
+  }
+}
+
+.breadcrumb-area::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background-color: #222;
+  content: '';
+  opacity: 0.7;
+}
+
+.breadcrumb-area .breadcrumb-text {
+  position: relative;
+  padding: 100px 0;
+}
+
+.breadcrumb-area .breadcrumb-text,
+.breadcrumb-area .breadcrumb-text h2.page-title {
+  color: #fff;
+}
+
+.breadcrumb-area .breadcrumb-text h2.page-title {
+  font-size: 72px;
+  letter-spacing: -1px;
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .breadcrumb-area .breadcrumb-text h2.page-title {
+    font-size: 60px;
+  }
+}
+
+@media (max-width: 575px) {
+  .breadcrumb-area .breadcrumb-text h2.page-title {
+    font-size: 50px;
+  }
+}
+
+.breadcrumb-area .breadcrumb-text span {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  padding-bottom: 25px;
+}
+
+@media (max-width: 767px) {
+  .breadcrumb-area .breadcrumb-text span {
+    letter-spacing: 2px;
+  }
+}
+
+@media (max-width: 575px) {
+  .breadcrumb-area .breadcrumb-text span {
+    font-size: 12px;
+  }
+}
+
+.breadcrumb-area .breadcrumb-text .breadcrumb-nav {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  padding: 20px 40px;
+  z-index: 2;
+}
+
+@media (max-width: 575px) {
+  .breadcrumb-area .breadcrumb-text .breadcrumb-nav {
+    padding: 15px 20px;
+    font-size: 14px;
+  }
+}
+
+.breadcrumb-area .breadcrumb-text .breadcrumb-nav li {
+  display: inline-block;
+  font-weight: 700;
+  position: relative;
+}
+
+.breadcrumb-area .breadcrumb-text .breadcrumb-nav li,
+.breadcrumb-area .breadcrumb-text .breadcrumb-nav li a {
+  color: #222;
+}
+
+.breadcrumb-area .breadcrumb-text .breadcrumb-nav li a:hover {
+  color: #87847b;
+}
+
+.breadcrumb-area .breadcrumb-text .breadcrumb-nav li:not(:first-child) {
+  padding-left: 10px;
+  margin-left: 10px;
+}
+
+.breadcrumb-area .breadcrumb-text .breadcrumb-nav li:not(:first-child)::before {
+  position: absolute;
+  left: -2px;
+  top: 50%;
+  -webkit-transform: translateY(-48%);
+  transform: translateY(-48%);
+  content: '|';
+  color: #222;
+}
+
+.breadcrumb-area .breadcrumb-text .breadcrumb-nav li.active {
+  color: #87847b;
+}
+
+.breadcrumb-area .breadcrumb-text .breadcrumb-nav li.active::before {
+  color: #87847b;
+}
