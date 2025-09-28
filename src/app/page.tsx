@@ -7,6 +7,7 @@ import Footer from '../components/Footer';
 import RoomSlider from '../components/RoomSlider';
 import NearbyPlaces from '@/components/NearbyPlaces';
 import AboutSection from '@/components/AboutSection';
+import ModernBannerSection from '@/components/Banner';
 
 export default function HomePage() {
   // Banner slider state
@@ -150,7 +151,8 @@ export default function HomePage() {
       <Header />
 
       {/* Banner Slider Section */}
-      <section className="banner-area banner-style-three" id="bannerSlider">
+      <ModernBannerSection/>
+      {/* <section className="banner-area banner-style-three" id="bannerSlider">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -197,7 +199,7 @@ export default function HomePage() {
             <div className="banner-overly"></div>
           </div>
         ))}
-      </section>
+      </section> */}
 
       {/* HopenAPI Search Form */}
       <div id="block-search">

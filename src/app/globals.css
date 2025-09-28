@@ -24,7 +24,7 @@ body {
   position: relative
 }
 
-.actived {
+/* .actived {
   background: #1a3f48;
   color: #bababa !important;
 }
@@ -32,7 +32,7 @@ body {
 .menu-items a:hover {
   background: #1a3f48;
   color: white !important;
-}
+} */
 
 .ortala {
   max-width: 250px;
@@ -824,7 +824,7 @@ select {
   }
 }
 
-/*=======  HEADER CSS - TEMİZ VERSİYON  =======*/
+/*=======  new-banner  =======*/
 
 
 
@@ -834,8 +834,8 @@ select {
 
 /* Banner Slider CSS */
 
-/* Banner area temel stil */
-.banner-area {
+
+/* .banner-area {
   position: relative;
   overflow: hidden;
 }
@@ -845,14 +845,11 @@ select {
   position: relative;
 }
 
-/* Single banner */
+
 .banner-area .single-banner {
   height: 70vh;
-  /* Yüksekliği düşürdük */
   max-height: 600px;
-  /* Maksimum yükseklik azaltıldı */
   min-height: 500px;
-  /* Minimum yükseklik azaltıldı */
   position: relative;
   z-index: 1;
   overflow: hidden;
@@ -867,7 +864,7 @@ select {
   opacity: 1;
 }
 
-/* Banner background ve overlay */
+
 .banner-area .single-banner .banner-bg {
   position: absolute;
   left: 0;
@@ -892,7 +889,6 @@ select {
   opacity: 0.6;
 }
 
-/* Banner content */
 .banner-area .banner-content {
   color: #fff;
   z-index: 2;
@@ -903,7 +899,7 @@ select {
   color: #fff;
 }
 
-/* Promo tag */
+
 .banner-area .banner-content span.promo-tag {
   font-size: 14px;
   font-weight: 700;
@@ -914,7 +910,7 @@ select {
   color: #fff;
 }
 
-/* Title */
+
 .banner-area .banner-content .title {
   font-size: 85px;
   line-height: 1.1;
@@ -925,7 +921,7 @@ select {
   margin-bottom: 0;
 }
 
-/* Button list */
+
 .banner-area .banner-content ul {
   list-style: none;
   padding: 0;
@@ -940,7 +936,7 @@ select {
   margin-left: 24px;
 }
 
-/* Buttons */
+
 .banner-area .banner-content .main-btn {
   display: inline-block;
   padding: 15px 35px;
@@ -978,7 +974,7 @@ select {
   border-color: #87847b;
 }
 
-/* Animation keyframes */
+
 @keyframes zoomIn {
   0% {
     transform: scale(1);
@@ -994,7 +990,7 @@ select {
 }
 
 
-/* Responsive */
+
 @media only screen and (min-width: 1200px) and (max-width: 1599px) {
   .banner-area .banner-content .title {
     font-size: 85px;
@@ -1079,16 +1075,15 @@ select {
     margin-left: 0;
     margin-top: 10px;
   }
-}
+} */
 
-/* Rezervasyon formu - Banner dışında */
+
 .reservation-form-wrap {
   position: relative;
   z-index: 10;
   background: rgba(255, 255, 255, 0.95);
   padding: 20px 0;
   margin-top: -80px;
-  /* Banner'ın üzerine bindirmek için */
   box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -1182,7 +1177,7 @@ select {
   background: #6d6a62;
 }
 
-/* Responsive */
+
 @media (max-width: 767px) {
   .reservation-form-wrap {
     margin-top: -60px;
