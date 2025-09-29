@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 import RoomSlider from '../components/RoomSlider';
 import NearbyPlaces from '@/components/NearbyPlaces';
 import AboutSection from '@/components/AboutSection';
-import ModernBannerSection from '@/components/Banner';
+import Banner from '@/components/Banner';
 
 export default function HomePage() {
   // Banner slider state
@@ -151,55 +151,7 @@ export default function HomePage() {
       <Header />
 
       {/* Banner Slider Section */}
-      <ModernBannerSection/>
-      {/* <section className="banner-area banner-style-three" id="bannerSlider">
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`single-banner d-flex align-items-center justify-content-center ${currentSlide === index ? 'active' : ''
-              }`}
-            style={{
-              position: currentSlide === index ? 'relative' : 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              zIndex: currentSlide === index ? 1 : 0
-            }}
-          >
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-8">
-                  <div className="banner-content">
-                    <span
-                      className="promo-tag wow fadeInDown" data-wow-delay=".6s"
-                    >
-                      ÜST DÜZEY LÜKS KONAKLAMA DENEYİMİ
-                    </span>
-                    <h1
-                      className="title wow fadeInLeft" data-wow-delay=".9s" >
-                      Beklentilerinizi <br /> karşılıyoruz
-                    </h1>
-                    <ul>
-                      <li className="wow fadeInUp" data-wow-delay="1.1s" >
-                        <Link className="main-btn btn-filled" href={slide.link1.href}>
-                          {slide.link1.text}
-                        </Link>
-                      </li>
-                      <li className="wow fadeInUp" data-wow-delay="1.3s" >
-                        <Link className="main-btn btn-border" href={slide.link2.href}>
-                          {slide.link2.text}
-                        </Link>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="banner-bg" style={{ backgroundImage: `url(${slide.bg})` }}></div>
-            <div className="banner-overly"></div>
-          </div>
-        ))}
-      </section> */}
+      <Banner/>
 
       {/* HopenAPI Search Form */}
       <div id="block-search">

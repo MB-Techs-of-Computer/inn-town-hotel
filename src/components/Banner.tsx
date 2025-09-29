@@ -25,7 +25,7 @@ export default function Banner() {
       offer: 'Erken rezervasyon indirimleri | Özel paket fırsatları',
       description: 'Şehrin merkezinde, size özel tasarlanmış konforlu odalarımızda kalın.',
       primaryBtn: { href: '/galeri', text: 'GALERİ' },
-      secondaryBtn: { href: '/hakkimizda', text: 'HAKKIMIZDA' },
+      secondaryBtn: { href: '/about', text: 'HAKKIMIZDA' },
       contact: 'Rezervasyon: (212) 555 0124'
     }
   ];

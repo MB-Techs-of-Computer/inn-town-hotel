@@ -562,10 +562,6 @@ body.mobile-menu-open {
     height: auto;
   }
   
-  header.header-three .nav-container::before {
-    animation: none;
-    background: linear-gradient(45deg, #1a3f48, #764ba2);
-  }
 
   header.header-three .nav-container {
     padding: 2.5rem;
@@ -602,10 +598,7 @@ body.mobile-menu-open {
     margin: 0 15px;
   }
   
-  header.header-three .nav-container::before {
-    animation: none;
-    background: linear-gradient(45deg, #1a3f48, #764ba2);
-  }
+
 
   header.header-three .nav-container {
     padding: 2.5rem;
