@@ -30,10 +30,10 @@ export default function Header() {
         { href: "/rooms/standart", label: "Standart Oda" }
       ]
     },
-    { href: "/toplanti", label: "Toplantı & Organizasyon" },
+    { href: "/meeting", label: "Toplantı & Organizasyon" },
     { href: "/restaurant", label: "Restaurant & Barlar" },
-    { href: "/galeri", label: "Galeri" },
-    { href: "/iletisim", label: "İletişim" }
+    { href: "/gallery", label: "Galeri" },
+    { href: "/contact", label: "İletişim" }
   ];
 
   // Aktif menü öğesini belirleyen fonksiyon

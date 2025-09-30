@@ -109,7 +109,6 @@ header.header-three .menu-items ul li .nav-link {
 
 /* Hover Efekti */
 header.header-three .menu-items ul li .nav-link:hover {
-  transform: scale(1.1) rotate(2deg);
   color: #1a3f48;
   text-shadow: 2px 2px 4px rgba(102, 126, 234, 0.3);
   background: #1a3f4842;

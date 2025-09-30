@@ -228,7 +228,7 @@ export default function HomePage() {
       </section>
 
       {/* Instagram Feed Section */}
-      <section className="instagram-feed-section">
+      {/* <section className="instagram-feed-section">
         <div className="container-fluid p-0">
           <div
             className="instagram-slider"
@@ -239,7 +239,7 @@ export default function HomePage() {
               className="slider-track"
               style={{ transform: `translateX(-${gallerySlide * 100}%)` }}
             >
-              {/* Slide 1 */}
+             
               <div className="image-slide">
                 {[1, 2, 3, 4, 5].map(num => (
                   <div key={num} className="image">
@@ -261,7 +261,7 @@ export default function HomePage() {
                 ))}
               </div>
 
-              {/* Slide 2 */}
+              
               <div className="image-slide">
                 {[6, 7, 8, 9, 10].map(num => (
                   <div key={num} className="image">
@@ -283,7 +283,7 @@ export default function HomePage() {
                 ))}
               </div>
 
-              {/* Slide 3 */}
+              
               <div className="image-slide">
                 {[11, 12, 13, 1, 2].map((num, index) => (
                   <div key={`${num}-${index}`} className="image">
@@ -308,8 +308,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Lightbox */}
       {lightboxOpen && (
         <div className="lightbox-overlay" onClick={closeLightbox}>
           <div className="lightbox-container" onClick={(e) => e.stopPropagation()}>
@@ -356,7 +354,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
 
       <Footer />
     </>

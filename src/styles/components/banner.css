@@ -26,7 +26,7 @@
 
 .banner-slide.active {
     opacity: 1;
-    z-index: 2;
+    z-index: 1; /* z-index değişti */
 }
 
 .banner-image-side {
@@ -47,11 +47,9 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* ZOOM EFEKTİ EKLENDİ */
     animation: zoomIn 15s linear infinite;
 }
 
-/* ZOOM ANIMASYONU */
 @keyframes zoomIn {
     0% {
         transform: scale(1);
@@ -64,10 +62,15 @@
     }
 }
 
-/* İçerik */
+/* İçerik - artık absolute ve üstte */
 .banner-content-side {
-    flex: 1;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50%;
     padding: 60px;
+    z-index: 10; /* Her zaman en üstte */
 }
 
 .main-title {

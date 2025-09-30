@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import '@/styles/components/roomslider.css';
@@ -30,37 +30,11 @@ export default function RoomSlider() {
   ];
 
   const [currentRoomIndex, setCurrentRoomIndex] = useState(0);
-  const [isAnimated, setIsAnimated] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [showcase, setShowcase] = useState('initial');
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observerOptions = {
-      threshold: 0.3,
-      rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !isAnimated) {
-          setTimeout(() => {
-            animateRoomShowcase();
-          }, 500);
-        }
-      });
-    }, observerOptions);
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [isAnimated]);
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
-      if (isAnimated && !isTransitioning) {
+      if (!isTransitioning) {
         if (e.key === 'ArrowLeft') {
           changeRoom(-1);
         } else if (e.key === 'ArrowRight') {
@@ -71,145 +45,101 @@ export default function RoomSlider() {
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [isAnimated, isTransitioning, currentRoomIndex]);
+  }, [isTransitioning, currentRoomIndex]);
 
-  const animateRoomShowcase = () => {
-    setShowcase('fullscreen');
-
-    setTimeout(() => {
-      setShowcase('default');
-      setIsAnimated(true);
-    }, 1500);
-  };
-
-  const changeRoom = (direction: number) => {
+  const changeRoom = (dir: number) => {
     if (isTransitioning) return;
 
-    const newIndex = currentRoomIndex + direction;
+    const newIndex = currentRoomIndex + dir;
     if (newIndex < 0 || newIndex >= rooms.length) return;
 
     setIsTransitioning(true);
     setCurrentRoomIndex(newIndex);
-    setShowcase('fullscreen');
 
     setTimeout(() => {
-      setShowcase('default');
       setIsTransitioning(false);
-    }, 1500);
+    }, 600);
   };
 
-  const currentRoom = rooms[currentRoomIndex];
-  const isFullWidth = showcase === 'initial' || showcase === 'fullscreen';
-
   return (
-    <>
+    <section className="room-detail-section bg-white pb-100 pt-115">
+      <div className="container-fluid">
+        <div className="section-title mb-80 text-center">
+          <span className="title-tag">Odalar</span>
+          <h2>Özenle Tasarlanmış Odalar</h2>
+        </div>
 
-      <section className="room-detail-section bg-white pb-100 pt-115" ref={sectionRef}>
-        {isFullWidth ? (
-          <>
-            <div className="container">
-              <div className="section-title mb-80 text-center">
-                <span className="title-tag">Odalar</span>
-                <h2>Özenle Tasarlanmış Odalar</h2>
-              </div>
-            </div>
+        <div className="carousel-wrapper">
+          <div className="main-navigation left">
+            <button
+              className="nav-arrow"
+              onClick={() => changeRoom(-1)}
+              disabled={currentRoomIndex === 0}
+            >
+              <i className="fal fa-chevron-left"></i>
+            </button>
+          </div>
 
-            <div className={`room-showcase ${showcase}`}>
-              <div className="room-image-main">
-                <Image
-                  src={currentRoom.img}
-                  alt={currentRoom.title}
-                  width={1920}
-                  height={800}
-                  style={{ objectFit: 'cover' }}
-                  priority
-                />
+          <div className="main-navigation right">
+            <button
+              className="nav-arrow"
+              onClick={() => changeRoom(1)}
+              disabled={currentRoomIndex === rooms.length - 1}
+            >
+              <i className="fal fa-chevron-right"></i>
+            </button>
+          </div>
 
-                <ul className="room-icons">
-                  <li><i className="fal fa-bed"></i></li>
-                  <li><i className="fal fa-wifi"></i></li>
-                  <li><i className="fal fa-car"></i></li>
-                  <li><i className="fal fa-coffee"></i></li>
-                  <li><i className="fal fa-concierge-bell"></i></li>
-                  <li><i className="fal fa-compress-arrows-alt"></i></li>
-                </ul>
+          <div className="carousel-container">
+            <div 
+              className="carousel-track"
+              style={{
+                transform: `translateX(-${currentRoomIndex * 100}%)`,
+                transition: isTransitioning ? 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)' : 'none'
+              }}
+            >
+              {rooms.map((room, index) => (
+                <div key={room.id} className="carousel-slide">
+                  <div className="room-showcase">
+                    <div className="room-image-main">
+                      <Image
+                        src={room.img}
+                        alt={room.title}
+                        width={1200}
+                        height={800}
+                        style={{ objectFit: 'cover' }}
+                        priority={index === currentRoomIndex}
+                      />
 
-                <div className="room-image-overlay">
-                  <h2 className="room-title">{currentRoom.title}</h2>
-                  <p className="room-subtitle">{currentRoom.desc}</p>
+                      <ul className="room-icons">
+                        <li><i className="fal fa-bed"></i></li>
+                        <li><i className="fal fa-wifi"></i></li>
+                        <li><i className="fal fa-car"></i></li>
+                        <li><i className="fal fa-coffee"></i></li>
+                        <li><i className="fal fa-concierge-bell"></i></li>
+                        <li><i className="fal fa-compress-arrows-alt"></i></li>
+                      </ul>
+                    </div>
+
+                    <div className="room-content">
+                      <div className="room-content-header">
+                        <h3 className="room-content-title">{room.title}</h3>
+                        <p className="room-content-description">{room.desc}</p>
+                      </div>
+
+                      <div className="room-cta">
+                        <Link href={room.href} className="cta-btn">
+                          Detaylar <i className="fal fa-arrow-right"></i>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </>
-        ) : (
-          <div className="container">
-            <div className="section-title mb-80 text-center">
-              <span className="title-tag">Odalar</span>
-              <h2>Özenle Tasarlanmış Odalar</h2>
-            </div>
-
-            <div className={`room-showcase ${showcase}`}>
-              <div className="main-navigation left">
-                <button
-                  className="nav-arrow"
-                  onClick={() => changeRoom(-1)}
-                  disabled={currentRoomIndex === 0}
-                >
-                  <i className="fal fa-chevron-left"></i>
-                </button>
-              </div>
-
-              <div className="main-navigation right">
-                <button
-                  className="nav-arrow"
-                  onClick={() => changeRoom(1)}
-                  disabled={currentRoomIndex === rooms.length - 1}
-                >
-                  <i className="fal fa-chevron-right"></i>
-                </button>
-              </div>
-
-              <div className="room-image-main">
-                <Image
-                  src={currentRoom.img}
-                  alt={currentRoom.title}
-                  width={1200}
-                  height={800}
-                  style={{ objectFit: 'cover' }}
-                  priority
-                />
-
-                <ul className="room-icons">
-                  <li><i className="fal fa-bed"></i></li>
-                  <li><i className="fal fa-wifi"></i></li>
-                  <li><i className="fal fa-car"></i></li>
-                  <li><i className="fal fa-coffee"></i></li>
-                  <li><i className="fal fa-concierge-bell"></i></li>
-                  <li><i className="fal fa-compress-arrows-alt"></i></li>
-                </ul>
-
-                <div className="room-image-overlay">
-                  <h2 className="room-title">{currentRoom.title}</h2>
-                  <p className="room-subtitle">{currentRoom.desc}</p>
-                </div>
-              </div>
-
-              <div className="room-content">
-                <div className="room-content-header">
-                  <h3 className="room-content-title">{currentRoom.title}</h3>
-                  <p className="room-content-description">{currentRoom.desc}</p>
-                </div>
-
-                <div className="room-cta">
-                  <Link href={currentRoom.href} className="cta-btn">
-                    Detaylar <i className="fal fa-arrow-right"></i>
-                  </Link>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
-        )}
-      </section>
-    </>
+        </div>
+      </div>
+    </section>
   );
 }

@@ -1,5 +1,27 @@
 .room-detail-section {
     position: relative;
+    overflow: hidden;
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.carousel-container {
+    overflow: visible;
+    position: relative;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    width: 100%;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    padding: 0 10%;
 }
 
 .main-navigation {
@@ -7,16 +29,14 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 1000;
-    display: flex;
-    align-items: center;
 }
 
 .main-navigation.left {
-    left: -65px;
+    left: 5%;
 }
 
 .main-navigation.right {
-    right: -65px;
+    right: 5%;
 }
 
 .nav-arrow {
@@ -46,69 +66,31 @@
 }
 
 .room-showcase {
-    position: relative;
-    transition: all 1s ease;
-}
-
-/* İlk durum ve Fullscreen - Tam genişlik */
-.room-showcase.initial,
-.room-showcase.fullscreen {
-    display: block;
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.room-showcase.initial .room-image-main,
-.room-showcase.fullscreen .room-image-main {
-    width: 100%;
-    height: 70vh;
-    border-radius: 0;
-}
-
-.room-showcase.initial .room-image-overlay,
-.room-showcase.fullscreen .room-image-overlay {
-    display: block;
-}
-
-.room-showcase.initial .room-content,
-.room-showcase.fullscreen .room-content {
-    display: none;
-}
-
-/* Default - Yan yana layout */
-.room-showcase.default {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
-}
-
-.room-showcase.default .room-image-main {
-    width: 100%;
-    height: 500px;
-    border-radius: 12px;
-}
-
-.room-showcase.default .room-image-overlay {
-    display: none;
-}
-
-.room-showcase.default .room-content {
-    display: block;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
 .room-image-main {
+    width: 100%;
+    height: 500px;
+    border-radius: 12px;
     overflow: hidden;
     position: relative;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    transition: all 1s ease;
 }
 
 .room-image-main img {
     width: 100%;
     height: 100%;
-    transition: all 1s ease;
+    transition: transform 0.3s ease-out;
+}
+
+.room-image-main:hover img {
+    transform: scale(1.1);
 }
 
 .room-icons {
@@ -131,30 +113,6 @@
 .room-icons li {
     color: #222;
     font-size: 1.1rem;
-}
-
-.room-image-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-    padding: 40px;
-    color: white;
-    transition: all 1s ease;
-}
-
-.room-title {
-    font-size: 3rem;
-    font-weight: 300;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-}
-
-.room-subtitle {
-    font-size: 1.2rem;
-    opacity: 0.9;
-    line-height: 1.6;
 }
 
 .room-content {
@@ -211,7 +169,11 @@
 }
 
 @media (max-width: 1024px) {
-    .room-showcase.default {
+    .carousel-slide {
+        padding: 0 5%;
+    }
+
+    .room-showcase {
         gap: 40px;
     }
 
@@ -230,17 +192,13 @@
 }
 
 @media (max-width: 768px) {
-    .room-showcase.default {
+    .room-showcase {
         grid-template-columns: 1fr;
         gap: 30px;
     }
 
-    .room-showcase.default .room-image-main {
+    .room-image-main {
         height: 350px;
-    }
-
-    .room-title {
-        font-size: 2rem;
     }
 
     .room-content-title {
