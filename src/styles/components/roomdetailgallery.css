@@ -11,13 +11,15 @@
     gap: 0;
     background: #fff;
     min-height: 85vh;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 /* Sol taraf - Ana foto */
 .gallery-main-section {
     position: relative;
-    background: #f8f9fa;
+    background: linear-gradient(135deg, #f8f9fa 0%, #f0f0f0 100%);
 }
 
 .main-image-wrapper {
@@ -27,7 +29,18 @@
     min-height: 85vh;
 }
 
-.main-image-wrapper img {
+.image-container {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-container.loaded {
+    opacity: 1;
+}
+
+.image-container img {
     width: 100%;
     height: 100%;
     display: block;
@@ -38,8 +51,8 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     background: rgba(255, 255, 255, 0.95);
     border: none;
     border-radius: 50%;
@@ -49,9 +62,9 @@
     cursor: pointer;
     transition: all 0.3s ease;
     color: #2c2a28;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     z-index: 5;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .image-nav-arrow.left {
@@ -63,9 +76,10 @@
 }
 
 .image-nav-arrow:hover:not(:disabled) {
-    background: #2c2a28;
+    background: #87847b;
     color: #fff;
     transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 10px 30px rgba(135, 132, 123, 0.4);
 }
 
 .image-nav-arrow:disabled {
@@ -73,59 +87,135 @@
     cursor: not-allowed;
 }
 
-/* Icon'lar */
-.room-feature-icons {
+/* Image counter */
+.image-counter {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(44, 42, 40, 0.9);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.image-counter .divider {
+    margin: 0 8px;
+    opacity: 0.6;
+}
+
+/* Amenities overlay */
+.room-amenities-overlay {
     position: absolute;
     top: 30px;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(255, 255, 255, 0.95);
-    padding: 16px 32px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-    border-radius: 50px;
-    list-style: none;
-    margin: 0;
-    display: flex;
-    gap: 22px;
-    z-index: 10;
+    padding: 20px 30px;
+    border-radius: 15px;
     backdrop-filter: blur(10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    z-index: 10;
+    max-width: 90%;
 }
 
-.room-feature-icons li {
+.amenities-grid {
+    display: flex;
+    gap: 20px;
+}
+
+.amenity-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.amenity-item:hover {
+    transform: translateY(-3px);
+}
+
+.amenity-item i {
+    color: #87847b;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+}
+
+
+.amenity-item:hover i {
     color: #2c2a28;
-    font-size: 1.15rem;
+    transform: scale(1.1);
 }
 
 /* Sağ taraf - Bilgiler */
 .gallery-info-section {
-    padding: 70px 60px;
+    padding: 60px 50px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
+}
+
+.info-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-section {
+    margin-bottom: 30px;
 }
 
 .room-detail-title {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     font-weight: 400;
     color: #2c2a28;
-    margin-bottom: 35px;
-    letter-spacing: 0.3px;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.title-decoration {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    opacity: 0.5;
+}
+
+.title-decoration span {
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(to right, #87847b, transparent);
+}
+
+.title-decoration i {
+    color: #87847b;
+    font-size: 1.2rem;
 }
 
 .room-description-text {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+    padding: 25px;
+    background: #fff;
+    border-left: 4px solid #87847b;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .room-description-text p {
-    font-size: 1.1rem;
-    color: #666;
-    line-height: 1.9;
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.8;
     margin: 0;
 }
 
 /* Thumbnail section */
 .thumbnail-section {
-    margin-bottom: 45px;
+    margin-bottom: 35px;
     flex: 1;
 }
 
@@ -133,27 +223,37 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
 }
 
 .thumbnail-header h4 {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: #2c2a28;
     text-transform: uppercase;
-    letter-spacing: 1.8px;
+    letter-spacing: 2px;
     margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.thumbnail-header h4 i {
+    color: #87847b;
+    font-size: 1.1rem;
 }
 
 .thumbnail-nav {
     display: flex;
-    gap: 12px;
+    gap: 10px;
 }
 
 .thumbnail-nav button {
-    width: 42px;
-    height: 42px;
-    border: 1px solid #ddd;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #e0e0e0;
     background: #fff;
     border-radius: 50%;
     display: flex;
@@ -162,13 +262,14 @@
     cursor: pointer;
     transition: all 0.3s ease;
     color: #666;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .thumbnail-nav button:hover:not(:disabled) {
-    background: #2c2a28;
+    background: #87847b;
     color: #fff;
-    border-color: #2c2a28;
+    border-color: #87847b;
+    transform: scale(1.1);
 }
 
 .thumbnail-nav button:disabled {
@@ -178,65 +279,130 @@
 
 .thumbnail-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 15px;
 }
 
 .thumbnail-item {
-    height: 120px;
-    border-radius: 10px;
+    position: relative;
+    height: 110px;
+    border-radius: 12px;
     overflow: hidden;
     cursor: pointer;
     border: 3px solid transparent;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .thumbnail-item.active {
-    border-color: #2c2a28;
-    box-shadow: 0 6px 15px rgba(44, 42, 40, 0.3);
+    border-color: #87847b;
+    box-shadow: 0 8px 25px rgba(135, 132, 123, 0.4);
 }
 
 .thumbnail-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .thumbnail-item img {
     width: 100%;
     height: 100%;
+    transition: all 0.4s ease;
+}
+
+.thumbnail-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(44, 42, 40, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
     transition: all 0.3s ease;
 }
 
+.thumbnail-overlay i {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.thumbnail-item:hover .thumbnail-overlay {
+    opacity: 1;
+}
+
 .thumbnail-item:hover img {
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
 /* Rezervasyon butonu */
 .reservation-button-wrapper {
     text-align: center;
-    padding-top: 30px;
-    border-top: 1px solid #e8e8e8;
+    padding-top: 25px;
+    border-top: 2px solid #f0f0f0;
 }
 
 .reservation-btn {
-    display: inline-block;
-    padding: 18px 50px;
-    background-color: #87847b;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 45px;
+    background: linear-gradient(135deg, #87847b 0%, #6d6a61 100%);
     color: #fff;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 50px;
     font-weight: 600;
-    font-size: 1.05rem;
+    font-size: 1rem;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
-    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 25px rgba(135, 132, 123, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.reservation-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #6d6a61 0%, #87847b 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.reservation-btn>* {
+    position: relative;
+    z-index: 1;
 }
 
 .reservation-btn:hover {
-    background-color: #6d6a61;
-    color: #fff;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(135, 132, 123, 0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(135, 132, 123, 0.45);
+}
+
+.reservation-btn:hover::before {
+    opacity: 1;
+}
+
+.reservation-btn i:last-child {
+    transition: transform 0.3s ease;
+}
+
+.reservation-btn:hover i:last-child {
+    transform: translateX(5px);
+}
+
+.reservation-note {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #87847b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.reservation-note i {
+    font-size: 0.9rem;
 }
 
 /* Responsive */
@@ -251,52 +417,73 @@
     }
 
     .gallery-info-section {
-        padding: 50px 45px;
+        padding: 45px 40px;
+    }
+
+    .amenities-grid {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (max-width: 768px) {
+    .room-detail-gallery-container {
+        padding: 0 20px;
+    }
+
     .main-image-wrapper {
         min-height: 50vh;
     }
 
     .gallery-info-section {
-        padding: 40px 30px;
+        padding: 35px 25px;
     }
 
     .room-detail-title {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
     .image-nav-arrow {
-        width: 50px;
-        height: 50px;
-        font-size: 1.1rem;
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
     }
 
     .image-nav-arrow.left {
-        left: 20px;
+        left: 15px;
     }
 
     .image-nav-arrow.right {
-        right: 20px;
+        right: 15px;
     }
 
-    .room-detail-gallery-container {
-        padding: 0 20px;
+    .room-amenities-overlay {
+        padding: 15px 20px;
     }
 
-    .room-feature-icons {
-        padding: 14px 24px;
-        gap: 18px;
+    .amenities-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .amenity-item span {
+        font-size: 0.7rem;
     }
 
     .thumbnail-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
+        gap: 10px;
     }
 
     .thumbnail-item {
-        height: 90px;
+        height: 85px;
+    }
+
+    .reservation-btn {
+        padding: 16px 35px;
+        font-size: 0.9rem;
+    }
+
+    .gallery-layout {
+        border-radius: 15px;
     }
 }

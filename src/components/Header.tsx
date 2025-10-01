@@ -8,78 +8,39 @@ import '@/styles/components/header.css';
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-  const [openSubmenu, setOpenSubmenu] = useState<number | null>(null);
   const pathname = usePathname();
 
   const menuItems = [
     { href: "/", label: "Anasayfa" },
-    {
-      href: "#",
-      label: "Kurumsal",
-      submenu: [
-        { href: "/about", label: "Hakkımızda" },
-        { href: "/surdurulebilirlik", label: "Sürdürülebilirlik" }
-      ]
-    },
-    {
-      href: "#",
-      label: "Odalar",
-      submenu: [
-        { href: "/rooms/suite", label: "Suite Oda" },
-        { href: "/rooms/juniorsuite", label: "Junior Suite Oda" },
-        { href: "/rooms/standart", label: "Standart Oda" }
-      ]
-    },
+    { href: "/corporate", label: "Kurumsal" },
+    { href: "/rooms", label: "Odalarımız" },
     { href: "/meeting", label: "Toplantı & Organizasyon" },
     { href: "/restaurant", label: "Restaurant & Barlar" },
     { href: "/gallery", label: "Galeri" },
     { href: "/contact", label: "İletişim" }
   ];
 
-  // Aktif menü öğesini belirleyen fonksiyon
   const isMenuItemActive = (item: any) => {
-    // Ana sayfa kontrolü
-    if (item.href === "/" && pathname === "/") {
-      return true;
-    }
-    
-    // Diğer ana sayfalar için
-    if (item.href !== "/" && item.href !== "#" && pathname === item.href) {
-      return true;
-    }
-    
-    // Alt menü kontrolü - eğer alt menü öğelerinden biri aktifse, ana menü de aktif olur
-    if (item.submenu) {
-      return item.submenu.some((subItem: any) => pathname === subItem.href);
-    }
-    
+    if (item.href === "/" && pathname === "/") return true;
+    if (item.href !== "/" && pathname === item.href) return true;
     return false;
   };
 
   const closeMenu = () => {
     setMenuOpen(false);
-    setOpenSubmenu(null); // Alt menüleri de kapat
   };
 
-  const toggleSubmenu = (index: number) => {
-    setOpenSubmenu(openSubmenu === index ? null : index);
-  };
-
-  // Mobil menü açık/kapalı durumuna göre body scroll kontrolü
   useEffect(() => {
     if (menuOpen) {
       document.body.classList.add('mobile-menu-open');
     } else {
       document.body.classList.remove('mobile-menu-open');
     }
-    
-    // Cleanup function
     return () => {
       document.body.classList.remove('mobile-menu-open');
     };
   }, [menuOpen]);
 
-  // Scroll olayında menüyü kapat
   useEffect(() => {
     const handleScroll = () => {
       if (menuOpen) {
@@ -90,13 +51,11 @@ export default function Header() {
     if (menuOpen) {
       window.addEventListener('scroll', handleScroll, { passive: true });
     }
-
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [menuOpen]);
 
-  // Sayfa tıklamalarında menüyü kapat
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (!menuOpen) return;
@@ -105,7 +64,6 @@ export default function Header() {
       const mobileMenu = document.querySelector('.mobile-menu-dropdown');
       const hamburger = document.querySelector('.navbar-toggler');
 
-      // Mobil menü içinde veya hamburger butonunda tıklanmadıysa menüyü kapat
       if (mobileMenu && hamburger && 
           !mobileMenu.contains(target) && 
           !hamburger.contains(target)) {
@@ -116,13 +74,11 @@ export default function Header() {
     if (menuOpen) {
       document.addEventListener('click', handleClickOutside);
     }
-
     return () => {
       document.removeEventListener('click', handleClickOutside);
     };
   }, [menuOpen]);
 
-  // Sticky header scroll
   useEffect(() => {
     const handleScroll = () => {
       const shouldBeSticky = window.scrollY > 50;
@@ -141,7 +97,6 @@ export default function Header() {
     };
   }, []);
 
-  // Indicator hareketi
   const moveIndicator = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     const indicator = document.getElementById("nav-indicator");
     if (!indicator) return;
@@ -165,21 +120,18 @@ export default function Header() {
   };
 
   useEffect(() => {
-    // Sayfa yüklendiğinde ve pathname değiştiğinde indicator'ı güncelle
     setTimeout(() => {
       resetIndicator();
-    }, 100); // DOM güncellemesi için küçük bir gecikme
-    
+    }, 100);
     window.addEventListener("resize", resetIndicator);
     return () => {
       window.removeEventListener("resize", resetIndicator);
     };
-  }, [pathname]); // pathname dependency eklendi
+  }, [pathname]);
 
   return (
     <>
       <header className="header-three">
-        {/* Üst Bar */}
         <div className="header-top">
           <div className="container container-custom-three">
             <div className="d-md-flex align-items-center justify-content-between">
@@ -208,11 +160,9 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Ana Menü */}
         <div className={`main-menu-area sticky-header ${isSticky ? 'sticky-active' : ''}`}>
           <div className="container container-custom-three">
             <div className="nav-container d-flex align-items-center justify-content-between">
-              {/* Logo */}
               <div className="site-logo">
                 <Link href="/">
                   <Image
@@ -225,12 +175,11 @@ export default function Header() {
                 </Link>
               </div>
 
-              {/* Menü */}
               <div className="nav-menu">
                 <div className="menu-items">
                   <ul onMouseLeave={resetIndicator}>
                     {menuItems.map((item, index) => (
-                      <li key={index} className={item.submenu ? "has-submenu" : ""}>
+                      <li key={index}>
                         <Link
                           href={item.href}
                           className={`nav-link ${isMenuItemActive(item) ? "actived" : ""}`}
@@ -238,15 +187,6 @@ export default function Header() {
                         >
                           {item.label}
                         </Link>
-                        {item.submenu && (
-                          <ul className="submenu">
-                            {item.submenu.map((subItem, subIndex) => (
-                              <li key={subIndex}>
-                                <Link href={subItem.href}>{subItem.label}</Link>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
                       </li>
                     ))}
                     <span className="nav-indicator" id="nav-indicator"></span>
@@ -254,7 +194,6 @@ export default function Header() {
                 </div>
               </div>
 
-              {/* Hamburger */}
               <button
                 className="navbar-toggler"
                 aria-label="Mobile Menu"
@@ -267,50 +206,19 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Mobil Menü - Navbar altında */}
           <div className={`mobile-menu-dropdown ${menuOpen ? 'active' : ''}`}>
             <div className="mobile-menu-content">
               <nav className="mobile-menu-nav">
                 <ul>
                   {menuItems.map((item, index) => (
-                    <li key={index} className={item.submenu ? "has-submenu" : ""}>
-                      {item.submenu ? (
-                        <a
-                          href="#"
-                          className={`mobile-menu-trigger ${openSubmenu === index ? 'active' : ''} ${isMenuItemActive(item) ? 'current-page' : ''}`}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            toggleSubmenu(index);
-                          }}
-                        >
-                          {item.label}
-                          <i className={`fas fa-angle-down ${openSubmenu === index ? 'rotate' : ''}`}></i>
-                        </a>
-                      ) : (
-                        <Link 
-                          href={item.href} 
-                          onClick={closeMenu}
-                          className={isMenuItemActive(item) ? 'current-page' : ''}
-                        >
-                          {item.label}
-                        </Link>
-                      )}
-                      {item.submenu && (
-                        <ul className={`mobile-submenu ${openSubmenu === index ? 'open' : ''}`}>
-                          {item.submenu.map((subItem, subIndex) => (
-                            <li key={subIndex}>
-                              <Link 
-                                href={subItem.href} 
-                                onClick={closeMenu}
-                                className={pathname === subItem.href ? 'current-page' : ''}
-                              >
-                                {subItem.label}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
+                    <li key={index}>
+                      <Link 
+                        href={item.href} 
+                        onClick={closeMenu}
+                        className={isMenuItemActive(item) ? 'current-page' : ''}
+                      >
+                        {item.label}
+                      </Link>
                     </li>
                   ))}
                 </ul>

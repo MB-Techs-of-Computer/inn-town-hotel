@@ -23,13 +23,8 @@ export default function HomePage() {
   const slides = [
     {
       bg: '/img/s1.jpg',
-      link1: { href: '/odalar', text: 'odalar' },
-      link2: { href: '/iletisim', text: 'iletişim' },
-    },
-    {
-      bg: '/img/s2.jpg',
-      link1: { href: '/galeri', text: 'Galeri' },
-      link2: { href: '/hakkimizda', text: 'Hakkımızda' },
+      link1: { href: '/rooms', text: 'odalar' },
+      link2: { href: '/contact', text: 'iletişim' },
     },
   ];
 
@@ -151,7 +146,7 @@ export default function HomePage() {
       <Header />
 
       {/* Banner Slider Section */}
-      <Banner/>
+      <Banner />
 
       {/* HopenAPI Search Form */}
       <div id="block-search">
@@ -160,7 +155,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <AboutSection/>
+      <AboutSection />
 
       {/* Room Slider Section */}
       <RoomSlider />
@@ -178,7 +173,7 @@ export default function HomePage() {
             <div className="col-lg-4 col-sm-6 order-1">
               <div className="feature-box wow fadeInLeft" data-wow-delay=".3s">
                 <div className="icon"><i className="flaticon-teamwork"></i></div>
-                <h3><Link href="#">Toplantı<br /> Salonları</Link></h3>
+                <h3>Toplantı<br /> Salonları</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
                 <span className="count">01</span>
               </div>
@@ -186,7 +181,7 @@ export default function HomePage() {
             <div className="col-lg-4 col-sm-6 order-2">
               <div className="feature-box wow fadeInDown" data-wow-delay=".4s">
                 <div className="icon"><i className="fal fa-wheelchair"></i></div>
-                <h3><Link href="#">Fiziksel Engelliler İçin Olanaklar</Link></h3>
+                <h3>Fiziksel Engelliler İçin Olanaklar</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
                 <span className="count">02</span>
               </div>
@@ -194,7 +189,7 @@ export default function HomePage() {
             <div className="col-lg-4 col-sm-6 order-3 order-sm-4 order-lg-3">
               <div className="feature-box wow fadeInRight" data-wow-delay=".5s">
                 <div className="icon"><i className="fal fa-smoking-ban"></i></div>
-                <h3><Link href="#">Sigara İçilmeyen Kat ve Odalar</Link></h3>
+                <h3>Sigara İçilmeyen Kat ve Odalar</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
                 <span className="count">03</span>
               </div>
@@ -202,7 +197,7 @@ export default function HomePage() {
             <div className="col-lg-4 col-sm-6 order-4 order-sm-3 order-lg-4">
               <div className="feature-box wow fadeInLeft" data-wow-delay=".6s">
                 <div className="icon"><i className="flaticon-wifi"></i></div>
-                <h3><Link href="#">Ücretsiz İnternet</Link></h3>
+                <h3>Ücretsiz İnternet</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
                 <span className="count">04</span>
               </div>
@@ -210,7 +205,7 @@ export default function HomePage() {
             <div className="col-lg-4 col-sm-6 order-5">
               <div className="feature-box wow fadeInUp" data-wow-delay=".7s">
                 <div className="icon"><i className="fal fa-handshake"></i></div>
-                <h3><Link href="#">Anlaşmalı Kuaför</Link></h3>
+                <h3>Anlaşmalı Kuaför</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
                 <span className="count">05</span>
               </div>
@@ -218,7 +213,7 @@ export default function HomePage() {
             <div className="col-lg-4 col-sm-6 order-6">
               <div className="feature-box wow fadeInRight" data-wow-delay=".8s">
                 <div className="icon"><i className="flaticon-location-pin"></i></div>
-                <h3><Link href="#">Merkezi Konum</Link></h3>
+                <h3>Merkezi Konum</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
                 <span className="count">06</span>
               </div>

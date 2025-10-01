@@ -47,10 +47,10 @@ export default function Banner() {
           <p className="description">Konforun ve kalitenin buluştuğu otelimizde unutulmaz anılar biriktirin.</p>
 
           <div className="cta-section">
-            <Link href="/odalar" className="book-now-btn">
-              ODALAR
+            <Link href="/rooms" className="book-now-btn">
+              ODALARIMIZ
             </Link>
-            <Link href="/iletisim" className="secondary-btn">
+            <Link href="/contact" className="secondary-btn">
               İLETİŞİM
             </Link>
           </div>

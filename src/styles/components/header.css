@@ -676,15 +676,7 @@ body.mobile-menu-open {
   }
 }
 
-@media (min-width: 993px) {
-  .navbar-toggler {
-    display: none !important;
-  }
 
-  .mobile-menu-dropdown {
-    display: none !important;
-  }
-}
 
 @media (max-width: 992px) {
   .mobile-menu-dropdown {

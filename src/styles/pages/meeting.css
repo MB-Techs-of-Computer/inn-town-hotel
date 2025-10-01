@@ -163,29 +163,29 @@
     line-height: 1.6;
 }
 
-/* CTA Section */
-.cta-section {
+
+.meeting-page .cta-section {
     padding: 100px 0;
     background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
     color: #fff;
 }
 
-.cta-content {
+.meeting-page .cta-content {
     text-align: center;
 }
 
-.cta-content h2 {
+.meeting-page .cta-content h2 {
     font-size: 2.5rem;
     margin-bottom: 20px;
 }
 
-.cta-content p {
+.meeting-page .cta-content p {
     font-size: 1.2rem;
     margin-bottom: 35px;
     opacity: 0.9;
 }
 
-.cta-button {
+.meeting-page .cta-button {
     display: inline-block;
     background: #87847b;
     color: #fff;
@@ -197,7 +197,7 @@
     transition: all 0.3s ease;
 }
 
-.cta-button:hover {
+.meeting-page .cta-button:hover {
     background: #fff;
     color: #2c2c2c;
     transform: translateY(-3px);
@@ -215,7 +215,7 @@
 
     .meeting-rooms-section,
     .services-section,
-    .cta-section {
+    .meeting-page .cta-section {
         padding: 60px 0;
     }
 
