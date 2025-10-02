@@ -8,6 +8,7 @@ import RoomSlider from '../components/RoomSlider';
 import NearbyPlaces from '@/components/NearbyPlaces';
 import AboutSection from '@/components/AboutSection';
 import Banner from '@/components/Banner';
+import ExelyBooking from '@/components/ExelyBooking';
 
 export default function HomePage() {
   // Banner slider state
@@ -148,12 +149,7 @@ export default function HomePage() {
       {/* Banner Slider Section */}
       <Banner />
 
-      {/* HopenAPI Search Form */}
-      <div id="block-search">
-        <div id="be-search-form" className="be-container container">
-          {/* Bu div'e HopenAPI tarafından rezervasyon formu yüklenecek */}
-        </div>
-      </div>
+      <ExelyBooking type="search-form" showBreadcrumb={false} />
 
       <AboutSection />
 
