@@ -8,76 +8,144 @@ export default function Footer() {
             <div className="footer-widget-area pt-100 pb-50">
                 <div className="container">
                     <div className="row">
-                        <div className="col-lg-3 col-sm-6 order-1">
+                        {/* Sol Kolon - Otel Bilgisi */}
+                        <div className="col-lg-4 col-md-6 order-1">
                             <div className="widget site-info-widget mb-50">
-                                <h4 className="widget-title">Hakkımızda</h4>
-                                <p>
-                                    Bir İç Anadolu kenti olan Eskişehir, öğrenci şehri olarak bilinmesinin
-                                    ötesine turizm merkezli bir şehir haline gelmiştir. Tarihi Odunpazarı Evleri,
-                                    şehrin simgesi olan Porsuk Çayı, müzeleri, sanata olan düşkünlüğü ve
-                                    yatırımları ile bir Avrupa şehrini yansıtmaktadır.
+                                <div className="brand-logo mb-30">
+                                    <h2 className="hotel-name">Inn Town Hotel</h2>
+                                    <span className="hotel-tagline">Eskişehir'in Kalbi</span>
+                                </div>
+                                <p className="hotel-description">
+                                    Eskişehir'in en merkezi konumunda, modern mimarisi ve sıcak atmosferiyle 
+                                    misafirlerine unutulmaz bir konaklama deneyimi sunan InnTown Hotel, 
+                                    şehrin kültürel ve sosyal yaşamına açılan kapınızdır.
                                 </p>
-                                <div className="social-links mt-40">
-                                    <a href="#"><i className="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i className="fab fa-twitter"></i></a>
-                                    <a href="#"><i className="fab fa-behance"></i></a>
-                                    <a href="#"><i className="fab fa-linkedin"></i></a>
-                                    <a href="#"><i className="fab fa-youtube"></i></a>
+                                <div className="quick-contact mt-30">
+                                    <a className="contact-item" href="tel:+902223223535">
+                                        <i className="flaticon-call"></i>
+                                        <span>+90 222 322 3535</span>
+                                    </a>
+                                    <a className="contact-item" href="mailto:info@inntownhotel.com">
+                                        <i className="flaticon-message"></i>
+                                        <span>info@inntownhotel.com</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                        <div className="col-lg-6 order-3 order-lg-2">
-                            <div className="widget nav-widget mb-50">
-                                <h4 className="widget-title">Bağlantılar</h4>
-                                <ul>
-                                    <li><Link href="/">Anasayfa</Link></li>
-                                    <li><Link href="/hakkimizda">Hakkımızda</Link></li>
-                                    <li><Link href="/toplanti">Toplantı & Organizasyon</Link></li>
-                                    <li><Link href="/restaurant">Restaurant & Barlar</Link></li>
-                                    <li><Link href="/galeri">Galeri</Link></li>
-                                    <li><Link href="/iletisim">İletişim</Link></li>
-                                    <li><Link href="/kariyer">Kariyer</Link></li>
-                                    <li><Link href="/odalar/suite">Suite Oda</Link></li>
-                                    <li><Link href="/odalar/junior-suite">Junior Suite Oda</Link></li>
-                                    <li><Link href="/odalar/standart">Standart Oda</Link></li>
-                                </ul>
+
+                        {/* Orta Kolon - Hızlı Linkler */}
+                        <div className="col-lg-4 col-md-6 order-2">
+                            <div className="widget nav-widget-modern mb-50">
+                                <h4 className="widget-title">Keşfedin</h4>
+                                <div className="nav-columns">
+                                    <div className="nav-column">
+                                        <h5 className="column-title">Otel</h5>
+                                        <ul>
+                                            <li><Link href="/">Anasayfa</Link></li>
+                                            <li><Link href="/about">Hakkımızda</Link></li>
+                                            <li><Link href="/gallery">Galeri</Link></li>
+                                            <li><Link href="/corporate">Kurumsal</Link></li>
+                                        </ul>
+                                    </div>
+                                    <div className="nav-column">
+                                        <h5 className="column-title">Hizmetler</h5>
+                                        <ul>
+                                            <li><Link href="/meeting">Toplantı & Organizasyon</Link></li>
+                                            <li><Link href="/restaurant">Restaurant & Barlar</Link></li>
+                                            <li><Link href="/rooms">Odalarımız</Link></li>
+                                            <li><Link href="/contact">İletişim</Link></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="col-lg-3 col-sm-6 order-2 order-lg-3">
-                            <div className="widget contact-widget mb-50">
-                                <h4 className="widget-title">İletişim Bilgileri</h4>
-                                <div className="contact-lists">
-                                    <div className="contact-box">
-                                        <div className="icon"><i className="flaticon-call"></i></div>
-                                        <div className="desc"><h6 className="title">Telefon</h6>+90 222 322 3535</div>
+
+                        {/* Sağ Kolon - İletişim ve Sosyal Medya */}
+                        <div className="col-lg-4 col-md-12 order-3">
+                            <div className="widget contact-widget-modern mb-50">
+                                <h4 className="widget-title">Bize Ulaşın</h4>
+                                <div className="location-box">
+                                    <div className="location-icon">
+                                        <i className="flaticon-location-pin"></i>
                                     </div>
-                                    <div className="contact-box">
-                                        <div className="icon"><i className="flaticon-message"></i></div>
-                                        <div className="desc"><h6 className="title">E-Posta Adresi</h6><a href="mailto:info@inntownhotel.com">info@inntownhotel.com</a></div>
+                                    <div className="location-info">
+                                        <h5>Adresimiz</h5>
+                                        <p>Yenibaşlar Mah. Gün Sokak No: 1<br/>Tepebaşı/ESKİŞEHİR</p>
+                                        <a href="#" className="get-directions">Yol Tarifi Al →</a>
                                     </div>
-                                    <div className="contact-box">
-                                        <div className="icon"><i className="flaticon-location-pin"></i></div>
-                                        <div className="desc"><h6 className="title">Adres</h6>Yenibaşlar Mah. Gün Sokak No: 1 Tepebaşı/ESKİŞEHİR</div>
+                                </div>
+                                
+                                <div className="social-section mt-40">
+                                    <h5 className="social-title">Bizi Takip Edin</h5>
+                                    <div className="social-links-modern">
+                                        <a href="https://www.facebook.com/inntownhotel/" target="_blank" className="social-link facebook-link" aria-label="Facebook">
+                                            <i className="fab fa-facebook-f"></i>
+                                            <span className="social-tooltip">Facebook</span>
+                                        </a>
+                                        <a href="https://www.instagram.com/inntownhotel/" target="_blank"  className="social-link instagram-link" aria-label="Instagram">
+                                            <i className="fab fa-instagram"></i>
+                                            <span className="social-tooltip">Instagram</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div className="copyright-area pt-30 pb-30">
-                <div className="container">
-                    <div className="row align-items-center">
-                        <div className="col-lg-6 col-md-5 order-2 order-md-1">
-                            <p className="copyright-text copyright-two">Copyright <Link href="/">INN TOWN HOTEL</Link> - 2022</p>
-                        </div>
-                        <div className="col-lg-6 col-md-7 order-1 order-md-2">
-                            <div className="footer-menu text-center text-md-right">
-                                <ul>
-                                    <li><a href="https://www.asd.web.tr/" rel="nofollow">ASD Creative</a></li>
-                                </ul>
+
+                    {/* Alt Bilgi Çubuğu */}
+                    <div className="footer-bottom-bar mt-30">
+                        {/* <div className="row align-items-center">
+                            <div className="col-md-6">
+                                <div className="footer-badges">
+                                    <span className="badge-item">
+                                        <i className="fas fa-shield-alt"></i> Güvenli Ödeme
+                                    </span>
+                                    <span className="badge-item">
+                                        <i className="fas fa-award"></i> 5 Yıldız
+                                    </span>
+                                    <span className="badge-item">
+                                        <i className="fas fa-wifi"></i> Ücretsiz WiFi
+                                    </span>
+                                    <span className="badge-item">
+                                        <i className="fas fa-concierge-bell"></i> 7/24 Hizmet
+                                    </span>
+                                </div>
+                            </div>
+                        </div> */}
+                    </div>
+
+                    {/* Newsletter Bölümü */}
+                    <div className="newsletter-section mt-40">
+                        <div className="row align-items-center">
+                            <div className="col-lg-5">
+                                <div className="newsletter-content">
+                                    <h3 className="newsletter-title">Kampanyalardan Haberdar Olun</h3>
+                                    <p className="newsletter-text">Özel fırsatlar ve indirimleri kaçırmayın!</p>
+                                </div>
+                            </div>
+                            <div className="col-lg-7">
+                                <form className="newsletter-form">
+                                    <div className="form-group">
+                                        <input 
+                                            type="email" 
+                                            placeholder="E-posta adresinizi girin" 
+                                            className="newsletter-input"
+                                        />
+                                        <button type="submit" className="newsletter-btn">
+                                            Abone Ol <i className="fas fa-paper-plane"></i>
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="copyright-area pt-20">
+                <div className="container">
+                    <div className="row align-items-center">
+                            <p className="copyright-text copyright-two">Copyright ©Simgesel Media 2025</p>
                     </div>
                 </div>
             </div>

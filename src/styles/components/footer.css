@@ -1,74 +1,4 @@
-/*=======  FOOTER  =======*/
-
-footer .footer-subscibe-area {
-  background-color: #fff;
-}
-
-footer .footer-subscibe-area .subscribe-text .subscribe-form {
-  position: relative;
-}
-
-footer .footer-subscibe-area .subscribe-text .subscribe-form input {
-  width: 100%;
-  border: none;
-  height: 90px;
-  background-color: #f8f8f8;
-  padding-left: 50px;
-  padding-right: 230px;
-  font-size: 16px;
-  letter-spacing: 3px;
-  color: #aeaeae;
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  footer .footer-subscibe-area .subscribe-text .subscribe-form input {
-    padding-left: 20px;
-    padding-right: 200px;
-  }
-}
-
-@media (max-width: 575px) {
-  footer .footer-subscibe-area .subscribe-text .subscribe-form input {
-    padding-left: 20px;
-    padding-right: 20px;
-    height: 70px;
-  }
-}
-
-footer .footer-subscibe-area .subscribe-text .subscribe-form button {
-  position: absolute;
-  right: 15px;
-  bottom: 15px;
-  top: 15px;
-  background-color: #87847b;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 700;
-  text-transform: uppercase;
-  border: none;
-  width: 200px;
-  letter-spacing: 3px;
-  -webkit-transition: all 0.3s ease-out 0s;
-  transition: all 0.3s ease-out 0s;
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  footer .footer-subscibe-area .subscribe-text .subscribe-form button {
-    width: 180px;
-  }
-}
-
-@media (max-width: 575px) {
-  footer .footer-subscibe-area .subscribe-text .subscribe-form button {
-    position: unset;
-    width: 100%;
-    height: 60px;
-  }
-}
-
-footer .footer-subscibe-area .subscribe-text .subscribe-form button:hover {
-  background-color: #111;
-}
+/*=======  MODERN FOOTER DESIGN  =======*/
 
 footer .footer-widget-area {
   position: relative;
@@ -90,264 +20,407 @@ footer .footer-widget-area::after {
   z-index: -1;
 }
 
+/* Widget Temel Stiller */
 footer .footer-widget-area .widget,
 footer .footer-widget-area .widget a,
 footer .footer-widget-area .widget .widget-title,
-footer .footer-widget-area .widget h6 {
+footer .footer-widget-area .widget h6,
+footer .footer-widget-area .widget h5 {
   color: #fff;
 }
 
 footer .footer-widget-area .widget h4.widget-title {
-  font-size: 24px;
-  margin-bottom: 4px;
-  margin-bottom: 40px;
-}
-
-footer .footer-widget-area .widget.site-info-widget {
-  color: #bababa;
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  footer .footer-widget-area .widget.site-info-widget {
-    font-size: 14px;
-  }
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  footer .footer-widget-area .widget.site-info-widget {
-    font-size: 14px;
-  }
-}
-
-footer .footer-widget-area .widget.site-info-widget .social-links {
-  text-align: left;
-}
-
-footer .footer-widget-area .widget.site-info-widget .social-links a {
-  height: 40px;
-  width: 40px;
-  line-height: 40px;
-  text-align: center;
-  color: #fff;
-  background-color: #2e2e2e;
-  margin-right: 5px;
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  footer .footer-widget-area .widget.site-info-widget .social-links a {
-    height: 35px;
-    width: 35px;
-    line-height: 35px;
-    font-size: 14px;
-    margin-right: 2px;
-  }
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  footer .footer-widget-area .widget.site-info-widget .social-links a {
-    height: 35px;
-    width: 35px;
-    line-height: 35px;
-    font-size: 14px;
-    margin-right: 2px;
-  }
-
-}
-
-footer .footer-widget-area .widget.site-info-widget .social-links a:hover {
-  background-color: #87847b;
-}
-
-footer .footer-widget-area .widget.nav-widget {
-  padding-left: 70px;
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  footer .footer-widget-area .widget.nav-widget {
-    padding-left: 0;
-  }
-}
-
-@media (max-width: 767px) {
-  footer .footer-widget-area .widget.nav-widget {
-    padding-left: 0;
-  }
-
-}
-
-footer .footer-widget-area .widget.nav-widget ul li {
-  margin-bottom: 20px;
-  width: 50%;
-  float: left;
-}
-
-@media (max-width: 399px) {
-  footer .footer-widget-area .widget.nav-widget ul li {
-    margin-bottom: 20px;
-    width: 100%;
-  }
-}
-
-footer .footer-widget-area .widget.nav-widget ul li a {
-  font-family: "Roboto", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 35px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
   position: relative;
-  padding-left: 20px;
+  padding-bottom: 15px;
 }
 
-footer .footer-widget-area .widget.nav-widget ul li a:hover {
-  padding-left: 30px;
+footer .footer-widget-area .widget h4.widget-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #87847b 0%, transparent 100%);
+}
+
+/* Sol Kolon - Otel Bilgisi */
+footer .footer-widget-area .widget.site-info-widget .brand-logo .hotel-name {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #fff 0%, #87847b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+footer .footer-widget-area .widget.site-info-widget .brand-logo .hotel-tagline {
+  display: block;
+  font-size: 14px;
+  color: #87847b;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+footer .footer-widget-area .widget.site-info-widget .hotel-description {
+  color: #bababa;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+footer .footer-widget-area .widget.site-info-widget .quick-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+footer .footer-widget-area .widget.site-info-widget .quick-contact .contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border-left: 3px solid #87847b;
+  transition: all 0.3s ease;
+}
+
+footer .footer-widget-area .widget.site-info-widget .quick-contact .contact-item:hover {
+  background: rgba(135, 132, 123, 0.15);
+  transform: translateX(5px);
+}
+
+footer .footer-widget-area .widget.site-info-widget .quick-contact .contact-item i {
+  font-size: 20px;
   color: #87847b;
 }
 
-footer .footer-widget-area .widget.nav-widget ul li a::before {
-  position: absolute;
-  left: 0;
-  top: 0;
-  content: '+';
-}
-
-footer .footer-widget-area .widget.nav-widget ul li:last-child {
-  margin-bottom: 0;
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  footer .footer-widget-area .widget.contact-widget {
-    padding-left: 70px;
-  }
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  footer .footer-widget-area .widget.contact-widget {
-    padding-left: 20px;
-  }
-
-}
-
-footer .footer-widget-area .widget.contact-widget .contact-lists .contact-box {
-  margin-bottom: 30px;
-  padding-bottom: 30px;
-  border-bottom: 1px solid #2e2e2e;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 40px 1fr;
-  grid-template-columns: 40px 1fr;
-  -ms-grid-rows: 1fr;
-  grid-template-rows: 1fr;
-  grid-column-gap: 20px;
+footer .footer-widget-area .widget.site-info-widget .quick-contact .contact-item span {
   font-size: 14px;
+  font-weight: 500;
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  footer .footer-widget-area .widget.contact-widget .contact-lists .contact-box {
-    grid-column-gap: 15px;
+/* Orta Kolon - Navigation */
+footer .footer-widget-area .widget.nav-widget-modern {
+  padding-left: 40px;
+}
+
+@media (max-width: 991px) {
+  footer .footer-widget-area .widget.nav-widget-modern {
+    padding-left: 0;
+    margin-top: 30px;
   }
 }
 
-footer .footer-widget-area .widget.contact-widget .contact-lists .contact-box:last-child {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border: none;
+footer .footer-widget-area .widget.nav-widget-modern .nav-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
 }
 
-footer .footer-widget-area .widget.contact-widget .contact-lists .contact-box h6 {
-  font-size: 20px;
-  margin-bottom: 10px;
+@media (max-width: 575px) {
+  footer .footer-widget-area .widget.nav-widget-modern .nav-columns {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
 }
 
-footer .footer-widget-area .widget.contact-widget .contact-lists .contact-box .icon {
+footer .footer-widget-area .widget.nav-widget-modern .nav-column .column-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #87847b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.nav-column ul {
+  padding: 0;
+}
+
+footer .footer-widget-area .widget.nav-widget-modern .nav-column ul li {
+  margin-bottom: 12px;
+}
+
+footer .footer-widget-area .widget.nav-widget-modern .nav-column ul li a {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 0;
+}
+
+footer .footer-widget-area .widget.nav-widget-modern .nav-column ul li a::before {
+  content: '→';
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+footer .footer-widget-area .widget.nav-widget-modern .nav-column ul li a:hover {
+  color: #87847b;
+  padding-left: 0;
+}
+
+footer .footer-widget-area .widget.nav-widget-modern .nav-column ul li a:hover::before {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Sağ Kolon - İletişim */
+footer .footer-widget-area .widget.contact-widget-modern {
+  padding-left: 40px;
+}
+
+@media (max-width: 991px) {
+  footer .footer-widget-area .widget.contact-widget-modern {
+    padding-left: 0;
+    margin-top: 30px;
+  }
+}
+
+footer .footer-widget-area .widget.contact-widget-modern .location-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 25px;
+  border-radius: 12px;
+  display: flex;
+  gap: 20px;
+  border: 1px solid rgba(135, 132, 123, 0.2);
+  transition: all 0.3s ease;
+}
+
+footer .footer-widget-area .widget.contact-widget-modern .location-box:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(135, 132, 123, 0.4);
+  transform: translateY(-3px);
+}
+
+footer .footer-widget-area .widget.contact-widget-modern .location-box .location-icon {
+  flex-shrink: 0;
+}
+
+footer .footer-widget-area .widget.contact-widget-modern .location-box .location-icon i {
   font-size: 40px;
   color: #87847b;
 }
 
-footer .footer-widget-area.light-theme {
-  background-image: url(/public/img/icon/pattern-02.png);
+footer .footer-widget-area .widget.contact-widget-modern .location-box .location-info h5 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #87847b;
 }
 
-footer .footer-widget-area.light-theme::after {
-  display: none;
+footer .footer-widget-area .widget.contact-widget-modern .location-box .location-info p {
+  font-size: 14px;
+  color: #bababa;
+  line-height: 1.6;
+  margin-bottom: 12px;
 }
 
-footer .footer-widget-area.light-theme .widget,
-footer .footer-widget-area.light-theme .widget a {
-  color: #777777;
+footer .footer-widget-area .widget.contact-widget-modern .location-box .location-info .get-directions {
+  display: inline-flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: #87847b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
 }
 
-footer .footer-widget-area.light-theme .widget .widget-title,
-footer .footer-widget-area.light-theme .widget h6 {
-  color: #222;
+footer .footer-widget-area .widget.contact-widget-modern .location-box .location-info .get-directions:hover {
+  color: #fff;
+  gap: 8px;
 }
 
-footer .footer-widget-area.light-theme .widget.site-info-widget .social-links a {
-  background-color: #f8f8f8;
-  color: #777777;
+/* Sosyal Medya */
+footer .footer-widget-area .widget.contact-widget-modern .social-section .social-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #87847b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-footer .footer-widget-area.light-theme .widget.site-info-widget .social-links a:hover {
-  background-color: #87847b;
+footer .footer-widget-area .widget.contact-widget-modern .social-links-modern {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
-footer .footer-widget-area.light-theme .widget.contact-widget .contact-box {
-  border-color: #e1e1e1;
+footer .footer-widget-area .widget.contact-widget-modern .social-links-modern .social-link {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(135, 132, 123, 0.3);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
+footer .footer-widget-area .widget.contact-widget-modern .social-links-modern .social-link .social-tooltip {
+  position: absolute;
+  bottom: 55px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  background: #87847b;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+footer .footer-widget-area .widget.contact-widget-modern .social-links-modern .social-link .social-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #87847b;
+}
+
+footer .footer-widget-area .widget.contact-widget-modern .social-links-modern .social-link:hover .social-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+footer .footer-widget-area .widget.contact-widget-modern .social-links-modern .social-link:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(135, 132, 123, 0.4);
+}
+
+footer .footer-widget-area .widget.contact-widget-modern .social-links-modern .facebook-link:hover {
+  background: #1877f2;
+  border-color: #1877f2;
+}
+
+footer .footer-widget-area .widget.contact-widget-modern .social-links-modern .instagram-link:hover {
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  border-color: #e6683c;
+}
+
+footer .footer-widget-area .widget.contact-widget-modern .social-links-modern .twitter-link:hover {
+  background: #1da1f2;
+  border-color: #1da1f2;
+}
+
+footer .footer-widget-area .widget.contact-widget-modern .social-links-modern .linkedin-link:hover {
+  background: #0077b5;
+  border-color: #0077b5;
+}
+
+/* Alt Bilgi Çubuğu */
+footer .footer-widget-area .footer-bottom-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 30px;
+}
+
+footer .footer-widget-area .footer-bottom-bar .footer-badges {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 767px) {
+  footer .footer-widget-area .footer-bottom-bar .footer-badges {
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+}
+
+footer .footer-widget-area .footer-bottom-bar .footer-badges .badge-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(135, 132, 123, 0.2);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #fff;
+  border: 1px solid rgba(135, 132, 123, 0.3);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+footer .footer-widget-area .footer-bottom-bar .footer-badges .badge-item:hover {
+  background: rgba(135, 132, 123, 0.35);
+  transform: translateY(-2px);
+}
+
+footer .footer-widget-area .footer-bottom-bar .footer-badges .badge-item i {
+  color: #87847b;
+  font-size: 14px;
+}
+
+footer .footer-widget-area .footer-bottom-bar .footer-quick-links {
+  display: flex;
+  gap: 25px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 767px) {
+  footer .footer-widget-area .footer-bottom-bar .footer-quick-links {
+    justify-content: center;
+  }
+}
+
+footer .footer-widget-area .footer-bottom-bar .footer-quick-links a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #bababa;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+footer .footer-widget-area .footer-bottom-bar .footer-quick-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #87847b;
+  transition: width 0.3s ease;
+}
+
+footer .footer-widget-area .footer-bottom-bar .footer-quick-links a:hover {
+  color: #87847b;
+}
+
+footer .footer-widget-area .footer-bottom-bar .footer-quick-links a:hover::after {
+  width: 100%;
+}
+
+/* Copyright Area - Değişmeden Kalacak */
 footer .copyright-area {
   background-color: #111;
   color: #fff;
-}
-
-footer .copyright-area .social-links {
-  text-align: right;
-}
-
-@media (max-width: 767px) {
-  footer .copyright-area .social-links {
-    text-align: center;
-    margin-bottom: 10px;
-  }
-
-}
-
-footer .copyright-area .social-links a {
-  height: 60px;
-  width: 60px;
-  line-height: 60px;
-  text-align: center;
-  color: #fff;
-  background-color: #212121;
-  margin-left: 10px;
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  footer .copyright-area .social-links a {
-    margin-left: 5px;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-  }
-}
-
-@media (max-width: 767px) {
-  footer .copyright-area .social-links a {
-    margin: 0 5px;
-    width: 50px;
-    height: 50px;
-    line-height: 50px;
-  }
-
-}
-
-@media (max-width: 575px) {
-  footer .copyright-area .social-links a {
-    margin: 0 2px;
-    width: 40px;
-    height: 40px;
-    line-height: 40px;
-    font-size: 12px;
-  }
-}
-
-footer .copyright-area .social-links a:hover {
-  background-color: #87847b;
 }
 
 footer .copyright-area .copyright-text {
@@ -357,94 +430,269 @@ footer .copyright-area .copyright-text {
   text-transform: uppercase;
 }
 
-@media (max-width: 575px) {
-  footer .copyright-area .copyright-text {
-    letter-spacing: 0;
-  }
-}
-
-footer .copyright-area .copyright-text a {
-  color: #fff;
-  text-decoration: underline;
-}
-
 footer .copyright-area .copyright-text.copyright-two {
   text-transform: none;
   font-family: "Roboto", sans-serif;
+  text-align: center;
   font-weight: 700;
   letter-spacing: 0;
 }
 
 @media (max-width: 767px) {
   footer .copyright-area .copyright-text {
-    margin-top: 10px;
     text-align: center;
   }
-
 }
 
-footer .copyright-area .footer-menu ul li {
-  display: inline-block;
-  position: relative;
-  padding-left: 15px;
-  margin-right: 15px;
-}
-
-@media (max-width: 399px) {
-  footer .copyright-area .footer-menu ul li {
-    padding-left: 0;
-    margin-right: 0;
+/* Responsive Düzenlemeler */
+@media (max-width: 991px) {
+  footer .footer-widget-area .widget h4.widget-title {
+    font-size: 20px;
+    margin-bottom: 25px;
   }
 }
 
-footer .copyright-area .footer-menu ul li::before {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  transform: translateY(-50%);
-  width: 3px;
-  height: 12px;
-  background-color: #fff;
-  content: '';
-}
-
-@media (max-width: 399px) {
-  footer .copyright-area .footer-menu ul li::before {
-    display: none;
+@media (max-width: 575px) {
+  footer .footer-widget-area {
+    padding-top: 60px !important;
+    padding-bottom: 30px !important;
+  }
+  
+  footer .footer-widget-area .widget.site-info-widget .brand-logo .hotel-name {
+    font-size: 24px;
+  }
+  
+  footer .footer-widget-area .widget.contact-widget-modern .location-box {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  footer .footer-widget-area .widget.contact-widget-modern .social-links-modern {
+    justify-content: center;
   }
 }
 
-footer .copyright-area .footer-menu ul li:first-child {
-  padding-left: 0;
-  margin-left: 0;
+/* Newsletter Section */
+footer .footer-widget-area .newsletter-section {
+  background: linear-gradient(135deg, rgba(135, 132, 123, 0.15) 0%, rgba(135, 132, 123, 0.05) 100%);
+  padding: 35px 30px;
+  border-radius: 15px;
+  border: 1px solid rgba(135, 132, 123, 0.2);
+  margin-top: 40px;
 }
 
-footer .copyright-area .footer-menu ul li:first-child::before {
-  display: none;
-}
-
-footer .copyright-area .footer-menu ul li a {
-  color: #fff;
+footer .footer-widget-area .newsletter-section .newsletter-content .newsletter-title {
+  font-size: 24px;
   font-weight: 700;
-  font-family: "Roboto", sans-serif;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
 }
 
-footer .copyright-area .footer-menu ul li a:hover {
-  color: #87847b;
+footer .footer-widget-area .newsletter-section .newsletter-content .newsletter-text {
+  font-size: 15px;
+  color: #bababa;
+  margin-bottom: 0;
 }
 
-footer .copyright-area.light-theme {
-  background-color: #f8f8f8;
+@media (max-width: 991px) {
+  footer .footer-widget-area .newsletter-section .newsletter-content {
+    text-align: center;
+    margin-bottom: 25px;
+  }
 }
 
-footer .copyright-area.light-theme,
-footer .copyright-area.light-theme a,
-footer .copyright-area.light-theme .copyright-text,
-footer .copyright-area.light-theme .footer-menu ul li a {
-  color: #222;
+footer .footer-widget-area .newsletter-section .newsletter-form {
+  width: 100%;
 }
 
-footer .copyright-area.light-theme .footer-menu ul li::before {
-  background-color: #737373;
+footer .footer-widget-area .newsletter-section .newsletter-form .form-group {
+  position: relative;
+  display: flex;
+  gap: 0;
+}
+
+footer .footer-widget-area .newsletter-section .newsletter-form .newsletter-input {
+  flex: 1;
+  height: 55px;
+  padding: 0 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px 0 0 10px;
+  color: #fff;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+footer .footer-widget-area .newsletter-section .newsletter-form .newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+footer .footer-widget-area .newsletter-section .newsletter-form .newsletter-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #87847b;
+}
+
+footer .footer-widget-area .newsletter-section .newsletter-form .newsletter-btn {
+  height: 55px;
+  padding: 0 30px;
+  background: #87847b;
+  border: 1px solid #87847b;
+  border-radius: 0 10px 10px 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+footer .footer-widget-area .newsletter-section .newsletter-form .newsletter-btn:hover {
+  background: #6f6d64;
+  transform: translateX(3px);
+}
+
+footer .footer-widget-area .newsletter-section .newsletter-form .newsletter-btn i {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+footer .footer-widget-area .newsletter-section .newsletter-form .newsletter-btn:hover i {
+  transform: translateX(3px);
+}
+
+@media (max-width: 575px) {
+  footer .footer-widget-area .newsletter-section {
+    padding: 25px 20px;
+  }
+  
+  footer .footer-widget-area .newsletter-section .newsletter-content .newsletter-title {
+    font-size: 20px;
+  }
+  
+  footer .footer-widget-area .newsletter-section .newsletter-form .form-group {
+    flex-direction: column;
+  }
+  
+  footer .footer-widget-area .newsletter-section .newsletter-form .newsletter-input,
+  footer .footer-widget-area .newsletter-section .newsletter-form .newsletter-btn {
+    border-radius: 10px;
+    padding: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  footer .footer-widget-area .newsletter-section .newsletter-form .newsletter-btn {
+    margin-top: 10px;
+  }
+}
+
+/* Animasyonlar */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+footer .footer-widget-area .widget {
+  animation: fadeInUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+footer .footer-widget-area .widget:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+footer .footer-widget-area .widget:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+footer .footer-widget-area .widget:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* Hover'da pulse efekti */
+footer .footer-widget-area .footer-badges .badge-item:hover {
+  animation: pulse 0.6s ease-in-out;
+}
+
+/* Pattern overlay için hafif animasyon */
+/* footer .footer-widget-area::after {
+  animation: shimmer 20s linear infinite;
+  background-size: 200% 100%;
+} */
+
+/* Scroll bar özelleştirme (opsiyonel) */
+footer ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+footer ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+footer ::-webkit-scrollbar-thumb {
+  background: #87847b;
+  border-radius: 4px;
+}
+
+footer ::-webkit-scrollbar-thumb:hover {
+  background: #6f6d64;
+}
+
+/* Glow efekti */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(135, 132, 123, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(135, 132, 123, 0.8);
+  }
+}
+
+footer .footer-widget-area .newsletter-section {
+  position: relative;
+  overflow: hidden;
+}
+
+footer .footer-widget-area .newsletter-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(135, 132, 123, 0.1) 0%, transparent 70%);
+  animation: glow 3s ease-in-out infinite;
+  pointer-events: none;
 }

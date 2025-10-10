@@ -1,4 +1,4 @@
-/*=======  MODERN MORPHING HEADER CSS  =======*/
+/*=======  HEADER - ANIMASYONSUZ & RESPONSIVE  =======*/
 
 /* Logo Stilleri */
 header .nav-container .site-logo img {
@@ -14,39 +14,22 @@ header .nav-container .site-logo img {
   z-index: 10;
 }
 
-/* Ana Navbar Container - Modern Morphing Design */
+/* Ana Navbar Container - Animasyon Kaldırıldı */
 header.header-three .nav-container {
   background: white;
   padding: 0 50px;
   position: relative;
-  border-radius: 50px;
+  border-radius: 25px; /* Sabit border-radius */
   margin: 0 30px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-  animation: morphing 8s ease-in-out infinite;
-  overflow: visible; /* visible yaptım submenu için */
+  overflow: visible;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 100px;
 }
 
-/* Morphing Animation */
-@keyframes morphing {
-  0%, 100% {
-    border-radius: 50px 20px 50px 20px;
-  }
-  25% {
-    border-radius: 20px 50px 20px 50px;
-  }
-  50% {
-    border-radius: 50px 50px 20px 20px;
-  }
-  75% {
-    border-radius: 20px 20px 50px 50px;
-  }
-}
-
-/* Gradient Border Effect */
+/* Gradient Border - Animasyon Kaldırıldı */
 header.header-three .nav-container::before {
   content: '';
   position: absolute;
@@ -54,24 +37,14 @@ header.header-three .nav-container::before {
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background-size: 400% 400%;
-  animation: gradientShift 6s ease infinite;
-  border-radius: 50px;
+  background: linear-gradient(135deg, #1a3f48 0%, #87847b 100%); /* Sabit gradient */
+  border-radius: 25px;
   z-index: -1;
-}
-
-@keyframes gradientShift {
-  0%, 100% { 
-    background-position: 0% 50%; 
-  }
-  50% { 
-    background-position: 100% 50%; 
-  }
 }
 
 /* Menu Items Container */
 .menu-items {
-  margin-left: 80px; /* Logo için varsayılan boşluk */
+  margin-left: 80px;
 }
 
 .menu-items ul {
@@ -81,18 +54,18 @@ header.header-three .nav-container::before {
   position: relative;
   align-items: center;
   display: flex;
-  justify-content: flex-start; /* Sola hizala */
-  flex-wrap: nowrap; /* Alt alta geçmeyi önle */
+  justify-content: flex-start;
+  flex-wrap: nowrap;
 }
 
 header.header-three .menu-items ul li {
   display: inline-block;
   position: relative;
   margin: 0 5px;
-  z-index: 100; /* Her li için z-index */
+  z-index: 100;
 }
 
-/* Menü linkleri - Modern stil */
+/* Menü linkleri */
 header.header-three .menu-items ul li .nav-link {
   font-size: 16px;
   font-weight: 700;
@@ -110,83 +83,17 @@ header.header-three .menu-items ul li .nav-link {
 /* Hover Efekti */
 header.header-three .menu-items ul li .nav-link:hover {
   color: #1a3f48;
-  text-shadow: 2px 2px 4px rgba(102, 126, 234, 0.3);
   background: #1a3f4842;
 }
 
 /* Aktif Link */
 header.header-three .menu-items ul li .nav-link.actived {
   color: #1a3f48;
-  text-shadow: 2px 2px 4px rgba(102, 126, 234, 0.5);
   background: #1a3f4842;
   transform: scale(1.05);
 }
 
-/* Alt Menü (Submenu) - Modern style - Alt alta düzen - GÜÇLÜ KURALLAR */
-header .nav-container .menu-items ul li .submenu {
-  position: absolute !important;
-  left: 0 !important;
-  top: 100% !important;
-  width: 250px !important;
-  background: white !important;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  z-index: 9999 !important;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  padding: 8px 0;
-  display: block !important;
-  flex-direction: column !important; /* Flexbox column düzeni */
-}
-
-header .nav-container .menu-items ul li .submenu li {
-  display: block !important;
-  width: 100% !important;
-  margin: 0 !important;
-  border-bottom: 1px solid #f0f0f0;
-  float: none !important;
-  clear: both !important;
-  flex: none !important;
-}
-
-header .nav-container .menu-items ul li .submenu li:last-child {
-  border-bottom: none !important;
-}
-
-header .nav-container .menu-items ul li .submenu li a {
-  display: block !important;
-  width: 100% !important;
-  padding: 12px 20px !important;
-  line-height: 1.4 !important;
-  color: #666 !important;
-  transition: all 0.3s ease;
-  background: transparent !important;
-  border-radius: 0 !important;
-  font-weight: 500;
-  text-decoration: none !important;
-  transform: none !important;
-  box-sizing: border-box !important;
-  float: none !important;
-  clear: both !important;
-}
-
-header .nav-container .menu-items ul li .submenu li a:hover {
-  background-color: #1a3f48 !important;
-  color: white !important;
-  transform: none !important;
-}
-
-/* Submenu gösterme - hover durumu */
-header .nav-container .menu-items ul li:hover > .submenu {
-  opacity: 1 !important;
-  visibility: visible !important;
-  top: 100% !important;
-  display: block !important;
-}
-
-/* Header Three (Ana Theme) - Eski yapı korundu */
+/* Header Three */
 header.header-three {
   background-color: transparent;
   position: relative;
@@ -198,17 +105,16 @@ header.header-three .main-menu-area {
   width: 100%;
   z-index: 999;
   height: auto;
-  bottom: -60px; /* Bu eski CSS'inde vardı, header-top altında konumlandırıyor */
+  bottom: -60px;
 }
 
-/* Sticky durumda da yüksek z-index */
 header.header-three .main-menu-area.sticky-header.sticky-active {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: auto;
-  z-index: 9999; /* Çok yükselttim */
+  z-index: 9999;
   animation: sticky 1.2s;
 }
 
@@ -217,7 +123,7 @@ header.header-three .main-menu-area.sticky-header.sticky-active .nav-container {
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
-/* Header Top - Aynı kalacak */
+/* Header Top - RESPONSIVE */
 header.header-three .header-top {
   padding: 15px 0 55px;
   background-color: #2c2a28;
@@ -228,6 +134,8 @@ header.header-three .header-top .d-md-flex {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 header.header-three .header-top ul.header-top-info {
@@ -236,6 +144,8 @@ header.header-three .header-top ul.header-top-info {
   list-style: none;
   margin: 0;
   padding: 0;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 header.header-three .header-top ul.header-top-info li {
@@ -243,23 +153,26 @@ header.header-three .header-top ul.header-top-info li {
   font-size: 14px;
 }
 
+header.header-three .header-top ul.header-top-info li:last-child {
+  margin-right: 0;
+}
+
 header.header-three .header-top ul.header-top-info li a {
   color: #fff;
   text-decoration: none;
   transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 header.header-three .header-top ul.header-top-info li a:hover {
   color: #87847b;
 }
 
-header.header-three .header-top ul.header-top-info li:last-child {
-  margin-right: 0;
-}
-
 header.header-three .header-top ul.header-top-info li i {
-  margin-right: 8px;
   color: #87847b;
+  font-size: 14px;
 }
 
 .header-social-links {
@@ -287,7 +200,94 @@ header.header-three .header-top ul.header-top-info li i {
   transform: translateY(-2px);
 }
 
-/* Hamburger Menü - Aynı kalacak */
+/* Header Top Responsive Kuralları */
+@media (max-width: 991px) {
+  header.header-three .header-top {
+    padding: 12px 0 45px;
+  }
+  
+  header.header-three .header-top .d-md-flex {
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+  }
+  
+  header.header-three .header-top ul.header-top-info {
+    justify-content: center;
+    width: 100%;
+    /* margin-bottom: 15px; */
+  }
+  
+  header.header-three .header-top ul.header-top-info li {
+    margin-right: 20px;
+    font-size: 13px;
+  }
+  
+  .header-social-links {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  header.header-three .header-top {
+    padding: 10px 0 40px;
+  }
+  
+  header.header-three .header-top ul.header-top-info {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  header.header-three .header-top ul.header-top-info li {
+    margin-right: 0;
+    width: 100%;
+    text-align: center;
+  }
+  
+  header.header-three .header-top ul.header-top-info li a {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 575px) {
+  header.header-three .header-top {
+    padding: 8px 0 35px;
+  }
+  
+  header.header-three .header-top ul.header-top-info li {
+    font-size: 12px;
+  }
+  
+  header.header-three .header-top ul.header-top-info li a {
+    gap: 5px;
+  }
+  
+  .header-social-links {
+    gap: 10px;
+  }
+
+  .header-social-links a {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 399px) {
+  header.header-three .header-top ul.header-top-info li {
+    font-size: 11px;
+  }
+  
+  .header-social-links a {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+}
+
+/* Hamburger Menü */
 .navbar-toggler {
   display: none;
   flex-direction: column;
@@ -322,7 +322,7 @@ header.header-three .header-top ul.header-top-info li i {
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* Mobile Menu - Aynı kalacak */
+/* Mobile Menu */
 .mobile-menu-dropdown {
   position: absolute;
   top: 100%;
@@ -490,44 +490,37 @@ body.mobile-menu-open {
   }
 }
 
-/* Orta ekranlar - Logo ile menü çakışmasını önle */
 @media (min-width: 1200px) and (max-width: 1450px) {
   header.header-three .menu-items ul li .nav-link {
     font-size: 14px;
     padding: 0 12px;
   }
   
-  /* Logo ile menü arasında daha fazla boşluk */
   .menu-items {
     margin-left: 100px;
   }
 }
 
-/* Kritik boyut - 1200px ile 1410px arası */
 @media (min-width: 1200px) and (max-width: 1410px) {
   header.header-three .menu-items ul li .nav-link {
     font-size: 13px;
     padding: 0 10px;
-    line-height: 90px; /* Biraz daha düşük */
+    line-height: 90px;
   }
   
   header.header-three .nav-container {
     padding: 0 30px;
-    height: 90px; /* Container yüksekliğini düşür */
   }
   
-  /* Menü öğelerini logo'dan uzaklaştır */
   .menu-items {
     margin-left: 120px;
   }
   
-  /* Logo konumunu ayarla */
   header .nav-container .site-logo img {
     top: -1.3rem;
   }
 }
 
-/* Çok küçük laptop ekranları */
 @media (min-width: 992px) and (max-width: 1199px) {
   header.header-three .menu-items ul li .nav-link {
     font-size: 12px;
@@ -543,8 +536,31 @@ body.mobile-menu-open {
   }
 }
 
-/* Çok dar ekranlarda zorla mobile'a geç */
-@media (max-width: 1150px) {
+/* 1015px civarında menü kırılmasını önle */
+@media (min-width: 992px) and (max-width: 1150px) {
+  header.header-three .menu-items ul li .nav-link {
+    font-size: 11px;
+    padding: 0 6px;
+    line-height: 100px; /* line-height'ı koruyoruz */
+    white-space: nowrap; /* Alt satıra geçmeyi önle */
+  }
+  
+  header.header-three .nav-container {
+    padding: 0 20px;
+  }
+  
+  .menu-items {
+    margin-left: 90px;
+  }
+  
+  header .nav-container .site-logo img {
+    width: 4.5rem;
+    height: 4.5rem;
+    top: -1.4rem;
+  }
+}
+
+/* @media (max-width: 1150px) {
   .navbar-toggler {
     display: flex !important;
   }
@@ -553,16 +569,10 @@ body.mobile-menu-open {
     display: none !important;
   }
   
-  /* Morphing efektini mobile'da durdur */
   header.header-three .nav-container {
-    animation: none;
     border-radius: 25px;
     margin: 0 15px;
     height: auto;
-  }
-  
-
-  header.header-three .nav-container {
     padding: 2.5rem;
   }
 
@@ -578,10 +588,9 @@ body.mobile-menu-open {
     right: 0;
     max-width: 65%;
   }
-}
+} */
 
-/* Mobile Responsive - Eski 992px kuralını değiştir */
-@media (max-width: 991px) {
+@media (max-width: 992px) {
   .navbar-toggler {
     display: flex !important;
   }
@@ -590,16 +599,9 @@ body.mobile-menu-open {
     display: none !important;
   }
   
-  /* Morphing efektini mobile'da durdur */
   header.header-three .nav-container {
-    animation: none;
     border-radius: 25px;
     margin: 0 15px;
-  }
-  
-
-
-  header.header-three .nav-container {
     padding: 2.5rem;
   }
 
@@ -618,20 +620,6 @@ body.mobile-menu-open {
 }
 
 @media (max-width: 575px) {
-  header.header-three .header-top ul.header-top-info li {
-    font-size: 13px;
-  }
-
-  .header-social-links {
-    gap: 10px;
-  }
-
-  .header-social-links a {
-    width: 30px;
-    height: 30px;
-    font-size: 14px;
-  }
-
   .navbar-toggler {
     width: 25px;
     height: 18px;
@@ -670,13 +658,7 @@ body.mobile-menu-open {
     left: 1% !important;
     right: 1% !important;
   }
-
-  .header-social-links {
-    gap: 8px;
-  }
 }
-
-
 
 @media (max-width: 992px) {
   .mobile-menu-dropdown {
@@ -684,7 +666,6 @@ body.mobile-menu-open {
   }
 }
 
-/* Nav Indicator - Eski sistemi kaldırdım çünkü yeni tasarımda gerekli değil */
 .nav-indicator {
   display: none;
 }

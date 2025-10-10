@@ -54,7 +54,6 @@ export default function Banner() {
               İLETİŞİM
             </Link>
           </div>
-          <div className="contact-info">İletişim: (212) 555 0123</div>
         </div>
       </div>
     </section>

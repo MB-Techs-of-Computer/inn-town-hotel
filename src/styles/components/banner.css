@@ -26,7 +26,8 @@
 
 .banner-slide.active {
     opacity: 1;
-    z-index: 1; /* z-index değişti */
+    z-index: 1;
+    /* z-index değişti */
 }
 
 .banner-image-side {
@@ -54,9 +55,11 @@
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.08);
     }
+
     100% {
         transform: scale(1);
     }
@@ -69,8 +72,9 @@
     top: 50%;
     transform: translateY(-50%);
     width: 50%;
-    padding: 60px;
-    z-index: 10; /* Her zaman en üstte */
+    padding: 0.5rem;
+    z-index: 10;
+    /* Her zaman en üstte */
 }
 
 .main-title {
@@ -142,4 +146,211 @@
 .contact-info {
     font-size: 0.9rem;
     color: #777;
+}
+
+@media (max-width: 1024px) {
+    .banner-section {
+        height: 70vh;
+        min-height: 550px;
+    }
+
+    .main-title {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.5rem;
+    }
+
+    .offer-text {
+        font-size: 1.1rem;
+    }
+
+    .description {
+        font-size: 0.95rem;
+    }
+}
+
+/* Tablets - 768px ve altı */
+@media (max-width: 768px) {
+    .banner-section {
+        height: auto;
+        min-height: 700px;
+    }
+
+    .banner-slide {
+        flex-direction: column;
+        position: relative;
+    }
+
+    .banner-image-side {
+        flex: 0 0 100%;
+        height: 400px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .banner-section .image-wrapper {
+        border-radius: 0 0 30px 30px;
+        width: 100%;
+    }
+
+    .banner-content-side {
+        position: relative;
+        width: 100%;
+        top: 400px;
+        transform: none;
+        padding: 40px 30px;
+        background: #f9f9f9;
+        z-index: 20;
+    }
+
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .subtitle {
+        font-size: 1.3rem;
+        margin: 15px 0;
+    }
+
+    .offer-text {
+        font-size: 1rem;
+        padding: 12px 0;
+        margin-bottom: 15px;
+    }
+
+    .description {
+        font-size: 0.9rem;
+        margin-bottom: 25px;
+        max-width: 100%;
+    }
+
+    .cta-section {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .book-now-btn,
+    .secondary-btn {
+        padding: 12px 25px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobile - 480px ve altı */
+@media (max-width: 480px) {
+    .banner-image-side {
+        height: 350px;
+    }
+
+    .banner-content-side {
+        top: 350px;
+        padding: 30px 20px;
+    }
+
+    .main-title {
+        font-size: 1.6rem;
+        line-height: 1.2;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+        margin: 12px 0;
+    }
+
+    .offer-text {
+        font-size: 0.9rem;
+        padding: 10px 0;
+    }
+
+    .description {
+        font-size: 0.85rem;
+        margin-bottom: 20px;
+        line-height: 1.5;
+    }
+
+    .cta-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .book-now-btn,
+    .secondary-btn {
+        width: 100%;
+        text-align: center;
+        padding: 14px 20px;
+        font-size: 0.9rem;
+    }
+
+    .contact-info {
+        font-size: 0.85rem;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .banner-section .image-wrapper {
+        border-radius: 0 0 20px 20px;
+    }
+}
+
+/* Extra Small Mobile - 360px ve altı */
+@media (max-width: 360px) {
+    .banner-section {
+        min-height: 600px;
+    }
+
+    .banner-image-side {
+        height: 300px;
+    }
+
+    .banner-content-side {
+        top: 300px;
+        padding: 25px 15px;
+    }
+}
+
+/* Landscape Mode için özel ayarlar */
+@media (max-height: 600px) and (orientation: landscape) {
+    .banner-section {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .banner-slide {
+        flex-direction: row;
+    }
+
+    .banner-image-side {
+        flex: 0 0 50%;
+        height: 100vh;
+    }
+
+    .banner-content-side {
+        position: relative;
+        width: 50%;
+        padding: 30px;
+    }
+
+    .main-title {
+        font-size: 1.8rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+}
+
+/* Animasyon performansı için */
+@media (prefers-reduced-motion: reduce) {
+    .banner-image {
+        animation: none;
+    }
+
+    .banner-slide {
+        transition: none;
+    }
 }

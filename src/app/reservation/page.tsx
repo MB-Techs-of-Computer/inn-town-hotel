@@ -8,7 +8,7 @@ import ExelyBooking from '@/components/ExelyBooking';
 export default function ReservationPage() {
 
   const breadcrumbItems = [
-    { href: '/reservation', label: 'Rezervasyon' },
+    { href: '/', label: 'Anasayfa' },
     { label: 'Rezervasyon', active: true }
   ];
 
