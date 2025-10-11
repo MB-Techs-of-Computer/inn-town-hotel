@@ -166,7 +166,7 @@ export default function Header() {
               <div className="site-logo">
                 <Link href="/">
                   <Image
-                    src="/img/logo.jpg"
+                    src="/img/inn-town-logo.png"
                     alt="Inn Town Hotel"
                     width={175}
                     height={100}
@@ -199,9 +199,11 @@ export default function Header() {
                 aria-label="Mobile Menu"
                 onClick={() => setMenuOpen(!menuOpen)}
               >
-                <span></span>
-                <span></span>
-                <span></span>
+                <Image src="/img/icon/menu-icon.png" alt="Menu Icon"
+                  width={20}
+                  height={20}
+                  priority
+                />
               </button>
             </div>
           </div>

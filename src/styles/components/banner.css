@@ -1,294 +1,248 @@
 .banner-section {
-    position: relative;
-    width: 100%;
-    height: 80vh;
-    min-height: 37.5rem;
-    overflow: hidden;
-    background: #f9f9f9;
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 37.5rem;
+  overflow: hidden;
+  background: #f9f9f9;
+  margin: 7vw 0;
 }
 
 .banner-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.banner-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.banner-slide.active {
-    opacity: 1;
-    z-index: 1;
-}
-
-.banner-wrapper {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
-.banner-image-container {
-    flex: 1;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.image-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    border-radius: 0 50% 50% 0;
-    overflow: hidden;
-}
-
-.banner-image {
-    object-fit: cover;
-    animation: zoomIn 15s linear infinite;
-}
-
-@keyframes zoomIn {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.08);
-    }
+  display: flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  align-items: center;
 }
 
 .banner-content {
-    flex: 1;
-    padding: 0 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  z-index: 2;
+  margin-left: 5vw;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.banner-bg {
+  z-index: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  background:
+    url('/img/s2.jpg');
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+  border-radius: 450px 0 0 450px;
+  z-index: 1;
 }
 
 .main-title {
-    font-size: clamp(1.75rem, 4vw, 3rem);
-    font-weight: 700;
-    color: #2c2c2c;
-    margin-bottom: 1rem;
-    line-height: 1.2;
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #2c2c2c;
+  margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .subtitle {
-    font-size: clamp(1.125rem, 2.5vw, 1.8rem);
-    font-style: italic;
-    color: #555;
-    margin-bottom: 1.5rem;
+  font-size: clamp(1.125rem, 2.5vw, 1.8rem);
+  font-style: italic;
+  color: #555;
+  margin-bottom: 1.5rem;
 }
 
 .offer-text {
-    font-size: clamp(0.9rem, 1.5vw, 1.2rem);
-    font-weight: 500;
-    border-top: 0.0625rem solid #ddd;
-    border-bottom: 0.0625rem solid #ddd;
-    padding: 1rem 0;
-    margin-bottom: 1.5rem;
-    color: #444;
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  font-weight: 500;
+  border-top: 0.0625rem solid #ddd;
+  border-bottom: 0.0625rem solid #ddd;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+  color: #444;
 }
 
 .description {
-    font-size: clamp(0.875rem, 1.2vw, 1rem);
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 2rem;
+  font-size: clamp(0.875rem, 1.2vw, 1rem);
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 2rem;
 }
 
 .cta-section {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .book-now-btn,
 .secondary-btn {
-    padding: 0.875rem 1.875rem;
-    border-radius: 1.5625rem;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9375rem;
-    transition: all 0.3s ease;
-    text-align: center;
+  padding: 0.875rem 1.875rem;
+  border-radius: 1.5625rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  transition: all 0.3s ease;
+  text-align: center;
 }
 
 .book-now-btn {
-    background: #2c2c2c;
-    color: white;
+  background: #2c2c2c;
+  color: white;
 }
 
 .book-now-btn:hover {
-    background: #555;
-    transform: translateY(-0.125rem);
+  background: #555;
+  transform: translateY(-0.125rem);
 }
 
 .secondary-btn {
-    border: 0.125rem solid #2c2c2c;
-    color: #2c2c2c;
-    background: transparent;
+  border: 0.125rem solid #2c2c2c;
+  color: #2c2c2c;
+  background: transparent;
 }
 
 .secondary-btn:hover {
-    background: #2c2c2c;
-    color: white;
-    transform: translateY(-0.125rem);
+  background: #2c2c2c;
+  color: white;
+  transform: translateY(-0.125rem);
 }
 
 
 @media (max-width: 768px) {
-    .banner-section {
-        height: auto;
-        min-height: 90vh;
-    }
+  .banner-section {
+    height: auto;
+    min-height: 90vh;
+  }
 
-    .banner-wrapper {
-        flex-direction: column;
-    }
+  .banner-image-container {
+    width: 100%;
+    height: 50vh;
+    min-height: 18.75rem;
+    max-height: 25rem;
+  }
 
-    .banner-image-container {
-        width: 100%;
-        height: 50vh;
-        min-height: 18.75rem;
-        max-height: 25rem;
-    }
+  .banner-content {
+    width: 100%;
+    padding: 1.5rem;
+  }
 
-    .image-wrapper {
-        border-radius: 0 0 1.875rem 1.875rem;
-    }
+  .main-title {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    margin-bottom: 0.75rem;
+  }
 
-    .banner-content {
-        width: 100%;
-        padding: 1.5rem;
-    }
+  .subtitle {
+    font-size: clamp(1rem, 4vw, 1.3rem);
+    margin-bottom: 1rem;
+  }
 
-    .main-title {
-        font-size: clamp(1.5rem, 5vw, 2rem);
-        margin-bottom: 0.75rem;
-    }
+  .offer-text {
+    font-size: clamp(0.8rem, 3.5vw, 1rem);
+    padding: 0.75rem 0;
+    margin-bottom: 1rem;
+  }
 
-    .subtitle {
-        font-size: clamp(1rem, 4vw, 1.3rem);
-        margin-bottom: 1rem;
-    }
+  .description {
+    font-size: clamp(0.8rem, 3vw, 0.9rem);
+    margin-bottom: 1.5rem;
+  }
 
-    .offer-text {
-        font-size: clamp(0.8rem, 3.5vw, 1rem);
-        padding: 0.75rem 0;
-        margin-bottom: 1rem;
-    }
+  .cta-section {
+    justify-content: center;
+    gap: 0.75rem;
+  }
 
-    .description {
-        font-size: clamp(0.8rem, 3vw, 0.9rem);
-        margin-bottom: 1.5rem;
-    }
-
-    .cta-section {
-        justify-content: center;
-        gap: 0.75rem;
-    }
-
-    .book-now-btn,
-    .secondary-btn {
-        width: 40vw;
-        padding: 0.875rem 1.5rem;
-        font-size: 0.875rem;
-    }
+  .book-now-btn,
+  .secondary-btn {
+    width: 40vw;
+    padding: 0.875rem 1.5rem;
+    font-size: 0.875rem;
+  }
 }
 
 /* Küçük Mobil - 480px ve altı */
 @media (max-width: 480px) {
-    .banner-section {
-        height: auto;
-        min-height: 85vh;
-    }
+  .banner-section {
+    height: auto;
+    min-height: 85vh;
+  }
 
-    .banner-image-container {
-        height: 40vh;
-        min-height: 15rem;
-        max-height: 20rem;
-    }
+  .banner-image-container {
+    height: 40vh;
+    min-height: 15rem;
+    max-height: 20rem;
+  }
 
-    .image-wrapper {
-        border-radius: 0 0 1.25rem 1.25rem;
-    }
+  .main-title {
+    font-size: clamp(1.25rem, 6vw, 1.75rem);
+    margin-bottom: 0.5rem;
+  }
 
-    .main-title {
-        font-size: clamp(1.25rem, 6vw, 1.75rem);
-        margin-bottom: 0.5rem;
-    }
+  .subtitle {
+    font-size: clamp(0.875rem, 4.5vw, 1.125rem);
+    margin-bottom: 0.75rem;
+  }
 
-    .subtitle {
-        font-size: clamp(0.875rem, 4.5vw, 1.125rem);
-        margin-bottom: 0.75rem;
-    }
+  .offer-text {
+    font-size: clamp(0.75rem, 3.5vw, 0.875rem);
+    padding: 0.625rem 0;
+    margin-bottom: 0.75rem;
+  }
 
-    .offer-text {
-        font-size: clamp(0.75rem, 3.5vw, 0.875rem);
-        padding: 0.625rem 0;
-        margin-bottom: 0.75rem;
-    }
+  .description {
+    font-size: clamp(0.75rem, 3.2vw, 0.85rem);
+    margin-bottom: 1.25rem;
+  }
 
-    .description {
-        font-size: clamp(0.75rem, 3.2vw, 0.85rem);
-        margin-bottom: 1.25rem;
-    }
-
-    .book-now-btn,
-    .secondary-btn {
-        padding: 0.75rem 1.25rem;
-        font-size: 0.8125rem;
-    }
+  .book-now-btn,
+  .secondary-btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.8125rem;
+  }
 }
 
 @media (max-width:400px) {
-    .cta-section{
-        flex-direction: column;
-    }
+  .cta-section {
+    flex-direction: column;
+  }
 
-    .cta-section a{
-        width: 100%;
-    }
+  .cta-section a {
+    width: 100%;
+  }
 }
 
 /* Landscape Mode */
 @media (max-height: 600px) and (orientation: landscape) {
-    .banner-section {
-        height: 100vh;
-    }
+  .banner-section {
+    height: 100vh;
+  }
 
-    .banner-content {
-        padding: 2rem 1.5rem;
-    }
+  .banner-content {
+    padding: 2rem 1.5rem;
+  }
 
-    .main-title {
-        font-size: clamp(1.5rem, 3vh, 1.8rem);
-    }
+  .main-title {
+    font-size: clamp(1.5rem, 3vh, 1.8rem);
+  }
 
-    .subtitle {
-        font-size: clamp(1rem, 2.5vh, 1.2rem);
-    }
+  .subtitle {
+    font-size: clamp(1rem, 2.5vh, 1.2rem);
+  }
 }
 
 /* Performans */
 @media (prefers-reduced-motion: reduce) {
-    .banner-image {
-        animation: none;
-    }
+  .banner-image {
+    animation: none;
+  }
 
-    .banner-slide {
-        transition: none;
-    }
+  .banner-slide {
+    transition: none;
+  }
 }

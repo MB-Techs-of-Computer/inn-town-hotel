@@ -2,11 +2,47 @@
 
 /* Logo Stilleri */
 header .nav-container .site-logo img {
-  max-width: 175px;
   width: 5rem;
   height: 5rem;
-  position: absolute;
   top: -1.6rem;
+}
+
+@media (max-width: 1800px) {
+  header .nav-container .site-logo img {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  header .nav-container .site-logo img {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
+@media (max-width: 1100px) {
+  header .nav-container .site-logo img {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  header.header-three .main-menu-area {
+    margin-top: 2.5rem !important;
+  }
+
+  header .nav-container .site-logo img {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .site-logo img {
+    background: white;
+    border-radius: 50%;
+    padding: 5px 5px 7px 5px;
+  }
 }
 
 .site-logo {
@@ -19,14 +55,15 @@ header.header-three .nav-container {
   background: white;
   padding: 0 50px;
   position: relative;
-  border-radius: 25px; /* Sabit border-radius */
+  border-radius: 25px;
+  /* Sabit border-radius */
   margin: 0 30px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
   overflow: visible;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
+  height: 5vw;
 }
 
 /* Gradient Border - Animasyon Kaldırıldı */
@@ -37,14 +74,10 @@ header.header-three .nav-container::before {
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: linear-gradient(135deg, #1a3f48 0%, #87847b 100%); /* Sabit gradient */
+  background: linear-gradient(135deg, #1a3f48 0%, #87847b 100%);
+  /* Sabit gradient */
   border-radius: 25px;
   z-index: -1;
-}
-
-/* Menu Items Container */
-.menu-items {
-  margin-left: 80px;
 }
 
 .menu-items ul {
@@ -71,12 +104,12 @@ header.header-three .menu-items ul li .nav-link {
   font-weight: 700;
   color: #555;
   text-decoration: none;
-  line-height: 100px;
+  line-height: 5vw;
   padding: 0 20px;
   transition: all 0.3s ease;
   position: relative;
   z-index: 3;
-  border-radius: 25px;
+  border-radius: 25%;
   display: block;
 }
 
@@ -101,11 +134,11 @@ header.header-three {
 
 header.header-three .main-menu-area {
   position: absolute;
+  margin-top: 1rem;
   left: 0;
   width: 100%;
   z-index: 999;
   height: auto;
-  bottom: -60px;
 }
 
 header.header-three .main-menu-area.sticky-header.sticky-active {
@@ -123,9 +156,7 @@ header.header-three .main-menu-area.sticky-header.sticky-active .nav-container {
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
-/* Header Top - RESPONSIVE */
 header.header-three .header-top {
-  padding: 15px 0 55px;
   background-color: #2c2a28;
   color: #fff;
 }
@@ -135,7 +166,6 @@ header.header-three .header-top .d-md-flex {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 15px;
 }
 
 header.header-three .header-top ul.header-top-info {
@@ -201,69 +231,83 @@ header.header-three .header-top ul.header-top-info li i {
 }
 
 /* Header Top Responsive Kuralları */
-@media (max-width: 991px) {
-  header.header-three .header-top {
-    padding: 12px 0 45px;
+@media (max-width: 600px) {
+  header.header-three .header-top .container {
+    padding: 8px 0;
   }
-  
+
   header.header-three .header-top .d-md-flex {
     justify-content: center;
     text-align: center;
     flex-direction: column;
+    gap: 8px;
   }
-  
+
+  header.header-three .nav-container {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  header.header-three .nav-container:before {
+    background: none;
+  }
+
   header.header-three .header-top ul.header-top-info {
     justify-content: center;
     width: 100%;
-    /* margin-bottom: 15px; */
   }
-  
+
   header.header-three .header-top ul.header-top-info li {
     margin-right: 20px;
     font-size: 13px;
   }
-  
+
   .header-social-links {
     justify-content: center;
     width: 100%;
-    margin-bottom: 1rem;
+  }
+
+  .navbar-toggler {
+    background: white !important;
+    border-radius: 15% !important;
+  }
+
+  header.header-three .main-menu-area.sticky-header.sticky-active .nav-container {
+    box-shadow: none;
+  }
+
+  header.header-three .main-menu-area.sticky-header.sticky-active .nav-container {
+    margin: 0 15px;
   }
 }
 
-@media (max-width: 767px) {
-  header.header-three .header-top {
-    padding: 10px 0 40px;
-  }
-  
+@media (max-width: 600px) {
   header.header-three .header-top ul.header-top-info {
     flex-direction: column;
     gap: 8px;
   }
-  
+
   header.header-three .header-top ul.header-top-info li {
     margin-right: 0;
     width: 100%;
     text-align: center;
   }
-  
+
   header.header-three .header-top ul.header-top-info li a {
     justify-content: center;
   }
 }
 
 @media (max-width: 575px) {
-  header.header-three .header-top {
-    padding: 8px 0 35px;
-  }
-  
   header.header-three .header-top ul.header-top-info li {
     font-size: 12px;
   }
-  
+
   header.header-three .header-top ul.header-top-info li a {
     gap: 5px;
   }
-  
+
   .header-social-links {
     gap: 10px;
   }
@@ -279,7 +323,7 @@ header.header-three .header-top ul.header-top-info li i {
   header.header-three .header-top ul.header-top-info li {
     font-size: 11px;
   }
-  
+
   .header-social-links a {
     width: 28px;
     height: 28px;
@@ -305,7 +349,7 @@ header.header-three .header-top ul.header-top-info li i {
   display: block;
   height: 3px;
   width: 100%;
-  background-color: #000;
+  background-color: #2c2a28;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
@@ -345,6 +389,7 @@ header.header-three .header-top ul.header-top-info li i {
   visibility: visible;
   transform: translateY(0);
   max-height: 600px;
+  margin-top: 2rem;
 }
 
 .mobile-menu-content {
@@ -472,21 +517,9 @@ body.mobile-menu-open {
   0% {
     top: -200px;
   }
+
   100% {
     top: 0;
-  }
-}
-
-/* Responsive - Büyük ekranlar */
-@media (min-width: 1600px) {
-  header.header-three .nav-container {
-    padding: 0 80px;
-  }
-}
-
-@media (min-width: 1200px) and (max-width: 1599px) {
-  header.header-three .nav-container {
-    padding: 0 60px;
   }
 }
 
@@ -495,27 +528,14 @@ body.mobile-menu-open {
     font-size: 14px;
     padding: 0 12px;
   }
-  
-  .menu-items {
-    margin-left: 100px;
-  }
 }
 
 @media (min-width: 1200px) and (max-width: 1410px) {
   header.header-three .menu-items ul li .nav-link {
     font-size: 13px;
     padding: 0 10px;
-    line-height: 90px;
   }
-  
-  header.header-three .nav-container {
-    padding: 0 30px;
-  }
-  
-  .menu-items {
-    margin-left: 120px;
-  }
-  
+
   header .nav-container .site-logo img {
     top: -1.3rem;
   }
@@ -526,83 +546,31 @@ body.mobile-menu-open {
     font-size: 12px;
     padding: 0 8px;
   }
-  
-  header.header-three .nav-container {
-    padding: 0 25px;
-  }
-  
-  .menu-items {
-    margin-left: 100px;
-  }
 }
 
-/* 1015px civarında menü kırılmasını önle */
 @media (min-width: 992px) and (max-width: 1150px) {
   header.header-three .menu-items ul li .nav-link {
     font-size: 11px;
     padding: 0 6px;
-    line-height: 100px; /* line-height'ı koruyoruz */
-    white-space: nowrap; /* Alt satıra geçmeyi önle */
-  }
-  
-  header.header-three .nav-container {
-    padding: 0 20px;
-  }
-  
-  .menu-items {
-    margin-left: 90px;
-  }
-  
-  header .nav-container .site-logo img {
-    width: 4.5rem;
-    height: 4.5rem;
-    top: -1.4rem;
+    white-space: nowrap;
   }
 }
-
-/* @media (max-width: 1150px) {
-  .navbar-toggler {
-    display: flex !important;
-  }
-
-  .nav-menu {
-    display: none !important;
-  }
-  
-  header.header-three .nav-container {
-    border-radius: 25px;
-    margin: 0 15px;
-    height: auto;
-    padding: 2.5rem;
-  }
-
-  .mobile-menu-dropdown {
-    left: 0;
-    right: 0;
-    max-width: 65%;
-    margin: 0 auto;
-  }
-
-  header.header-three .main-menu-area.sticky-active .mobile-menu-dropdown {
-    left: 0;
-    right: 0;
-    max-width: 65%;
-  }
-} */
 
 @media (max-width: 992px) {
   .navbar-toggler {
     display: flex !important;
+    justify-content: end;
+    align-items: center;
+    padding-top: 25px;
   }
 
   .nav-menu {
     display: none !important;
   }
-  
+
   header.header-three .nav-container {
     border-radius: 25px;
     margin: 0 15px;
-    padding: 2.5rem;
   }
 
   .mobile-menu-dropdown {
@@ -644,10 +612,6 @@ body.mobile-menu-open {
 }
 
 @media (max-width: 399px) {
-  header.header-three .nav-container {
-    padding: 2.5rem 0.8rem;
-    margin: 0 8px;
-  }
 
   .mobile-menu-dropdown {
     left: 1% !important;
