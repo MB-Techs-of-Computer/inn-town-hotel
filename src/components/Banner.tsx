@@ -22,39 +22,46 @@ export default function Banner() {
   return (
     <section className="banner-section">
       <div className="banner-container">
-        {/* Arka plan görselleri */}
         {slides.map((slide, index) => (
-          <div key={index} className={`banner-slide ${currentSlide === index ? 'active' : ''}`}>
-            <div className="banner-image-side">
-              <div className="image-wrapper">
-                <Image
-                  src={slide.image}
-                  alt="Hotel Banner"
-                  width={1000}
-                  height={800}
-                  className="banner-image"
-                />
+          <div 
+            key={index} 
+            className={`banner-slide ${currentSlide === index ? 'active' : ''}`}
+          >
+            <div className="banner-wrapper">
+              <div className="banner-image-container">
+                <div className="image-wrapper">
+                  <Image
+                    src={slide.image}
+                    alt="Hotel Banner"
+                    fill
+                    className="banner-image"
+                    priority={index === 0}
+                  />
+                </div>
+              </div>
+
+              <div className="banner-content">
+                <h1 className="main-title">Beklentilerinizi karşılıyoruz</h1>
+                <div className="subtitle">Üst Düzey Lüks Konaklama Deneyimi</div>
+                <div className="offer-text">
+                  Seçili odalarda özel fiyatlar | Hemen rezervasyon yapın
+                </div>
+                <p className="description">
+                  Konforun ve kalitenin buluştuğu otelimizde unutulmaz anılar biriktirin.
+                </p>
+
+                <div className="cta-section">
+                  <Link href="/rooms" className="book-now-btn">
+                    ODALARIMIZ
+                  </Link>
+                  <Link href="/contact" className="secondary-btn">
+                    İLETİŞİM
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         ))}
-
-        {/* Sabit içerik - her zaman görünür */}
-        <div className="banner-content-side">
-          <h1 className="main-title">Beklentilerinizi karşılıyoruz</h1>
-          <div className="subtitle">Üst Düzey Lüks Konaklama Deneyimi</div>
-          <div className="offer-text">Seçili odalarda özel fiyatlar | Hemen rezervasyon yapın</div>
-          <p className="description">Konforun ve kalitenin buluştuğu otelimizde unutulmaz anılar biriktirin.</p>
-
-          <div className="cta-section">
-            <Link href="/rooms" className="book-now-btn">
-              ODALARIMIZ
-            </Link>
-            <Link href="/contact" className="secondary-btn">
-              İLETİŞİM
-            </Link>
-          </div>
-        </div>
       </div>
     </section>
   );
