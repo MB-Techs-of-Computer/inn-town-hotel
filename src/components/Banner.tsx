@@ -9,7 +9,6 @@ export default function Banner() {
         <div className="banner-content">
           <h1 className="main-title">Beklentilerinizi karşılıyoruz</h1>
           <div className="subtitle">Üst Düzey Lüks Konaklama Deneyimi</div>
-          <div className="offer-text">Seçili odalarda özel fiyatlar | Hemen rezervasyon yapın</div>
           <p className="description">Konforun ve kalitenin buluştuğu otelimizde unutulmaz anılar biriktirin.</p>
 
           <div className="cta-section">

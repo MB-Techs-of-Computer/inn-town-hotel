@@ -5,7 +5,6 @@
   min-height: 37.5rem;
   overflow: hidden;
   background: #f9f9f9;
-  margin: 7vw 0;
 }
 
 .banner-container {
@@ -33,13 +32,11 @@
   top: 0;
   width: 60%;
   height: 100%;
-  background:
-    url('/img/s2.jpg');
-  background-size: cover;
+  background:url('/img/s2.jpg');
+  border-radius: 450px 0 0 450px;
+  background-size: auto;
   background-position: right;
   background-repeat: no-repeat;
-  border-radius: 450px 0 0 450px;
-  z-index: 1;
 }
 
 .main-title {
