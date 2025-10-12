@@ -6,128 +6,96 @@ import { usePathname } from 'next/navigation';
 import '@/styles/components/header.css';
 
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [isSticky, setIsSticky] = useState(false);
-  const pathname = usePathname();
+const [menuOpen, setMenuOpen] = useState(false);
+const [isSticky, setIsSticky] = useState(false);
+const pathname = usePathname();
 
-  const menuItems = [
-    { href: "/", label: "Anasayfa" },
-    { href: "/corporate", label: "Kurumsal" },
-    { href: "/rooms", label: "Odalarımız" },
-    { href: "/meeting", label: "Toplantı & Organizasyon" },
-    { href: "/restaurant", label: "Restaurant & Barlar" },
-    { href: "/gallery", label: "Galeri" },
-    { href: "/contact", label: "İletişim" }
-  ];
+const menuItems = [
+  { href: "/", label: "Anasayfa" },
+  { href: "/corporate", label: "Kurumsal" },
+  { href: "/rooms", label: "Odalarımız" },
+  { href: "/meeting", label: "Toplantı & Organizasyon" },
+  { href: "/restaurant", label: "Restaurant & Barlar" },
+  { href: "/gallery", label: "Galeri" },
+  { href: "/contact", label: "İletişim" }
+];
 
-  const isMenuItemActive = (item: any) => {
-    if (item.href === "/" && pathname === "/") return true;
-    if (item.href !== "/" && pathname === item.href) return true;
-    return false;
+const isMenuItemActive = (item: any) => {
+  if (item.href === "/" && pathname === "/") return true;
+  if (item.href !== "/" && pathname === item.href) return true;
+  return false;
+};
+
+const closeMenu = () => {
+  setMenuOpen(false);
+};
+
+useEffect(() => {
+  if (menuOpen) {
+    document.body.classList.add('mobile-menu-open');
+  } else {
+    document.body.classList.remove('mobile-menu-open');
+  }
+  return () => {
+    document.body.classList.remove('mobile-menu-open');
+  };
+}, [menuOpen]);
+
+useEffect(() => {
+  const handleScroll = () => {
+    if (menuOpen) {
+      closeMenu();
+    }
   };
 
-  const closeMenu = () => {
-    setMenuOpen(false);
-  };
-
-  useEffect(() => {
-    if (menuOpen) {
-      document.body.classList.add('mobile-menu-open');
-    } else {
-      document.body.classList.remove('mobile-menu-open');
-    }
-    return () => {
-      document.body.classList.remove('mobile-menu-open');
-    };
-  }, [menuOpen]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (menuOpen) {
-        closeMenu();
-      }
-    };
-
-    if (menuOpen) {
-      window.addEventListener('scroll', handleScroll, { passive: true });
-    }
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, [menuOpen]);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (!menuOpen) return;
-
-      const target = event.target as HTMLElement;
-      const mobileMenu = document.querySelector('.mobile-menu-dropdown');
-      const hamburger = document.querySelector('.navbar-toggler');
-
-      if (mobileMenu && hamburger && 
-          !mobileMenu.contains(target) && 
-          !hamburger.contains(target)) {
-        closeMenu();
-      }
-    };
-
-    if (menuOpen) {
-      document.addEventListener('click', handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, [menuOpen]);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const shouldBeSticky = window.scrollY > 50;
-      setIsSticky(shouldBeSticky);
-      if (shouldBeSticky) {
-        document.body.classList.add('header-sticky-active');
-      } else {
-        document.body.classList.remove('header-sticky-active');
-      }
-    };
-    handleScroll();
+  if (menuOpen) {
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      document.body.classList.remove('header-sticky-active');
-    };
-  }, []);
-
-  const moveIndicator = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    const indicator = document.getElementById("nav-indicator");
-    if (!indicator) return;
-    const rect = e.currentTarget.getBoundingClientRect();
-    const parentRect = e.currentTarget.closest("ul")?.getBoundingClientRect();
-    if (!parentRect) return;
-    indicator.style.width = rect.width + "px";
-    indicator.style.left = rect.left - parentRect.left + "px";
+  }
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
   };
+}, [menuOpen]);
 
-  const resetIndicator = () => {
-    const activeLink = document.querySelector(".nav-link.actived") as HTMLElement;
-    const indicator = document.getElementById("nav-indicator");
-    if (activeLink && indicator) {
-      const rect = activeLink.getBoundingClientRect();
-      const parentRect = activeLink.closest("ul")?.getBoundingClientRect();
-      if (!parentRect) return;
-      indicator.style.width = rect.width + "px";
-      indicator.style.left = rect.left - parentRect.left + "px";
+useEffect(() => {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (!menuOpen) return;
+
+    const target = event.target as HTMLElement;
+    const mobileMenu = document.querySelector('.mobile-menu-dropdown');
+    const hamburger = document.querySelector('.navbar-toggler');
+
+    if (mobileMenu && hamburger && 
+        !mobileMenu.contains(target) && 
+        !hamburger.contains(target)) {
+      closeMenu();
     }
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      resetIndicator();
-    }, 100);
-    window.addEventListener("resize", resetIndicator);
-    return () => {
-      window.removeEventListener("resize", resetIndicator);
-    };
-  }, [pathname]);
+  if (menuOpen) {
+    document.addEventListener('click', handleClickOutside);
+  }
+  return () => {
+    document.removeEventListener('click', handleClickOutside);
+  };
+}, [menuOpen]);
+
+useEffect(() => {
+  const handleScroll = () => {
+    const shouldBeSticky = window.scrollY > 50;
+    setIsSticky(shouldBeSticky);
+    if (shouldBeSticky) {
+      document.body.classList.add('header-sticky-active');
+    } else {
+      document.body.classList.remove('header-sticky-active');
+    }
+  };
+  handleScroll();
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  return () => {
+    window.removeEventListener('scroll', handleScroll);
+    document.body.classList.remove('header-sticky-active');
+  };
+}, []);
 
   return (
     <>
@@ -177,19 +145,17 @@ export default function Header() {
 
               <div className="nav-menu">
                 <div className="menu-items">
-                  <ul onMouseLeave={resetIndicator}>
+                  <ul>
                     {menuItems.map((item, index) => (
                       <li key={index}>
                         <Link
                           href={item.href}
                           className={`nav-link ${isMenuItemActive(item) ? "actived" : ""}`}
-                          onMouseEnter={moveIndicator}
                         >
                           {item.label}
                         </Link>
                       </li>
                     ))}
-                    <span className="nav-indicator" id="nav-indicator"></span>
                   </ul>
                 </div>
               </div>
