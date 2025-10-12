@@ -7,10 +7,9 @@ export default function Banner() {
     <section className="banner-section">
       <div className="banner-container">
         <div className="banner-content">
-          <h1 className="main-title">Beklentilerinizi karşılıyoruz</h1>
-          <div className="subtitle">Üst Düzey Lüks Konaklama Deneyimi</div>
-          <p className="description">Konforun ve kalitenin buluştuğu otelimizde unutulmaz anılar biriktirin.</p>
-
+          <h1 className="main-title">Beklentilerinizi</h1>
+          <h1 className="main-title-right">karşılıyoruz</h1>
+          <div className="subtitle">Her anınız özel, her detay kusursuz</div>
           <div className="cta-section">
             <Link href="/rooms" className="book-now-btn">
               ODALARIMIZ

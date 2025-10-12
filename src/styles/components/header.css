@@ -29,9 +29,9 @@ header .nav-container .site-logo img {
 }
 
 @media (max-width: 600px) {
-  header.header-three .main-menu-area {
+  /* header.header-three .main-menu-area {
     margin-top: 2.5rem !important;
-  }
+  } */
 
   header .nav-container .site-logo img {
     width: 4rem;
@@ -132,7 +132,7 @@ header.header-three {
 
 header.header-three .main-menu-area {
   position: absolute;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   left: 0;
   width: 100%;
   z-index: 999;
@@ -241,15 +241,15 @@ header.header-three .header-top ul.header-top-info li i {
     gap: 8px;
   }
 
-  header.header-three .nav-container {
+  /* header.header-three .nav-container {
     background: none;
     box-shadow: none;
     padding: 0;
-  }
+  } */
 
-  header.header-three .nav-container:before {
+  /* header.header-three .nav-container:before {
     background: none;
-  }
+  } */
 
   header.header-three .header-top ul.header-top-info {
     justify-content: center;
@@ -387,7 +387,7 @@ header.header-three .header-top ul.header-top-info li i {
   visibility: visible;
   transform: translateY(0);
   max-height: 600px;
-  margin-top: 2rem;
+  margin-top: 0.1rem;
 }
 
 .mobile-menu-content {
@@ -569,6 +569,7 @@ body.mobile-menu-open {
   header.header-three .nav-container {
     border-radius: 25px;
     margin: 0 15px;
+    padding: 2rem;
   }
 
   .mobile-menu-dropdown {
@@ -598,7 +599,7 @@ body.mobile-menu-open {
   .mobile-menu-dropdown {
     left: 0;
     right: 0;
-    max-width: 85%;
+    /* max-width: 85%; */
     margin: 0 auto;
   }
 
