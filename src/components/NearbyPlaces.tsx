@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import Link from "next/link";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "@/styles/components/nearbyplaces.css";
 
 export default function NearbyPlaces() {
     const [currentSlide, setCurrentSlide] = useState(0);

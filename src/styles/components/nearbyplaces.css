@@ -1,0 +1,464 @@
+/* Slider'ın ana container'ı */
+.room-slider {
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+}
+
+/*=======  Room Slider  =======*/
+.room-slider {
+  position: relative;
+  z-index: 1;
+}
+
+.room-slider .rooms-slider-one.row {
+  margin-left: -1.25rem;
+  margin-right: -1.25rem;
+}
+
+.room-slider .rooms-slider-one.row>.col {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.room-slider .rooms-slider-one .slider-img {
+  width: 100%;
+  height: 21.875rem;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.room-slider .rooms-slider-one .slider-img:hover {
+  transform: scale(1.02);
+}
+
+/* DESKTOP - ESKİ HALİ AYNEN KALSIN */
+.room-slider .rooms-content-wrap .room-content-box {
+  background-color: #1a3f48;
+  color: #d4d4d4;
+  font-size: 0.875rem;
+  padding: 3.75rem 3.125rem;
+  position: relative;
+  z-index: 2;
+  margin-top: -25rem;
+  left: -1.5625rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1.25rem 3.125rem rgba(0, 0, 0, 0.15);
+}
+
+.room-slider .rooms-content-wrap .room-content-box .slider-count {
+  position: absolute;
+  right: 3.125rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  top: 5.625rem;
+  color: #4c4c4c;
+  z-index: 3;
+  letter-spacing: 0.125rem;
+}
+
+.room-slider .rooms-content-wrap .room-content-box .slider-count .current {
+  color: #87847b;
+}
+
+.room-slider .rooms-content-wrap .room-content-box .slider-count-big {
+  position: absolute;
+  bottom: -1.875rem;
+  right: 0;
+  line-height: 1;
+  font-size: 12.5rem;
+  z-index: -1;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 0.0625rem rgba(255, 255, 255, 0.6);
+  opacity: 0.1;
+  font-weight: 700;
+}
+
+.room-slider .rooms-content-wrap .room-content-box h3 {
+  font-size: 2.25rem;
+  color: #fff;
+  margin-bottom: 1.25rem;
+  line-height: 1.3;
+}
+
+.room-slider .rooms-content-wrap .room-content-box h3,
+.room-slider .rooms-content-wrap .room-content-box h3 a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.room-slider .rooms-content-wrap .room-content-box h3 a:hover {
+  color: #87847b;
+}
+
+.room-slider .rooms-content-wrap .room-content-box .icon {
+  line-height: 1;
+  color: #87847b;
+  margin-bottom: 1rem;
+  font-size: 4rem;
+}
+
+.room-slider .rooms-content-wrap .room-content-box .room-content-slider {
+  padding-bottom: 2.8125rem;
+}
+
+.room-slider .rooms-content-wrap .room-content-box .room-content-slider .single-content {
+  overflow: hidden;
+}
+
+.room-slider .rooms-content-wrap .room-content-box .room-content-slider .single-content p {
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.room-slider .rooms-content-wrap .room-content-box .room-content-slider ul.slick-dots {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  list-style: none;
+  display: flex;
+  gap: 0.625rem;
+  padding: 0;
+  margin: 0;
+}
+
+.room-slider .rooms-content-wrap .room-content-box .room-content-slider ul.slick-dots li {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.room-slider .rooms-content-wrap .room-content-box .room-content-slider ul.slick-dots li button {
+  font-size: 0;
+  border: 0;
+  background: #434343;
+  width: 1rem;
+  height: 0.25rem;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+  border-radius: 0.125rem;
+}
+
+.room-slider .rooms-content-wrap .room-content-box .room-content-slider .slick-dots li button:before {
+  content: '';
+  display: none;
+}
+
+.room-slider .rooms-content-wrap .room-content-box .room-content-slider ul.slick-dots li.slick-active button {
+  width: 1.5rem;
+  background-color: #87847b;
+}
+
+/* Tablet - Büyük (1200px - 1024px) */
+@media (max-width: 1200px) {
+  .room-slider .rooms-slider-one .slider-img {
+    height: 20rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box {
+    padding: 3.125rem 2.5rem;
+    margin-top: -22.5rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box h3 {
+    font-size: 2rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .slider-count-big {
+    font-size: 10rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .icon {
+    font-size: 3.75rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Tablet - Orta (1024px - 768px) */
+@media (max-width: 1024px) {
+  .room-slider .rooms-slider-one .slider-img {
+    height: 18.75rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box {
+    padding: 2.5rem 2rem;
+    margin-top: -20rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box h3 {
+    font-size: 1.875rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .slider-count {
+    right: 2rem;
+    top: 2.5rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .slider-count-big {
+    font-size: 8.75rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.875rem;
+  }
+}
+
+/* Tablet - Küçük (768px) - MOBİL İÇİN DEĞİŞİKLİKLER BAŞLIYOR */
+@media (max-width: 768px) {
+  .room-slider .rooms-slider-one.row {
+    margin-left: -0.625rem;
+    margin-right: -0.625rem;
+  }
+
+  .room-slider .rooms-slider-one.row>.col {
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+  }
+
+  .room-slider .rooms-slider-one .slider-img {
+    height: 20rem;
+    border-radius: 0.5rem;
+  }
+
+  /* MOBİLDE: Kutu görsellerin altına biraz overlap olsun ama daha az */
+  .room-slider .rooms-content-wrap {
+    margin-bottom: 6.25rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box {
+    margin-top: -6.25rem;
+    padding: 3.125rem 1.875rem;
+    left: 0;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .slider-count {
+    right: 1.875rem;
+    top: 3.125rem;
+    font-size: 0.8125rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .slider-count-big {
+    font-size: 7.5rem;
+    bottom: -1.25rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .icon {
+    font-size: 3.125rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .room-content-slider {
+    padding-bottom: 2.5rem;
+  }
+}
+
+/* Mobil - Büyük (640px - 480px) */
+@media (max-width: 640px) {
+  .room-slider .rooms-slider-one .slider-img {
+    height: 18.75rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box {
+    margin-top: -5rem;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box h3 {
+    font-size: 1.625rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .slider-count {
+    right: 1.5rem;
+    top: 2.5rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .slider-count-big {
+    font-size: 6.25rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .icon {
+    font-size: 2.875rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .room-content-slider .single-content p {
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+}
+
+/* Mobil - Orta (480px - 400px) */
+@media (max-width: 480px) {
+  .room-slider .rooms-slider-one .slider-img {
+    height: 17.5rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box {
+    margin-top: -4rem;
+    padding: 2.1875rem 1.25rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .slider-count {
+    right: 1.25rem;
+    top: 2.1875rem;
+    font-size: 0.75rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .slider-count-big {
+    font-size: 5.625rem;
+    bottom: -1rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .room-content-slider {
+    padding-bottom: 2.1875rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .room-content-slider .single-content p {
+    font-size: 0.8125rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .room-content-slider ul.slick-dots {
+    top: 10rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .room-content-slider ul.slick-dots li {
+    width: 0.7rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .room-content-slider ul.slick-dots li.slick-active button {
+    width: 1.25rem;
+  }
+}
+
+/* Mobil - Küçük (400px - 360px) */
+@media (max-width: 400px) {
+  .room-slider .rooms-slider-one .slider-img {
+    height: 16.25rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box {
+    margin-top: -3.125rem;
+    padding: 1.875rem 1rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box h3 {
+    font-size: 1.375rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .slider-count {
+    right: 1rem;
+    top: 1.875rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .slider-count-big {
+    font-size: 5rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .icon {
+    font-size: 2.25rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .room-content-slider .single-content p {
+    font-size: 0.75rem;
+    line-height: 1.6;
+  }
+}
+
+/* Mobil - Çok Küçük (360px ve altı) */
+@media (max-width: 360px) {
+  .room-slider .rooms-slider-one .slider-img {
+    height: 15rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box {
+    margin-top: -2.5rem;
+    padding: 1.5rem 0.875rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box h3 {
+    font-size: 1.25rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .slider-count {
+    right: 0.875rem;
+    top: 1.5rem;
+    font-size: 0.6875rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .slider-count-big {
+    font-size: 4.5rem;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box .icon {
+    font-size: 2rem;
+  }
+}
+
+/* Touch Cihazlar için Optimizasyon */
+@media (hover: none) and (pointer: coarse) {
+  .room-slider .rooms-slider-one .slider-img:hover {
+    transform: none;
+  }
+
+  .room-slider .rooms-content-wrap .room-content-box h3 a:hover {
+    color: #fff;
+  }
+}
+
+/* Slick Slider Özel Ayarları */
+.room-slider .slick-slider {
+  position: relative;
+}
+
+.room-slider .slick-list {
+  overflow: hidden;
+}
+
+.room-slider .slick-track {
+  display: flex;
+  align-items: center;
+}
+
+.room-slider .slick-slide {
+  opacity: 0.75;
+  transition: opacity 0.4s ease;
+}
+
+.room-slider .slick-slide.slick-active {
+  opacity: 1;
+}
+
+.room-slider .slick-slide.slick-center {
+  transform: scale(1.03);
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .room-slider .slick-slide {
+    opacity: 1;
+  }
+  
+  .room-slider .slick-slide.slick-center {
+    transform: scale(1);
+  }
+}

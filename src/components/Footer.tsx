@@ -71,7 +71,7 @@ export default function Footer() {
                                     <div className="location-info">
                                         <h5>Adresimiz</h5>
                                         <p>Yenibaşlar Mah. Gün Sokak No: 1<br/>Tepebaşı/ESKİŞEHİR</p>
-                                        <a href="#" className="get-directions">Yol Tarifi Al →</a>
+                                        <a href="https://maps.app.goo.gl/PuYPwn35iAaXiCh79" target="_blank" className="get-directions">Yol Tarifi Al →</a>
                                     </div>
                                 </div>
                                 
