@@ -113,32 +113,6 @@ export default function Footer() {
                             </div>
                         </div> */}
                     </div>
-
-                    {/* Newsletter Bölümü */}
-                    <div className="newsletter-section mt-40">
-                        <div className="row align-items-center">
-                            <div className="col-lg-5">
-                                <div className="newsletter-content">
-                                    <h3 className="newsletter-title">Kampanyalardan Haberdar Olun</h3>
-                                    <p className="newsletter-text">Özel fırsatlar ve indirimleri kaçırmayın!</p>
-                                </div>
-                            </div>
-                            <div className="col-lg-7">
-                                <form className="newsletter-form">
-                                    <div className="form-group">
-                                        <input 
-                                            type="email" 
-                                            placeholder="E-posta adresinizi girin" 
-                                            className="newsletter-input"
-                                        />
-                                        <button type="submit" className="newsletter-btn">
-                                            Abone Ol <i className="fas fa-paper-plane"></i>
-                                        </button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 

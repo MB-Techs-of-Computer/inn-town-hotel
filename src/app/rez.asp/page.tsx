@@ -3,7 +3,13 @@ import Header from "@/components/Header";
 import Breadcrumb from "@/components/BreadCrumb";
 import Footer from "@/components/Footer";
 
-export default function RezAsp({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+export default async function RezAsp({ 
+  searchParams 
+}: { 
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }> 
+}) {
+  // searchParams'ı await edin
+  const resolvedParams = await searchParams;
 
   const breadcrumbItems = [
     { href: '/', label: 'Anasayfa' },
@@ -12,11 +18,12 @@ export default function RezAsp({ searchParams }: { searchParams: { [key: string]
   
   const params = new URLSearchParams();
 
-  Object.entries(searchParams).forEach(([key, value]) => {
+  Object.entries(resolvedParams).forEach(([key, value]) => {
     if (value) {
       params.set(key, Array.isArray(value) ? value[0] : value);
     }
   });
+  
   redirect(`/reservation?${params.toString()}`);
 
   return (
