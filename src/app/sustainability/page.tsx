@@ -16,30 +16,32 @@ interface Document {
 export default function SustainabilityDocsPage() {
     const breadcrumbItems = [
         { href: '/', label: 'Anasayfa' },
-        { label: 'Sürdürülebilirlik Belgeleri', active: true }
+        { label: 'Sürdürülebilirlik', active: true }
     ];
 
     const [selectedDoc, setSelectedDoc] = useState<Document | null>(null);
 
     const politicsDocuments: Document[] = [
-        { title: "Acil Durum Çalışmaları", size: "245 KB", description: "Acil durum ve kriz yönetimi prosedürleri", pdfUrl: "/pdfs/acildurum.pdf" },
-        { title: "Estram Tramvay Politikası", size: "189 KB", description: "Toplu taşıma sürdürülebilirlik yaklaşımı", pdfUrl: "/pdfs/tramvayhat.pdf" },
-        { title: "Yiyeceklerimiz - Değerlendirme", size: "312 KB", description: "Gıda israfı önleme ve değerlendirme raporu", pdfUrl: "/pdfs/yiyecekler.pdf" },
-        { title: "LS.03 Ziyaretler", size: "156 KB", description: "", pdfUrl: "/pdfs/ziyaretkurallar.pdf" },
-        { title: "PLT.01 Çevre Koruma Politikası", size: "203 KB", description: "Çevre koruma ilkeleri ve taahhütler", pdfUrl: "/pdfs/cevre-koruma.pdf" },
-        { title: "PLT.02 Çocuk Hakları Politikası", size: "178 KB", description: "Çocuk hakları ve koruma politikaları", pdfUrl: "/pdfs/cocuk-haklari.pdf" },
-        { title: "PLT.04 Kadın Hakları Politikası", size: "192 KB", description: "Toplumsal cinsiyet eşitliği ve kadın hakları", pdfUrl: "/pdfs/kadinhaklari.pdf" },
-        { title: "PLT.03 Enerji Verimliliği Politikası", size: "215 KB", description: "Enerji tasarrufu ve yenilenebilir enerji", pdfUrl: "/pdfs/enerji-verimlilik.pdf" },
-        { title: "PLT.05 Sürdürülebilirlik Politikası", size: "267 KB", description: "Genel sürdürülebilirlik yaklaşımı ve hedefler", pdfUrl: "/pdfs/surdurulebilirlik-a.pdf" },
-        { title: "PLT.06 Sürdürülebilirlik Politikası B", size: "438 KB", description: "Güncellenmiş sürdürülebilirlik stratejisi", pdfUrl: "/pdfs/surdurulebilirlik-b.pdf" },
-        { title: "PLT.07 Yöresel Kalkınma", size: "294 KB", description: "Yerel ekonomi ve kalkınma destekleri", pdfUrl: "/pdfs/yoresel-kalkinma.pdf" },
-        { title: "Eskişehir Avlak Haritası", size: "1.2 MB", description: "Bölgesel avlak alanları haritası", pdfUrl: "/pdfs/avlak-haritasi.pdf" },
-        { title: "PLT.08 Yerel Toplum İlişkileri", size: "221 KB", description: "Paydaş katılımı ve toplum ilişkileri", pdfUrl: "/pdfs/yerel-toplum.pdf" },
-        { title: "Tablo 4 - Sürdürülebilirlik", size: "387 KB", description: "İstatistiksel sürdürülebilirlik göstergeleri", pdfUrl: "/pdfs/tablo-surdurulebilirlik.pdf" }
+        { title: "Sürdürülebilirlik Politikası", size: "", description: "", pdfUrl: "/pdfs/surdurulebilirlikpolitika.pdf" },
+        { title: "Kadın Hakları ve Cinsiyet Eşitliği Politikası", size: "", description: "", pdfUrl: "/pdfs/kadinhaklari.pdf" },
+        { title: "Çocuk Hakları Politikası", size: "", description: "", pdfUrl: "/pdfs/cocukhaklari.pdf" },
+        { title: "Çevre Koruma Politikası ", size: "", description: "", pdfUrl: "/pdfs/cevrekoruma.pdf" },
+        { title: "Enerji Verimliliği Politikası", size: "", description: "", pdfUrl: "/pdfs/enerjipolitika.pdf" },
+        { title: "Karbon Ayak İzini Azaltmak İçin Neler Yapabiliriz?", size: "", description: "", pdfUrl: "/pdfs/karbonayakizi.pdf" },
+        { title: "Sürüdürülebilir Satın Alma Politikası", size: "", description: "", pdfUrl: "/pdfs/surdurebilirsatinalma.pdf" },
+        { title: "Kültürel Etkileşim Politikası", size: "", description: "", pdfUrl: "/pdfs/kulturelpolitika.pdf" },
+        { title: "Kültürel Mirasın Korunması ve Sunulması Politikası", size: "", description: "", pdfUrl: "/pdfs/kulturelkorunma.pdf" },
+        { title: "Yerel Toplum İlişkileri ve Sorumluluk Politikası", size: "", description: "", pdfUrl: "/pdfs/yereltoplum.pdf" },
+        { title: "Yöresel Geleneksel Kültürel Arkeolojik Miras ve Yaban Hayatı Koruma Politikası", size: "", description: "", pdfUrl: "/pdfs/yabanhayatipolitika.pdf" },
+        { title: "Eskişehir Avlak Haritası", size: "", description: "", pdfUrl: "/pdfs/avlaklarharita.pdf" },
+        { title: "Yiyeceklerimiz Çöpe Atılmayaca Kadar Değerlidir", size: "", description: "", pdfUrl: "/pdfs/yiyecekler.pdf" },
+        { title: "Ziyaretler Sırasında Uyulması Gereken Kurallar", size: "", description: "", pdfUrl: "/pdfs/ziyaretkurallar.pdf" },
+        { title: "Acil Durum Çağrı", size: "", description: "", pdfUrl: "/pdfs/acildurum.pdf" },
+        { title: "Estram Tramvay Hat Şeması", size: "", description: "", pdfUrl: "/pdfs/tramvayhat.pdf" }
     ];
 
     const reportsDocuments: Document[] = [
-        { title: "Karbon Ayak İzi Raporu", size: "428 KB", description: "Yıllık karbon emisyon analizi ve hedefler", pdfUrl: "/pdfs/karbon-ayak-izi.pdf" }
+        { title: "Sürdürülebilirlik Raporu", size: "", description: "", pdfUrl: "/pdfs/surdurulebilirlikraporlamasi.pdf" }
     ];
 
     const openModal = (doc: Document): void => {
@@ -66,7 +68,7 @@ export default function SustainabilityDocsPage() {
         <>
             <Header />
             <Breadcrumb
-                title="Sürdürülebilirlik Belgeleri"
+                title="Sürdürülebilirlik"
                 subtitle="INN TOWN HOTEL"
                 backgroundImage="/img/bg/04.jpg"
                 items={breadcrumbItems}
@@ -116,16 +118,16 @@ export default function SustainabilityDocsPage() {
                             />
                         </div>
                         <div className="modal-footer">
-                            <a 
-                                href={selectedDoc.pdfUrl} 
+                            <a
+                                href={selectedDoc.pdfUrl}
                                 download
                                 className="download-pdf-btn"
                             >
                                 <i className="fal fa-download"></i> İndir
                             </a>
-                            <a 
-                                href={selectedDoc.pdfUrl} 
-                                target="_blank" 
+                            <a
+                                href={selectedDoc.pdfUrl}
+                                target="_blank"
                                 rel="noopener noreferrer"
                                 className="open-pdf-btn"
                             >

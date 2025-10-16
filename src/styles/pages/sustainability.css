@@ -293,11 +293,6 @@
         padding: 1.5rem;
     }
 
-    .modal-pdf {
-        max-width: 95vw;
-        height: 90vh;
-    }
-
     .modal-header {
         padding: 1rem 1.5rem;
     }
@@ -343,13 +338,6 @@
     .doc-title {
         font-size: 1rem;
         min-height: auto;
-    }
-
-    .modal-pdf {
-        max-width: 100vw;
-        height: 100vh;
-        border-radius: 0;
-        margin: 0;
     }
 
     .modal-header {
