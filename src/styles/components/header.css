@@ -29,10 +29,6 @@ header .nav-container .site-logo img {
 }
 
 @media (max-width: 600px) {
-  /* header.header-three .main-menu-area {
-    margin-top: 2.5rem !important;
-  } */
-
   header .nav-container .site-logo img {
     width: 4rem;
     height: 4rem;
@@ -241,16 +237,6 @@ header.header-three .header-top ul.header-top-info li i {
     gap: 8px;
   }
 
-  /* header.header-three .nav-container {
-    background: none;
-    box-shadow: none;
-    padding: 0;
-  } */
-
-  /* header.header-three .nav-container:before {
-    background: none;
-  } */
-
   header.header-three .header-top ul.header-top-info {
     justify-content: center;
     width: 100%;
@@ -273,9 +259,6 @@ header.header-three .header-top ul.header-top-info li i {
 
   header.header-three .main-menu-area.sticky-header.sticky-active .nav-container {
     box-shadow: none;
-  }
-
-  header.header-three .main-menu-area.sticky-header.sticky-active .nav-container {
     margin: 0 15px;
   }
 }
@@ -460,6 +443,8 @@ body.mobile-menu-open {
   color: #87847b;
 }
 
+
+
 .mobile-menu-trigger.active i {
   transform: rotate(180deg);
 }
@@ -599,7 +584,6 @@ body.mobile-menu-open {
   .mobile-menu-dropdown {
     left: 0;
     right: 0;
-    /* max-width: 85%; */
     margin: 0 auto;
   }
 
@@ -611,7 +595,6 @@ body.mobile-menu-open {
 }
 
 @media (max-width: 399px) {
-
   .mobile-menu-dropdown {
     left: 1% !important;
     right: 1% !important;
@@ -629,12 +612,135 @@ body.mobile-menu-open {
   }
 }
 
-header.header-three .nav-indicator {
+/* ====== DESKTOP SUBMENU - NAVBAR ALTINDA (DÜZELTİLDİ) ====== */
+
+/* HOVER STATE - Submenu hover edildiğinde de açık kalması için */
+header.header-three .menu-items ul li.has-submenu:hover .submenu,
+header.header-three .menu-items ul li.has-submenu .submenu:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Alt menü olan li elementi relative olmalı */
+header.header-three .menu-items ul li.has-submenu {
+  position: relative;
+}
+
+
+
+/* Submenu stilleri */
+header.header-three .menu-items ul li.has-submenu .submenu {
   position: absolute;
-  bottom: 0;
-  height: 3px;
-  background: linear-gradient(90deg, #1a3f48 0%, #87847b 100%);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 2px;
-  z-index: 2;
+  top: 100%;
+  left: 0;
+  min-width: 250px;
+  width: auto;
+  background-color: #fff;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  padding: 0;
+  z-index: 9998;
+  display: block;
+  overflow: hidden;
+  margin-top: 1.5vw;
+  top: 100%;
+}
+
+/* Submenu için gradient border */
+header.header-three .menu-items ul li.has-submenu .submenu::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, #1a3f48 0%, #87847b 100%);
+  border-radius: 15px;
+  z-index: -1;
+}
+
+/* İç beyaz alan */
+header.header-three .menu-items ul li.has-submenu .submenu::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: #fff;
+  border-radius: 13px;
+  z-index: 0;
+}
+
+/* Submenu içindeki li'ler */
+header.header-three .menu-items ul li.has-submenu .submenu li {
+  display: block;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* İlk ve son öğe border radius */
+header.header-three .menu-items ul li.has-submenu .submenu li:first-child a {
+  border-radius: 13px 13px 0 0;
+  margin-top: 2px;
+}
+
+header.header-three .menu-items ul li.has-submenu .submenu li:last-child a {
+  border-radius: 0 0 13px 13px;
+  margin-bottom: 2px;
+}
+
+/* Submenu linkleri */
+header.header-three .menu-items ul li.has-submenu .submenu li a {
+  display: block;
+  padding: 1rem;
+  color: #555;
+  font-size: 15px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+header.header-three .menu-items ul li.has-submenu .submenu li a:hover {
+  color: #1a3f48;
+  background-color: rgba(26, 63, 72, 0.07);
+}
+
+/* Mobilde gizli kalmalı */
+@media (max-width: 992px) {
+  header.header-three .menu-items ul li.has-submenu .submenu {
+    display: none !important;
+  }
+}
+
+/* Submenu Responsive Genişlikler */
+@media (min-width: 1200px) and (max-width: 1450px) {
+  header.header-three .menu-items ul li.has-submenu .submenu {
+    min-width: 230px;
+  }
+
+  header.header-three .menu-items ul li.has-submenu .submenu li a {
+    padding: 0.9rem;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  header.header-three .menu-items ul li.has-submenu .submenu {
+    min-width: 210px;
+  }
+
+  header.header-three .menu-items ul li.has-submenu .submenu li a {
+    padding: 0.8rem;
+    font-size: 13px;
+  }
 }

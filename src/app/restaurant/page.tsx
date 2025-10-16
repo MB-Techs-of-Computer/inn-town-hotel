@@ -68,7 +68,7 @@ export default function RestaurantPage() {
         <>
             <Header />
             <Breadcrumb
-                title="Hakkımızda"
+                title="Restaurant & Barlar"
                 subtitle="INN TOWN HOTEL"
                 backgroundImage="/img/bg/04.jpg"
                 items={breadcrumbItems}
@@ -115,7 +115,7 @@ export default function RestaurantPage() {
                                                 <span key={idx} className="feature-badge">{feature}</span>
                                             ))}
                                         </div>
-                                        <Link href="/iletisim" className="restaurant-btn">
+                                        <Link href="/contact" className="restaurant-btn">
                                             Rezervasyon
                                         </Link>
                                     </div>
@@ -153,7 +153,7 @@ export default function RestaurantPage() {
                         <div className="cta-content">
                             <h2>Unutulmaz Bir Yemek Deneyimi</h2>
                             <p>Şef ekibimizin özenle hazırladığı lezzetleri keşfedin</p>
-                            <Link href="/iletisim" className="cta-button">
+                            <Link href="/contact" className="cta-button">
                                 Rezervasyon Yap
                             </Link>
                         </div>

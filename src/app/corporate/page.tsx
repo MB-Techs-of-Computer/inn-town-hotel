@@ -9,7 +9,7 @@ import '@/styles/pages/corporate.css';
 export default function CorporatePage() {
     const breadcrumbItems = [
         { href: '/', label: 'Anasayfa' },
-        { label: 'Hakkımızda', active: true }
+        { label: 'Kurumsal', active: true }
     ];
 
     const features = [
@@ -126,7 +126,7 @@ export default function CorporatePage() {
         <>
             <Header />
             <Breadcrumb
-                title="Hakkımızda"
+                title="Kurumsal"
                 subtitle="INN TOWN HOTEL"
                 backgroundImage="/img/bg/04.jpg"
                 items={breadcrumbItems}

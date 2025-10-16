@@ -75,7 +75,7 @@ export default function MeetingPage() {
         <>
             <Header />
             <Breadcrumb
-                title="Hakkımızda"
+                title="Toplantı & Organizasyon"
                 subtitle="INN TOWN HOTEL"
                 backgroundImage="/img/bg/04.jpg"
                 items={breadcrumbItems}
@@ -114,7 +114,7 @@ export default function MeetingPage() {
                                                 <span key={index} className="feature-tag">{feature}</span>
                                             ))}
                                         </div>
-                                        <Link href="/iletisim" className="room-btn">
+                                        <Link href="/contact" className="room-btn">
                                             Rezervasyon Yap
                                         </Link>
                                     </div>
@@ -152,7 +152,7 @@ export default function MeetingPage() {
                         <div className="cta-content">
                             <h2>Etkinliğiniz için rezervasyon yapın</h2>
                             <p>Profesyonel ekibimiz organizasyonunuzun her detayı ile ilgilenir</p>
-                            <Link href="/iletisim" className="cta-button">
+                            <Link href="/contact" className="cta-button">
                                 İletişime Geçin
                             </Link>
                         </div>
