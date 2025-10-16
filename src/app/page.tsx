@@ -1,12 +1,12 @@
-'use client';
-import { useState, useEffect } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import RoomSlider from '../components/RoomSlider';
-import NearbyPlaces from '@/components/NearbyPlaces';
-import AboutSection from '@/components/AboutSection';
-import Banner from '@/components/Banner';
-import ExelyBooking from '@/components/ExelyBooking';
+"use client";
+import { useState, useEffect } from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import RoomSlider from "../components/RoomSlider";
+import NearbyPlaces from "@/components/NearbyPlaces";
+import AboutSection from "@/components/AboutSection";
+import Banner from "@/components/Banner";
+import ExelyBooking from "@/components/ExelyBooking";
 
 export default function HomePage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -18,16 +18,16 @@ export default function HomePage() {
 
   const slides = [
     {
-      bg: '/img/s1.jpg',
-      link1: { href: '/rooms', text: 'odalar' },
-      link2: { href: '/contact', text: 'iletişim' },
+      bg: "/img/s1.jpg",
+      link1: { href: "/rooms", text: "odalar" },
+      link2: { href: "/contact", text: "iletişim" },
     },
   ];
 
   useEffect(() => {
     // HopenAPI Booking Engine script'ini yükle
-    const script = document.createElement('script');
-    script.type = 'text/javascript';
+    const script = document.createElement("script");
+    script.type = "text/javascript";
     script.innerHTML = `
       !function (e, n) {
         var t = "bookingengine", o = "integration", i = e[t] = e[t] || {}, a = i[o] = i[o] || {}, r = "__cq", c = "__loader", d = "getElementsByTagName";
@@ -54,9 +54,9 @@ export default function HomePage() {
     document.head.appendChild(script);
 
     return () => {
-      const scripts = document.head.querySelectorAll('script');
-      scripts.forEach(s => {
-        if (s.innerHTML.includes('bookingengine')) {
+      const scripts = document.head.querySelectorAll("script");
+      scripts.forEach((s) => {
+        if (s.innerHTML.includes("bookingengine")) {
           document.head.removeChild(s);
         }
       });
@@ -64,21 +64,25 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-  const initWOW = async () => {
-    const { default: WOW } = await import('wowjs');
-    new WOW({
-      live: false,
-      mobile: true,
-      offset: 100,
-    }).init();
-  };
+    const initWOW = async () => {
+      const WOWModule = await import("wowjs");
+      const WOW = WOWModule.default || WOWModule.WOW || WOWModule;
 
-  initWOW();
-}, []);
+      if (typeof WOW === "function") {
+        new WOW({
+          live: false,
+          mobile: true,
+          offset: 100,
+        }).init();
+      }
+    };
+
+    initWOW();
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide(prev => (prev + 1) % slides.length);
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 9000);
 
     return () => clearInterval(timer);
@@ -88,7 +92,7 @@ export default function HomePage() {
     if (!galleryPlaying) return;
 
     const timer = setInterval(() => {
-      setGallerySlide(prev => (prev + 1) % 3);
+      setGallerySlide((prev) => (prev + 1) % 3);
     }, 3000);
 
     return () => clearInterval(timer);
@@ -98,38 +102,38 @@ export default function HomePage() {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (!lightboxOpen) return;
 
-      if (e.key === 'ArrowRight') {
-        setLightboxIndex(prev => (prev + 1) % 13);
-      } else if (e.key === 'ArrowLeft') {
-        setLightboxIndex(prev => (prev - 1 + 13) % 13);
-      } else if (e.key === 'Escape') {
+      if (e.key === "ArrowRight") {
+        setLightboxIndex((prev) => (prev + 1) % 13);
+      } else if (e.key === "ArrowLeft") {
+        setLightboxIndex((prev) => (prev - 1 + 13) % 13);
+      } else if (e.key === "Escape") {
         closeLightbox();
       }
     };
 
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
   }, [lightboxOpen]);
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index);
     setLightboxOpen(true);
     setGalleryPlaying(false);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflow = "hidden";
   };
 
   const closeLightbox = () => {
     setLightboxOpen(false);
     setGalleryPlaying(true);
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = "auto";
   };
 
   const nextLightboxImage = () => {
-    setLightboxIndex(prev => (prev + 1) % 13);
+    setLightboxIndex((prev) => (prev + 1) % 13);
   };
 
   const prevLightboxImage = () => {
-    setLightboxIndex(prev => (prev - 1 + 13) % 13);
+    setLightboxIndex((prev) => (prev - 1 + 13) % 13);
   };
 
   return (
@@ -158,49 +162,82 @@ export default function HomePage() {
           <div className="row features-loop">
             <div className="col-lg-4 col-sm-6 order-1">
               <div className="feature-box wow fadeInLeft" data-wow-delay=".3s">
-                <div className="icon"><i className="flaticon-teamwork"></i></div>
-                <h3>Toplantı<br /> Salonları</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+                <div className="icon">
+                  <i className="flaticon-teamwork"></i>
+                </div>
+                <h3>
+                  Toplantı
+                  <br /> Salonları
+                </h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                  et dolore magna..
+                </p>
                 <span className="count">01</span>
               </div>
             </div>
             <div className="col-lg-4 col-sm-6 order-2">
               <div className="feature-box wow fadeInDown" data-wow-delay=".4s">
-                <div className="icon"><i className="fal fa-wheelchair"></i></div>
+                <div className="icon">
+                  <i className="fal fa-wheelchair"></i>
+                </div>
                 <h3>Fiziksel Engelliler İçin Olanaklar</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                  et dolore magna..
+                </p>
                 <span className="count">02</span>
               </div>
             </div>
             <div className="col-lg-4 col-sm-6 order-3 order-sm-4 order-lg-3">
               <div className="feature-box wow fadeInRight" data-wow-delay=".5s">
-                <div className="icon"><i className="fal fa-smoking-ban"></i></div>
+                <div className="icon">
+                  <i className="fal fa-smoking-ban"></i>
+                </div>
                 <h3>Sigara İçilmeyen Kat ve Odalar</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                  et dolore magna..
+                </p>
                 <span className="count">03</span>
               </div>
             </div>
             <div className="col-lg-4 col-sm-6 order-4 order-sm-3 order-lg-4">
               <div className="feature-box wow fadeInLeft" data-wow-delay=".6s">
-                <div className="icon"><i className="flaticon-wifi"></i></div>
+                <div className="icon">
+                  <i className="flaticon-wifi"></i>
+                </div>
                 <h3>Ücretsiz İnternet</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                  et dolore magna..
+                </p>
                 <span className="count">04</span>
               </div>
             </div>
             <div className="col-lg-4 col-sm-6 order-5">
               <div className="feature-box wow fadeInUp" data-wow-delay=".7s">
-                <div className="icon"><i className="fal fa-handshake"></i></div>
+                <div className="icon">
+                  <i className="fal fa-handshake"></i>
+                </div>
                 <h3>Anlaşmalı Kuaför</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                  et dolore magna..
+                </p>
                 <span className="count">05</span>
               </div>
             </div>
             <div className="col-lg-4 col-sm-6 order-6">
               <div className="feature-box wow fadeInRight" data-wow-delay=".8s">
-                <div className="icon"><i className="flaticon-location-pin"></i></div>
+                <div className="icon">
+                  <i className="flaticon-location-pin"></i>
+                </div>
                 <h3>Merkezi Konum</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna..</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                  et dolore magna..
+                </p>
                 <span className="count">06</span>
               </div>
             </div>
