@@ -13,10 +13,10 @@ export default function Footer() {
                             <div className="widget site-info-widget mb-50">
                                 <div className="brand-logo mb-30">
                                     <h2 className="hotel-name">Inn Town Hotel</h2>
-                                    <span className="hotel-tagline">Eskişehir'in Kalbi</span>
+                                    <span className="hotel-tagline">Eskişehir&apos;in Kalbi</span>
                                 </div>
                                 <p className="hotel-description">
-                                    Eskişehir'in en merkezi konumunda, modern mimarisi ve sıcak atmosferiyle 
+                                    Eskişehir&apos;in en merkezi konumunda, modern mimarisi ve sıcak atmosferiyle 
                                     misafirlerine unutulmaz bir konaklama deneyimi sunan InnTown Hotel, 
                                     şehrin kültürel ve sosyal yaşamına açılan kapınızdır.
                                 </p>

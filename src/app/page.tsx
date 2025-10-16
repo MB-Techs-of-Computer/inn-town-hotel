@@ -1,7 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import RoomSlider from '../components/RoomSlider';
@@ -11,16 +9,13 @@ import Banner from '@/components/Banner';
 import ExelyBooking from '@/components/ExelyBooking';
 
 export default function HomePage() {
-  // Banner slider state
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Instagram Gallery States
   const [gallerySlide, setGallerySlide] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
   const [galleryPlaying, setGalleryPlaying] = useState(true);
 
-  // Banner slider data
   const slides = [
     {
       bg: '/img/s1.jpg',
@@ -58,9 +53,7 @@ export default function HomePage() {
     `;
     document.head.appendChild(script);
 
-    // Cleanup function
     return () => {
-      // Script'i kaldır
       const scripts = document.head.querySelectorAll('script');
       scripts.forEach(s => {
         if (s.innerHTML.includes('bookingengine')) {
@@ -71,18 +64,18 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    // WOW.js'i başlat
-    if (typeof window !== 'undefined') {
-      const { WOW } = require('wowjs');
-      new WOW({
-        live: false,
-        mobile: true,
-        offset: 100,
-      }).init();
-    }
-  }, []);
+  const initWOW = async () => {
+    const { default: WOW } = await import('wowjs');
+    new WOW({
+      live: false,
+      mobile: true,
+      offset: 100,
+    }).init();
+  };
 
-  // Banner auto slider effect
+  initWOW();
+}, []);
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % slides.length);
@@ -91,7 +84,6 @@ export default function HomePage() {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  // Galeri otomatik kayma
   useEffect(() => {
     if (!galleryPlaying) return;
 
@@ -102,7 +94,6 @@ export default function HomePage() {
     return () => clearInterval(timer);
   }, [galleryPlaying]);
 
-  // Keyboard navigation for lightbox
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (!lightboxOpen) return;
@@ -120,7 +111,6 @@ export default function HomePage() {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [lightboxOpen]);
 
-  // Gallery Functions
   const openLightbox = (index: number) => {
     setLightboxIndex(index);
     setLightboxOpen(true);

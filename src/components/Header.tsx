@@ -10,7 +10,12 @@ const [menuOpen, setMenuOpen] = useState(false);
 const [isSticky, setIsSticky] = useState(false);
 const pathname = usePathname();
 
-const menuItems = [
+interface MenuItem {
+  href: string;
+  label: string;
+}
+
+const menuItems: MenuItem[] = [
   { href: "/", label: "Anasayfa" },
   { href: "/corporate", label: "Kurumsal" },
   { href: "/rooms", label: "Odalarımız" },
@@ -20,7 +25,7 @@ const menuItems = [
   { href: "/contact", label: "İletişim" }
 ];
 
-const isMenuItemActive = (item: any) => {
+const isMenuItemActive = (item: MenuItem) => {
   if (item.href === "/" && pathname === "/") return true;
   if (item.href !== "/" && pathname === item.href) return true;
   return false;

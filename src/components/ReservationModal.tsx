@@ -7,18 +7,31 @@ interface ReservationModalProps {
   onClose: () => void;
 }
 
+type BookingEngineCommand = 
+  | ["setContext", string, string]
+  | ["embed", string, Record<string, string>];
+
+interface BookingEngineIntegration {
+  __cq?: BookingEngineCommand[];
+  loaded?: boolean;
+}
+
+interface WindowWithBookingEngine extends Window {
+  bookingengine?: {
+    integration?: BookingEngineIntegration;
+  };
+}
+
 export default function ReservationModal({ open, onClose }: ReservationModalProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const scriptLoadedRef = useRef(false);
   const formInitializedRef = useRef(false);
 
   useEffect(() => {
-    // Script'i sadece bir kez yükle
     const loadHopenAPIScript = () => {
       if (scriptLoadedRef.current) return Promise.resolve();
       
       return new Promise<void>((resolve) => {
-        // Mevcut script varsa kaldır
         const existingScript = document.querySelector('script[src*="hopenapi.com"]');
         if (existingScript) {
           existingScript.remove();
@@ -45,7 +58,6 @@ export default function ReservationModal({ open, onClose }: ReservationModalProp
         document.head.appendChild(script);
         scriptLoadedRef.current = true;
 
-        // Script yüklendikten sonra kısa bir bekleme
         setTimeout(() => {
           resolve();
         }, 1000);
@@ -56,16 +68,14 @@ export default function ReservationModal({ open, onClose }: ReservationModalProp
       if (formInitializedRef.current || !containerRef.current) return;
 
       try {
-        const windowObj = window as any;
-        if (windowObj.bookingengine && windowObj.bookingengine.integration) {
+        const windowObj = window as WindowWithBookingEngine;
+        if (windowObj.bookingengine?.integration) {
           const be = windowObj.bookingengine.integration;
           
-          // Önceki form varsa temizle
           if (containerRef.current) {
             containerRef.current.innerHTML = '';
           }
 
-          // Yeni form initialize et
           be.__cq = be.__cq || [];
           be.__cq.push([
             "setContext",
@@ -87,12 +97,10 @@ export default function ReservationModal({ open, onClose }: ReservationModalProp
     };
 
     if (open) {
-      // Modal açıldığında formu initialize et
       loadHopenAPIScript().then(() => {
-        // Script yüklendikten sonra formu initialize et
         const checkAndInit = () => {
-          const windowObj = window as any;
-          if (windowObj.bookingengine && windowObj.bookingengine.integration) {
+          const windowObj = window as WindowWithBookingEngine;
+          if (windowObj.bookingengine?.integration) {
             initializeForm();
           } else {
             setTimeout(checkAndInit, 500);
@@ -101,15 +109,12 @@ export default function ReservationModal({ open, onClose }: ReservationModalProp
         checkAndInit();
       });
 
-      // Body scroll'u kapat
       document.body.style.overflow = 'hidden';
     } else {
-      // Modal kapandığında scroll'u aç ve form'u reset et
       document.body.style.overflow = 'auto';
       formInitializedRef.current = false;
     }
 
-    // Cleanup
     return () => {
       document.body.style.overflow = 'auto';
     };
