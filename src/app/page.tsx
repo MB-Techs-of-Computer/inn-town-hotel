@@ -170,8 +170,8 @@ export default function HomePage() {
                   <br /> Salonları
                 </h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                  et dolore magna..
+                  Modern ekipmanlarla donatılmış toplantı salonlarımız, iş görüşmeleriniz ve kurumsal
+                  etkinlikleriniz için ideal ortamlar sunmaktadır.
                 </p>
                 <span className="count">01</span>
               </div>
@@ -183,8 +183,8 @@ export default function HomePage() {
                 </div>
                 <h3>Fiziksel Engelliler İçin Olanaklar</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                  et dolore magna..
+                  Otelimizin tüm alanları engelsiz erişim için tasarlanmış olup, rampa, asansör ve
+                  özel donanımlı odalarla konforlu bir konaklama deneyimi sunuyoruz.
                 </p>
                 <span className="count">02</span>
               </div>
@@ -196,8 +196,8 @@ export default function HomePage() {
                 </div>
                 <h3>Sigara İçilmeyen Kat ve Odalar</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                  et dolore magna..
+                  Sağlıklı ve temiz bir ortam için özel olarak ayrılmış sigara içilmeyen katlarımızda
+                  huzurlu bir konaklama imkanı sağlıyoruz.
                 </p>
                 <span className="count">03</span>
               </div>
@@ -209,8 +209,8 @@ export default function HomePage() {
                 </div>
                 <h3>Ücretsiz İnternet</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                  et dolore magna..
+                  Otelimizin tüm alanlarında ve odalarında ücretsiz yüksek hızlı Wi-Fi hizmeti ile
+                  kesintisiz internet erişiminin keyfini çıkarabilirsiniz.
                 </p>
                 <span className="count">04</span>
               </div>
@@ -222,8 +222,7 @@ export default function HomePage() {
                 </div>
                 <h3>Anlaşmalı Kuaför</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                  et dolore magna..
+                  Otel misafirlerimize özel anlaşmalı kuaför hizmetimizle, önemli toplantılarınız ve özel günleriniz için hazır olun.
                 </p>
                 <span className="count">05</span>
               </div>
@@ -235,8 +234,8 @@ export default function HomePage() {
                 </div>
                 <h3>Merkezi Konum</h3>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                  et dolore magna..
+                  Şehrin kalbinde yer alan otelimiz, alışveriş merkezlerine, iş merkezlerine ve
+                  turistik mekanlara kolayca ulaşım imkanı sunmaktadır.
                 </p>
                 <span className="count">06</span>
               </div>

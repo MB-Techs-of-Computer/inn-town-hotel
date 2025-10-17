@@ -33,7 +33,6 @@ export default function Header() {
       ],
     },
     { href: "/rooms", label: "Odalarımız" },
-    { href: "/meeting", label: "Toplantı & Organizasyon" },
     { href: "/restaurant", label: "Restaurant & Barlar" },
     { href: "/gallery", label: "Galeri" },
     { href: "/contact", label: "İletişim" },
@@ -53,6 +52,12 @@ export default function Header() {
   const toggleSubmenu = (e: React.MouseEvent) => {
     e.preventDefault();
     setSubmenuOpen(!submenuOpen);
+  };
+
+  const handleDesktopMenuClick = (e: React.MouseEvent, hasSubmenu?: boolean) => {
+    if (hasSubmenu) {
+      e.preventDefault();
+    }
   };
 
   useEffect(() => {
@@ -173,7 +178,11 @@ export default function Header() {
                   <ul>
                     {menuItems.map((item, index) => (
                       <li key={index} className={item.submenu ? "has-submenu" : ""}>
-                        <Link href={item.href} className={`nav-link ${isMenuItemActive(item) ? "actived" : ""}`}>
+                        <Link
+                          href={item.href}
+                          className={`nav-link ${isMenuItemActive(item) ? "actived" : ""}`}
+                          onClick={(e) => handleDesktopMenuClick(e, !!item.submenu)}
+                        >
                           {item.label}
                         </Link>
 

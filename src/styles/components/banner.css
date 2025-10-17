@@ -110,7 +110,7 @@
   transform: translateY(-0.125rem);
 }
 
-/* Büyük Ekranlar - 1435px ve altı */
+
 @media (max-width: 1435px) {
   .banner-content {
     max-width: 30rem;
@@ -146,19 +146,13 @@
   .banner-bg {
     width: 60%;
     background-size: cover;
-    /* background-position: 80% center; */
   }
 
   .banner-content {
     max-width: 26rem;
   }
-
-  /* .main-title-right {
-    padding-left: 3rem;
-  } */
 }
 
-/* Tablet - 768px ve altı */
 @media (max-width: 768px) {
   .banner-section {
     height: auto;
@@ -215,7 +209,7 @@
   }
 }
 
-/* Küçük Mobil - 480px ve altı */
+
 @media (max-width: 480px) {
   .banner-bg {
     height: 45vh;
@@ -246,7 +240,7 @@
   }
 }
 
-/* Çok Küçük Ekranlar - 400px ve altı */
+
 @media (max-width: 400px) {
   .cta-section {
     flex-direction: column;
@@ -259,7 +253,7 @@
   }
 }
 
-/* Landscape Modu */
+
 @media (max-height: 600px) and (orientation: landscape) {
   .banner-section {
     height: 100vh;
@@ -286,7 +280,7 @@
   }
 }
 
-/* Performans Optimizasyonu */
+
 @media (prefers-reduced-motion: reduce) {
   .book-now-btn,
   .secondary-btn {

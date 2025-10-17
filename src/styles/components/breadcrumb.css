@@ -1,4 +1,3 @@
-/*=======  Breadcrumb CSS  =======*/
 .breadcrumb-area {
   background-size: cover;
   background-position: center;
@@ -40,15 +39,12 @@
 .breadcrumb-area .breadcrumb-text {
   position: relative;
   padding: 15vh 0 6vh 0;
-  /* alt boşluğu artırdık */
 }
 
 .breadcrumb-area .breadcrumb-text .breadcrumb-nav {
   position: relative;
-  /* absolute kaldırıldı */
   display: inline-flex;
   flex-wrap: wrap;
-  /* taşma olursa alt satıra geçsin */
   justify-content: center;
   background-color: #fff;
   padding: 15px 30px;
@@ -97,7 +93,6 @@
 
   .breadcrumb-area .breadcrumb-text h2.page-title {
     font-size: 38px;
-    /* padding: 2rem; */
   }
 }
 

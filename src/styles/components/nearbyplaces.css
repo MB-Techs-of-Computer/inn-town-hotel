@@ -207,6 +207,23 @@
   }
 }
 
+/* 992px - room-content-box için özel düzeltme */
+@media (max-width: 992px) {
+  .room-slider .rooms-content-wrap .room-content-box {
+    max-width: 70%;
+    margin-left: -1.5rem;
+    margin-right: auto;
+  }
+}
+
+@media (width: 992px) {
+  .room-slider .rooms-content-wrap .room-content-box {
+    max-width: 90%;
+    margin-left: -1.5rem;
+    margin-right: auto;
+  }
+}
+
 /* Tablet - Küçük (768px) - MOBİL İÇİN DEĞİŞİKLİKLER BAŞLIYOR */
 @media (max-width: 768px) {
   .room-slider .rooms-slider-one.row {
@@ -230,9 +247,10 @@
   }
 
   .room-slider .rooms-content-wrap .room-content-box {
-    margin-top: -6.25rem;
-    padding: 3.125rem 1.875rem;
+    margin: -6.25rem auto 0 auto; /* üstte overlap kalsın ama yatayda ortalansın */
     left: 0;
+    right: 0;
+    max-width: 90%; /* istersen 100% de yapabilirsin */
   }
 
   .room-slider .rooms-content-wrap .room-content-box h3 {

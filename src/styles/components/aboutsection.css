@@ -85,14 +85,14 @@
     justify-content: center;
 }
 
-.features-grid {
+.split-about .features-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     margin-bottom: 2rem;
 }
 
-.feature-item {
+.split-about .feature-item {
     text-align: center;
     padding: 1.5rem 1rem;
     border-radius: 0.75rem;
@@ -101,14 +101,14 @@
     background: #fafafa;
 }
 
-.feature-item:hover {
+.split-about.feature-item:hover {
     background: white;
     transform: translateY(-0.1875rem);
     box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.08);
     border-color: #e0e0e0;
 }
 
-.feature-icon {
+.split-about .feature-icon {
     width: 3.75rem;
     height: 3.75rem;
     background: #1a3f48;
@@ -121,14 +121,14 @@
     font-size: clamp(1.25rem, 2.5vw, 1.5rem);
 }
 
-.feature-title {
+.split-about .feature-title {
     font-size: clamp(0.9rem, 2vw, 1.1rem);
     font-weight: 600;
     color: #222;
     margin-bottom: 0.5rem;
 }
 
-.feature-description {
+.split-about .feature-description {
     font-size: clamp(0.8rem, 1.8vw, 0.95rem);
     color: #777;
     line-height: 1.5;
@@ -190,12 +190,12 @@
         padding: 2.5rem 1.5rem;
     }
 
-    .features-grid {
+    .split-about .features-grid {
         grid-template-columns: 1fr;
         gap: 1.25rem;
     }
 
-    .feature-item {
+    .split-about .feature-item {
         padding: 1.25rem 1rem;
     }
 
@@ -234,16 +234,16 @@
         padding: 0.875rem 1.5rem;
     }
 
-    .features-grid {
+    .split-about .features-grid {
         gap: 1rem;
         margin-bottom: 1.5rem;
     }
 
-    .feature-item {
+    .split-about .feature-item {
         padding: 1rem 0.75rem;
     }
 
-    .feature-icon {
+    .split-about .feature-icon {
         width: 3rem;
         height: 3rem;
         margin-bottom: 0.75rem;

@@ -78,12 +78,22 @@ export default function NearbyPlaces() {
         breakpoint: 1600,
         settings: {
           slidesToShow: 2,
+          centerPadding: "6%",
         },
       },
       {
         breakpoint: 992,
         settings: {
           slidesToShow: 1,
+          centerMode: true,
+          centerPadding: "20%",
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          centerMode: true,
           centerPadding: "15%",
         },
       },

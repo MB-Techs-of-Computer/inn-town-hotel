@@ -333,7 +333,7 @@ footer .footer-widget-area .widget.contact-widget-modern .social-links-modern .l
   border-color: #0077b5;
 }
 
-/* Alt Bilgi Çubuğu */
+
 footer .footer-widget-area .footer-bottom-bar {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 30px;
@@ -417,7 +417,7 @@ footer .footer-widget-area .footer-bottom-bar .footer-quick-links a:hover::after
   width: 100%;
 }
 
-/* Copyright Area - Değişmeden Kalacak */
+
 footer .copyright-area {
   background-color: #111;
   color: #fff;
@@ -444,7 +444,7 @@ footer .copyright-area .copyright-text.copyright-two {
   }
 }
 
-/* Responsive Düzenlemeler */
+
 @media (max-width: 991px) {
   footer .footer-widget-area .widget h4.widget-title {
     font-size: 20px;
@@ -472,7 +472,7 @@ footer .copyright-area .copyright-text.copyright-two {
   }
 }
 
-/* Newsletter Section */
+
 footer .footer-widget-area .newsletter-section {
   background: linear-gradient(135deg, rgba(135, 132, 123, 0.15) 0%, rgba(135, 132, 123, 0.05) 100%);
   padding: 35px 30px;
@@ -593,7 +593,7 @@ footer .footer-widget-area .newsletter-section .newsletter-form .newsletter-btn:
   }
 }
 
-/* Animasyonlar */
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -640,18 +640,11 @@ footer .footer-widget-area .widget:nth-child(3) {
   animation-delay: 0.3s;
 }
 
-/* Hover'da pulse efekti */
+
 footer .footer-widget-area .footer-badges .badge-item:hover {
   animation: pulse 0.6s ease-in-out;
 }
 
-/* Pattern overlay için hafif animasyon */
-/* footer .footer-widget-area::after {
-  animation: shimmer 20s linear infinite;
-  background-size: 200% 100%;
-} */
-
-/* Scroll bar özelleştirme (opsiyonel) */
 footer ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -670,7 +663,7 @@ footer ::-webkit-scrollbar-thumb:hover {
   background: #6f6d64;
 }
 
-/* Glow efekti */
+
 @keyframes glow {
   0%, 100% {
     box-shadow: 0 0 5px rgba(135, 132, 123, 0.5);
