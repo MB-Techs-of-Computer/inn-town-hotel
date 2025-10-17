@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import Link from "next/link";
 import "slick-carousel/slick/slick.css";
@@ -10,6 +10,9 @@ export default function NearbyPlaces() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [imageSliderRef, setImageSliderRef] = useState<Slider | null>(null);
   const [contentSliderRef, setContentSliderRef] = useState<Slider | null>(null);
+  const [sliderReady, setSliderReady] = useState(false);
+  const [slidesToShow, setSlidesToShow] = useState(3); // 👈 dinamik kontrol
+  const sliderContainerRef = useRef<HTMLDivElement>(null);
 
   const nearbyPlaces = [
     {
@@ -24,7 +27,7 @@ export default function NearbyPlaces() {
     },
     {
       title: "Espark",
-      desc: "Eskişehir Espark AVMye 400 metre mesafededir. Yürüme mesafesi 5 dakikadır.",
+      desc: "Eskişehir Espark AVM'ye 400 metre mesafededir. Yürüme mesafesi 5 dakikadır.",
       image: "/yonetim/resimler/haberresim/142022161350.jpg",
     },
     {
@@ -54,14 +57,62 @@ export default function NearbyPlaces() {
     },
   ];
 
-  // Handle slide change - both sliders will sync
+  // ✅ Ekran genişliğine göre slide sayısını ayarlıyoruz
+  useEffect(() => {
+    const updateSlides = () => {
+      const width = window.innerWidth;
+      if (width <= 768) {
+        setSlidesToShow(1);
+      } else {
+        setSlidesToShow(3);
+      }
+    };
+    updateSlides(); // ilk yükleme
+    window.addEventListener("resize", updateSlides);
+    return () => window.removeEventListener("resize", updateSlides);
+  }, []);
+
+  // Slider yüklenmesi
+  useEffect(() => {
+    setSliderReady(false);
+    const initTimer = setTimeout(() => {
+      setSliderReady(true);
+    }, 100);
+    return () => clearTimeout(initTimer);
+  }, []);
+
+  // Slider ref hazırsa yeniden boyutlandır
+  useEffect(() => {
+    if (imageSliderRef && contentSliderRef && sliderReady) {
+      const timers = [150, 300, 500].map((delay) =>
+        setTimeout(() => {
+          window.dispatchEvent(new Event("resize"));
+          if (imageSliderRef?.slickGoTo) {
+            imageSliderRef.slickGoTo(currentSlide, true);
+          }
+        }, delay)
+      );
+      return () => timers.forEach((timer) => clearTimeout(timer));
+    }
+  }, [imageSliderRef, contentSliderRef, sliderReady, currentSlide]);
+
+  // Container gözlemi
+  useEffect(() => {
+    if (!sliderContainerRef.current || !sliderReady) return;
+    const observer = new ResizeObserver(() => {
+      window.dispatchEvent(new Event("resize"));
+    });
+    observer.observe(sliderContainerRef.current);
+    return () => observer.disconnect();
+  }, [sliderReady]);
+
   const handleSlideChange = (current: number, next: number) => {
     setCurrentSlide(next);
   };
 
-  // Slider settings for images
+  // ✅ slidesToShow artık dinamik
   const imageSliderSettings = {
-    slidesToShow: 3,
+    slidesToShow: slidesToShow,
     slidesToScroll: 1,
     fade: false,
     infinite: true,
@@ -69,38 +120,13 @@ export default function NearbyPlaces() {
     autoplaySpeed: 4000,
     arrows: false,
     dots: false,
-    centerMode: true,
-    centerPadding: "6%",
+    centerMode: slidesToShow > 1, // mobilde kapalı
+    centerPadding: slidesToShow > 1 ? "6%" : "0",
     asNavFor: contentSliderRef || undefined,
     beforeChange: handleSlideChange,
-    responsive: [
-      {
-        breakpoint: 1600,
-        settings: {
-          slidesToShow: 2,
-          centerPadding: "6%",
-        },
-      },
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 1,
-          centerMode: true,
-          centerPadding: "20%",
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          centerMode: true,
-          centerPadding: "15%",
-        },
-      },
-    ],
+    lazyLoad: "ondemand" as const,
   };
 
-  // Content slider settings
   const contentSliderSettings = {
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -114,7 +140,6 @@ export default function NearbyPlaces() {
     beforeChange: handleSlideChange,
   };
 
-  // Format slide count
   const formatSlideCount = (current: number, total: number) => {
     const currentFormatted = current < 9 ? `0${current + 1}` : `${current + 1}`;
     return `${currentFormatted}/${total}`;
@@ -129,43 +154,67 @@ export default function NearbyPlaces() {
             <h2>Merkezlere Olan Mesafe</h2>
           </div>
 
-          {/* Image Slider */}
-          <div className="row rooms-slider-one">
-            <Slider {...imageSliderSettings} ref={(slider) => setImageSliderRef(slider)}>
-              {nearbyPlaces.map((place, index) => (
-                <div key={index} className="col">
-                  <div className="slider-img" style={{ backgroundImage: `url(${place.image})` }} />
-                </div>
-              ))}
-            </Slider>
+          {/* Görsel Slider */}
+          <div
+            className="row rooms-slider-one"
+            ref={sliderContainerRef}
+            style={{
+              opacity: sliderReady ? 1 : 0,
+              transition: "opacity 0.3s ease",
+            }}
+          >
+            {sliderReady && (
+              <Slider
+                {...imageSliderSettings}
+                ref={(slider) => setImageSliderRef(slider)}
+              >
+                {nearbyPlaces.map((place, index) => (
+                  <div key={index} className="col">
+                    <div
+                      className="slider-img"
+                      style={{ backgroundImage: `url(${place.image})` }}
+                    />
+                  </div>
+                ))}
+              </Slider>
+            )}
           </div>
         </div>
 
-        {/* Content Box */}
+        {/* İçerik Slider */}
         <div className="rooms-content-wrap">
           <div className="container">
             <div className="row justify-content-center justify-content-md-start">
               <div className="col-xl-4 col-lg-5 col-sm-8">
                 <div className="room-content-box">
                   <div className="slider-count">
-                    <span className="current">{formatSlideCount(currentSlide, nearbyPlaces.length)}</span>
+                    <span className="current">
+                      {formatSlideCount(currentSlide, nearbyPlaces.length)}
+                    </span>
                   </div>
-                  <div className="slider-count-big">{currentSlide < 9 ? `0${currentSlide + 1}` : currentSlide + 1}</div>
+                  <div className="slider-count-big">
+                    {currentSlide < 9 ? `0${currentSlide + 1}` : currentSlide + 1}
+                  </div>
 
                   <div className="room-content-slider">
-                    <Slider {...contentSliderSettings} ref={(slider) => setContentSliderRef(slider)}>
-                      {nearbyPlaces.map((place, index) => (
-                        <div key={index} className="single-content">
-                          <div className="icon">
-                            <i className="flaticon-hotel"></i>
+                    {sliderReady && (
+                      <Slider
+                        {...contentSliderSettings}
+                        ref={(slider) => setContentSliderRef(slider)}
+                      >
+                        {nearbyPlaces.map((place, index) => (
+                          <div key={index} className="single-content">
+                            <div className="icon">
+                              <i className="flaticon-hotel"></i>
+                            </div>
+                            <h3>
+                              <Link href="#">{place.title}</Link>
+                            </h3>
+                            <p>{place.desc}</p>
                           </div>
-                          <h3>
-                            <Link href="#">{place.title}</Link>
-                          </h3>
-                          <p>{place.desc}</p>
-                        </div>
-                      ))}
-                    </Slider>
+                        ))}
+                      </Slider>
+                    )}
                   </div>
                 </div>
               </div>

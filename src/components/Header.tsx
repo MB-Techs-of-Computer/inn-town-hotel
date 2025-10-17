@@ -8,56 +8,31 @@ import "@/styles/components/header.css";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-  const [submenuOpen, setSubmenuOpen] = useState(false);
   const pathname = usePathname();
-
-  interface SubMenuItem {
-    href: string;
-    label: string;
-  }
 
   interface MenuItem {
     href: string;
     label: string;
-    submenu?: SubMenuItem[];
   }
 
   const menuItems = [
     { href: "/", label: "Anasayfa" },
-    {
-      href: "#",
-      label: "Kurumsal",
-      submenu: [
-        { href: "/about", label: "Hakkımızda" },
-        { href: "/sustainability", label: "Sürdürülebilirlik Politikası" },
-      ],
-    },
+    { href: "/about", label: "Hakkımızda" },
     { href: "/rooms", label: "Odalarımız" },
     { href: "/restaurant", label: "Restaurant & Barlar" },
     { href: "/gallery", label: "Galeri" },
+    { href: "/sustainability", label: "Sürdürülebilirlik" },
     { href: "/contact", label: "İletişim" },
   ];
 
   const isMenuItemActive = (item: MenuItem): boolean => {
     if (item.href === "/" && pathname === "/") return true;
     if (item.href !== "/" && pathname === item.href) return true;
-    return item.submenu?.some((sub) => sub.href === pathname) ?? false;
+    return false;
   };
 
   const closeMenu = () => {
     setMenuOpen(false);
-    setSubmenuOpen(false);
-  };
-
-  const toggleSubmenu = (e: React.MouseEvent) => {
-    e.preventDefault();
-    setSubmenuOpen(!submenuOpen);
-  };
-
-  const handleDesktopMenuClick = (e: React.MouseEvent, hasSubmenu?: boolean) => {
-    if (hasSubmenu) {
-      e.preventDefault();
-    }
   };
 
   useEffect(() => {
@@ -177,26 +152,10 @@ export default function Header() {
                 <div className="menu-items">
                   <ul>
                     {menuItems.map((item, index) => (
-                      <li key={index} className={item.submenu ? "has-submenu" : ""}>
-                        <Link
-                          href={item.href}
-                          className={`nav-link ${isMenuItemActive(item) ? "actived" : ""}`}
-                          onClick={(e) => handleDesktopMenuClick(e, !!item.submenu)}
-                        >
+                      <li key={index}>
+                        <Link href={item.href} className={`nav-link ${isMenuItemActive(item) ? "actived" : ""}`}>
                           {item.label}
                         </Link>
-
-                        {item.submenu && (
-                          <ul className="submenu">
-                            {item.submenu.map((sub, subIndex) => (
-                              <li key={subIndex}>
-                                <Link href={sub.href} className={pathname === sub.href ? "active-submenu" : ""}>
-                                  {sub.label}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        )}
                       </li>
                     ))}
                   </ul>
@@ -215,35 +174,12 @@ export default function Header() {
                 <ul>
                   {menuItems.map((item, index) => (
                     <li key={index}>
-                      {item.submenu ? (
-                        <>
-                          <button
-                            onClick={toggleSubmenu}
-                            className={`mobile-menu-trigger ${isMenuItemActive(item) ? "current-page" : ""}`}>
-                            {item.label}
-                            <i className={`fas fa-chevron-down ${submenuOpen ? "rotated" : ""}`}></i>
-                          </button>
-                          <ul className={`mobile-submenu ${submenuOpen ? "open" : ""}`}>
-                            {item.submenu.map((sub, subIndex) => (
-                              <li key={subIndex}>
-                                <Link
-                                  href={sub.href}
-                                  onClick={closeMenu}
-                                  className={pathname === sub.href ? "current-page" : ""}>
-                                  {sub.label}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
-                        </>
-                      ) : (
-                        <Link
-                          href={item.href}
-                          onClick={closeMenu}
-                          className={isMenuItemActive(item) ? "current-page" : ""}>
-                          {item.label}
-                        </Link>
-                      )}
+                      <Link
+                        href={item.href}
+                        onClick={closeMenu}
+                        className={isMenuItemActive(item) ? "current-page" : ""}>
+                        {item.label}
+                      </Link>
                     </li>
                   ))}
                 </ul>

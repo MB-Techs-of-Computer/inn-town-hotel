@@ -226,19 +226,38 @@
 
 /* Tablet - Küçük (768px) - MOBİL İÇİN DEĞİŞİKLİKLER BAŞLIYOR */
 @media (max-width: 768px) {
+  /* Row ve col padding'lerini sıfırla */
   .room-slider .rooms-slider-one.row {
-    margin-left: -0.625rem;
-    margin-right: -0.625rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .room-slider .rooms-slider-one.row>.col {
-    padding-left: 0.625rem;
-    padding-right: 0.625rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  /* Slick container'ı tam ortala */
+  .room-slider .rooms-slider-one .slick-list {
+    padding: 0 !important;
+  }
+  
+  .room-slider .rooms-slider-one .slick-track {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  .room-slider .rooms-slider-one .slick-slide {
+    padding: 0 0.625rem;
   }
 
   .room-slider .rooms-slider-one .slider-img {
     height: 20rem;
     border-radius: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* MOBİLDE: Kutu görsellerin altına biraz overlap olsun ama daha az */
@@ -247,10 +266,10 @@
   }
 
   .room-slider .rooms-content-wrap .room-content-box {
-    margin: -6.25rem auto 0 auto; /* üstte overlap kalsın ama yatayda ortalansın */
+    margin: -6.25rem auto 0 auto;
     left: 0;
     right: 0;
-    max-width: 90%; /* istersen 100% de yapabilirsin */
+    max-width: 90%;
   }
 
   .room-slider .rooms-content-wrap .room-content-box h3 {
@@ -355,7 +374,7 @@
   }
 
   .room-slider .rooms-content-wrap .room-content-box .room-content-slider ul.slick-dots {
-    top: 10rem;
+    top: 12rem;
   }
 
   .room-slider .rooms-content-wrap .room-content-box .room-content-slider ul.slick-dots li {
